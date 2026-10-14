@@ -1,0 +1,56 @@
+{
+  "chp-301-01-theorie-subordination-enchassement.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 80
+    }
+  },
+  "chp-301-02-completives-conjonctives-pures-que.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 2,
+      "link_checks": 89
+    }
+  },
+  "chp-301-03-interrogation-exclamation-indirectes.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 101
+    }
+  },
+  "chp-301-04-proposition-subordonnee-infinitive.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 61
+    }
+  },
+  "chp-301-05-propositions-relatives-complexes.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 67
+    }
+  },
+  "chp-301-06-pathologie-syntaxique-anacoluthes-telescopages.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 107
+    }
+  }
+}
