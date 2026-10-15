@@ -72,3 +72,25 @@ world-class-french/
 - **Historique des décisions** : Toute décision architecturale ou pédagogique majeure est consignée dans [`00-governance/decisions-log.md`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md).
 - **Suivi des modifications** : Tout ajout ou révision fait l'objet d'une entrée dans [`00-governance/changelog.md`](file:///f:/Formation/world-class-french/00-governance/changelog.md).
 - **Règles locales** : Les directives de conduite de l'agent sont consignées dans [`GEMINI.md`](file:///f:/Formation/world-class-french/GEMINI.md).
+
+---
+
+## 5. Application Web Interactive & Adaptative (`app/`)
+
+Le dossier [`app/`](file:///f:/Formation/world-class-french/app/) abrite la **Progressive Web App (PWA)** World-Class French développée sous **Next.js 15 (App Router), TypeScript strict, TailwindCSS et Framer Motion** :
+
+- **8 Paliers Didactiques Continus** : du Niveau CI / A0 (sons, combinatoire `ba, ma`, mots illustrés, vies `❤️ ∞`) jusqu'au Niveau C2+ (rhétorique, art oratoire, diplomatie).
+- **7 Moteurs d'Exercices Interactifs** : `VisualSoundMatch`, `SyllableAndSentenceBricks`, `VoltaireErrorHunter`, `InteractiveDictation` (double vitesse `1.0x` / `0.65x` et clavier d'accents), `SmartDiagnosticMCQ`, `ClozeMorphologyInput` et `RhetoricAndRegisterStudio`.
+- **Moteur de Rappel Espacé (`fata.srs`)** : loi d'Ebbinghaus, courbe interactive SVG, seuil d'oubli à 75%, algorithme FSRS et simulateur temporel `+24h`.
+- **Daily Fata Sprint** : défi quotidien minuté à 6 questions avec rapport de partage emoji (`🟩🟨🟥`).
+- **Routine Quotidienne Multi-Canal** : Notifications Web Push et export d'agenda `.ics` pour Google Calendar / Apple Calendar.
+
+### Démarrage local de l'application :
+
+```bash
+cd app
+npm run dev        # Lance le serveur local sur http://localhost:3000
+npm run build      # Compile et vérifie les types de production
+npm run compile-curriculum # Recompile la banque pédagogique JSON
+```
+

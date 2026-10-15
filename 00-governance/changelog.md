@@ -285,8 +285,36 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - **63 401 lignes** et **7,52 Mo** de contenus didactiques de très haute précision philologique.
     - **0 anomalie résiduelle**, 100 % de conformité déterministe.
 
+- **Étape 15 — Conception, Architecture et Déploiement de la Progressive Web App (PWA) Interactive & Adaptative** dans [`app/`](file:///f:/Formation/world-class-french/app/) :
+  - **Pipeline de compilation didactique** (`app/scripts/compile_curriculum.py`) extrayant et structurant le corpus en **8 Paliers continus** du CI (A0) au World-Class (C2+), générant `app/src/data/compiled-curriculum.json` (67,8 Ko).
+  - **Sas d'accueil et Bouclier Cognitif Débutant (`❤️ ∞`)** pour les Paliers 1 & 2 (CI & CP-CE1) afin d'éradiquer tout risque d'abandon précoce.
+  - **7 Moteurs d'exercices interactifs** (`VisualSoundMatch`, `SyllableAndSentenceBricks`, `VoltaireErrorHunter`, `InteractiveDictation`, `SmartDiagnosticMCQ`, `ClozeMorphologyInput`, `RhetoricAndRegisterStudio`) avec retour métacognitif immédiat ("Pourquoi ? + Astuce mnémotechnique").
+  - **Moteur de rappel espacé (`fata.srs`)** basé sur la loi d'Ebbinghaus ($R(t) = 100 \times e^{-t/S}$) avec courbe SVG interactive, seuil critique à 75%, algorithme FSRS et simulateur temporel (`⏩ +24h / +48h`).
+  - **Mode « Daily Fata Sprint »** minuté à 6 questions avec génération du rapport emoji partageable (`🟩🟨🟥`).
+  - **Rappels multi-canal** : Notifications Web Push et export d'agenda `.ics` pour routine quotidienne de 5 minutes.
+  - **Stack moderne** : Next.js 15 (App Router), TypeScript strict sans aucun `any`, TailwindCSS (palette Duolingo 3D), Framer Motion, Zustand (persistance offline) et Service Worker PWA (`manifest.webmanifest`, `sw.js`).
+  - Validation complète : `npm run build` réussi sans aucune erreur TypeScript ni ESLint, et banc d'audit `verify_chapter.py` maintenu à **0 anomalie critique**.
+  - Enregistrement officiel de [`[DEC-039]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-039-conception-architecture-et-déploiement-de-la-progressive-web-app-pwa-interactive-et-adaptative-world-class-french-étape-15) dans le journal des décisions.
+
+- **Étape 16 — Inauguration de l'Année 3 / Semestre 5 (Cycle 5) : Rédaction Intégrale, Audit Automatisé et Validation de MOD-501** :
+  - **Rédaction complète des 5 chapitres de cours de MOD-501** dans [`03-curriculum/year-3/semester-5/mod-501/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/) :
+    - [`chp-501-01-fondements-epistemologiques-histoire-periode.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-01-fondements-epistemologiques-histoire-periode.md) (`CHP-501-01`, 108,9 Ko / 1 019 lignes) : Fondements Épistémologiques et Histoire Rhétorique de la Période : De la Micro-Syntaxe à la Macro-Syntaxe, Tradition Gréco-Latine et l'Âge d'Or Français.
+    - [`chp-501-02-morphologie-dynamique-periode-protase-acme-apodose.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-02-morphologie-dynamique-periode-protase-acme-apodose.md) (`CHP-501-02`, 100,8 Ko / 944 lignes) : Morphologie Dynamique de la Période : Protase, Acmé, Apodose et Architecture des Périodes Suspensive et Continue.
+    - [`chp-501-03-metrique-prose-systeme-cadences-rythmiques.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-03-metrique-prose-systeme-cadences-rythmiques.md) (`CHP-501-03`, 100,8 Ko / 1 012 lignes) : La Métrique de la Prose et le Système des Cadences Rythmiques : Comma, Colon, Periodos, Cadence Majeure, Cadence Mineure et Isocolie.
+    - [`chp-501-04-macro-syntaxe-appliquee-incises-dislocations-nobles.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-04-macro-syntaxe-appliquee-incises-dislocations-nobles.md) (`CHP-501-04`, 104,5 Ko / 964 lignes) : Macro-Syntaxe Appliquée : Incises Savantes, Distance Actancielle Supérieure à 30 Mots et Dislocations Oratoires Nobles.
+    - [`chp-501-05-pathologie-virtuosite-rupture-anacoluthe.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-05-pathologie-virtuosite-rupture-anacoluthe.md) (`CHP-501-05`, 92,4 Ko / 929 lignes) : Pathologie et Virtuosité de la Rupture Syntaxique : L'Anacoluthe, du Solécisme Vicieux à la Figure d'Apparat.
+  - **Audit automatisé complet et publication du rapport officiel de MOD-501** :
+    - Exécution du banc d'essai [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) : 374 liens internes et identifiants contrôlés (374 valides, 0 lien brisé), 0 erreur critique, 0 avertissement.
+    - Publication du rapport officiel [`08-audits/pedagogical/mod-501-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-501-audit-report.md) et enregistrement de [`[DEC-040]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-040-rédaction-intégrale-audit-automatisé-et-validation-des-5-chapitres-du-module-mod-501-macro-syntaxe-dislocations-incises-et-grande-période-oratoire--inauguration-de-lannée-3--semestre-5-cycle-5) dans le journal des décisions.
+  - **Passage officiel de MOD-501 au statut VALIDÉ** :
+    - Les 5 chapitres de `MOD-501` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
+  - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-501)** :
+    - **89 chapitres complets** de référence universitaire rédigés, audités et validés.
+    - **68 269 lignes** et **8,03 Mo** de contenus didactiques de très haute précision philologique.
+    - **0 anomalie résiduelle**, 100 % de conformité déterministe.
+
 ### Planifié
-- Étape 15 : Bilan sommatif de la Porte 4 et préparation de l'Année 3 (Semestres 5 & 6 — Cycle 5 & Cycle 6 : Haute Rhétorique, Éloquence, Macro-Syntaxe, Révision Éditoriale Professionnelle et Diachronie).
+- Rédaction et audit de `MOD-502` (*Traité des Figures de Rhétorique et Poétique du Style*).
 
 ---
 

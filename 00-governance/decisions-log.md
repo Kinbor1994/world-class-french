@@ -692,4 +692,61 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Bilan Cumulé des Années 1 et 2 (Cycles 1 à 4) : **84 chapitres complets**, **63 401 lignes**, **7,52 Mo de savoirs académiques**, 0 anomalie résiduelle.
   - Prochaine étape : Passage aux épreuves semestrielles de la Porte 4 et préparation de l'Année 3 (Semestres 5 & 6 — Cycle 5 & Cycle 6 : Haute Rhétorique, Éloquence, Macro-Syntaxe, Révision Éditoriale Professionnelle et Diachronie).
 
+---
+
+### [DEC-039] Conception, Architecture et Déploiement de la Progressive Web App (PWA) Interactive et Adaptative World-Class French (Étape 15)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Rendre le patrimoine didactique et académique exceptionnel de World-Class French (du niveau CI au niveau World-Class C2+) pleinement accessible, interactif et engageant pour tout profil d'apprenant, avec une rétention maximale inspirée de Duolingo (gamification), fata.app (répétition espacée FSRS / SM-2 et sprint quotidien chronométré) et Projet Voltaire (chasse à la faute).
+- **Décision** :
+  1. **Création de l'application PWA dans le monorepo sous `app/`** sans altérer les répertoires existants `00-governance/` à `10-final/`.
+  2. **Pipeline de compilation didactique (`app/scripts/compile_curriculum.py`)** générant la banque structurée `app/src/data/compiled-curriculum.json` :
+     - Structuration continue en **8 Paliers didactiques** : Palier 1 (CI / A0 - Éveil phonétique & combinatoire b+a=ba), Palier 2 (CP-CE1 / A1 - Survie & verbes piliers), Palier 3 (CE2-CM2 / A2 - Fondations & API), Palier 4 (Collège / B1 - Autonomie), Palier 5 (Lycée / B2 - Argumentation), Palier 6 (Supérieur / C1 - Perfectionnement & Voltaire), Palier 7 (Excellence / C2 - Haut style), Palier 8 (World-Class / C2+ - Éloquence & Diplomatie).
+     - Intégration du **Bouclier Cognitif Débutant (`❤️ ∞`)** : vies illimitées sur les Paliers 1 et 2 pour bannir la frustration et l'abandon.
+  3. **Développement des 7 Moteurs d'Exercices Interactifs** sous `app/src/components/exercises/` :
+     - `VisualSoundMatch` : association son-image avec écoute audio (spécial A0-A1).
+     - `SyllableAndSentenceBricks` : briques tactiles avec synthèse vocale à chaque manipulation.
+     - `VoltaireErrorHunter` : détection de faute au clic dans une phrase littéraire ou administrative.
+     - `InteractiveDictation` : dictée audio double vitesse (`1.0x` et `0.65x`), clavier d'accents français (`é, è, ê, à, â, ç, œ, æ...`).
+     - `SmartDiagnosticMCQ` : QCM à distracteurs ciblés fondés sur les pièges fréquents.
+     - `ClozeMorphologyInput` : texte à trous avec double niveau d'indices (règle puis terminaison).
+     - `RhetoricAndRegisterStudio` : ateliers de figures de style et protocole diplomatique.
+  4. **Moteur de Rappel Espacé (`fata.srs`) & Rétention Mathématique** :
+     - Loi exponentielle d'Ebbinghaus : $R(t) = 100 \times e^{-t / S}$ avec seuil d'oubli fixé à 75%.
+     - Visualisation SVG de la courbe d'oubli et simulateur temporel (`⏩ Simuler +24h / +48h`).
+     - Algorithme FSRS à 4 notations : À revoir (<10 min), Difficile (1 j), Bon (3 j), Facile (7 j).
+  5. **Mode « Daily Fata Sprint » & Rétention Multi-Canal** :
+     - Défi quotidien chronométré de 6 questions avec génération du rapport emoji partageable (`🟩🟨🟥`).
+     - Notifications Web Push et export d'agenda `.ics` pour une routine quotidienne de 5 minutes.
+  6. **Contrôle Qualité & Typage Strict** :
+     - TypeScript strict sans aucun type cast `any`.
+     - `npm run build` exécuté avec succès (0 erreur TypeScript, 0 warning).
+     - Maintien de l'audit académique `verify_chapter.py` à **0 anomalie critique**.
+- **Conséquences** :
+  - Positives : Transformation majeure du projet d'un corpus purement textuel en un écosystème EdTech complet, offline-first et universellement praticable.
+
+---
+
+### [DEC-040] Rédaction Intégrale, Audit Automatisé et Validation des 5 Chapitres du Module MOD-501 (Macro-Syntaxe, Dislocations, Incises et Grande Période Oratoire) — Inauguration de l'Année 3 / Semestre 5 (Cycle 5)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Inauguration de l'Année 3 (Semestre 5, Cycle 5 : Haute Stylistique, Rhétorique Classique, Déclamation et Révision Éditoriale). Nécessité d'élever l'apprenant au palier L4 (Maîtrise approfondie) par l'enseignement rigoureux de la macro-syntaxe discursive, de la structure périodique ternaire (protase, acmé, apodose), de la métrique de la prose (loi de Deloffre, cadence majeure), de la gestion des incises à grande distance actancielle (> 30 mots) et de la pathologie/virtuosité de l'anacoluthe.
+- **Décision** :
+  1. Rédaction intégrale en prose académique d'élite des 5 chapitres de cours de `MOD-501` sous [`03-curriculum/year-3/semester-5/mod-501/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/) :
+     - [`chp-501-01-fondements-epistemologiques-histoire-periode.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-01-fondements-epistemologiques-histoire-periode.md) (`CHP-501-01`, 108,9 Ko / 1 019 lignes) : Fondements Épistémologiques et Histoire Rhétorique de la Période.
+     - [`chp-501-02-morphologie-dynamique-periode-protase-acme-apodose.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-02-morphologie-dynamique-periode-protase-acme-apodose.md) (`CHP-501-02`, 100,8 Ko / 944 lignes) : Morphologie Dynamique de la Période : Protase, Acmé, Apodose et Architecture des Périodes Suspensive et Continue.
+     - [`chp-501-03-metrique-prose-systeme-cadences-rythmiques.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-03-metrique-prose-systeme-cadences-rythmiques.md) (`CHP-501-03`, 100,8 Ko / 1 012 lignes) : La Métrique de la Prose et le Système des Cadences Rythmiques : Comma, Colon, Periodos, Cadence Majeure, Cadence Mineure et Isocolie.
+     - [`chp-501-04-macro-syntaxe-appliquee-incises-dislocations-nobles.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-04-macro-syntaxe-appliquee-incises-dislocations-nobles.md) (`CHP-501-04`, 104,5 Ko / 964 lignes) : Macro-Syntaxe Appliquée : Incises Savantes, Distance Actancielle Supérieure à 30 Mots et Dislocations Oratoires Nobles.
+     - [`chp-501-05-pathologie-virtuosite-rupture-anacoluthe.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-501/chp-501-05-pathologie-virtuosite-rupture-anacoluthe.md) (`CHP-501-05`, 92,4 Ko / 929 lignes) : Pathologie et Virtuosité de la Rupture Syntaxique : L'Anacoluthe, du Solécisme Vicieux à la Figure d'Apparat.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 374 liens internes et identifiants contrôlés (374 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-RHET-01`, `SRC-RHET-02`, `SRC-RHET-03`, `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-NORM-03`, `SRC-TYPO-01`, `SRC-PHON-02`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-501-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-501-audit-report.md).
+- **Conséquences** :
+  - Positives : Inauguration souveraine du Semestre 5 (Cycle 5). Le corpus atteint désormais **89 chapitres complets**, **68 269 lignes**, **8,03 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
+  - Prochaine étape : Rédaction et audit de `MOD-502` (*Traité des Figures de Rhétorique et Poétique du Style*).
+
+
 

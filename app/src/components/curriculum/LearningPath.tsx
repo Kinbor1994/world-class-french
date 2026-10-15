@@ -23,7 +23,7 @@ export const LearningPath: React.FC<LearningPathProps> = ({ onSelectLesson }) =>
   const activeStage = stages.find((s) => s.id === currentStage) ?? stages[0];
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 py-8">
+    <div suppressHydrationWarning className="w-full max-w-3xl mx-auto px-4 py-8">
       {/* Bannière du Palier Actif */}
       <div className="relative overflow-hidden p-6 md:p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-xl mb-10 border-2 border-slate-700">
         <div className="flex items-start justify-between gap-4">

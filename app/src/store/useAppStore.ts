@@ -67,8 +67,8 @@ export function computeCardRetention(card: SRSCard, hoursOffset: number = 0): nu
 // Convertit les cartes SRS initiales du JSON
 const initialCards: SRSCard[] = (curriculumData.initialSrsCards as SRSCard[]).map((c) => ({
   ...c,
-  lastReviewedAt: new Date().toISOString(),
-  nextReviewAt: new Date(Date.now() + 24 * 3600 * 1000).toISOString(),
+  lastReviewedAt: null,
+  nextReviewAt: null,
 }));
 
 export const useAppStore = create<AppState>()(
@@ -79,7 +79,7 @@ export const useAppStore = create<AppState>()(
       hearts: 5,
       maxHearts: 5,
       streak: 3,
-      lastActiveDate: new Date().toISOString().split("T")[0] ?? null,
+      lastActiveDate: null,
       isOnboardingCompleted: false,
       completedLessons: [],
 

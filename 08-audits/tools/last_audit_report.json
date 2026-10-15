@@ -1,56 +1,47 @@
 {
-  "chp-404-01-theorie-sociolinguistique-francophonie-modele-polycentrique.md": {
+  "chp-501-01-fondements-epistemologiques-histoire-periode.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 2,
+      "link_checks": 49
+    }
+  },
+  "chp-501-02-morphologie-dynamique-periode-protase-acme-apodose.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 63
+      "link_checks": 95
     }
   },
-  "chp-404-02-typologie-variations-continuum-lectal.md": {
+  "chp-501-03-metrique-prose-systeme-cadences-rythmiques.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 61
+      "link_checks": 50
     }
   },
-  "chp-404-03-francais-afrique-ouest-benin-contacts-vitalite-lexicale.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 1,
-      "announcement_checks": 1,
-      "link_checks": 71
-    }
-  },
-  "chp-404-04-morphosyntaxe-ouest-africaine-calques-substrat-frontieres.md": {
+  "chp-501-04-macro-syntaxe-appliquee-incises-dislocations-nobles.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 80
+      "link_checks": 68
     }
   },
-  "chp-404-05-insecurite-linguistique-hypercorrection-emancipation.md": {
+  "chp-501-05-pathologie-virtuosite-rupture-anacoluthe.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 66
-    }
-  },
-  "chp-404-06-calibration-polylectale-appliquee-trois-registres.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 74
+      "announcement_checks": 2,
+      "link_checks": 112
     }
   }
 }

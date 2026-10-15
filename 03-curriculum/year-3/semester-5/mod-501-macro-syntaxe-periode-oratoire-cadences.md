@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 5 (S5)  
 > **Domaines mobilisés** : DOM-03 (Grammaire et analyse grammaticale), DOM-04 (Conjugaison et syntaxe), DOM-07 (Expression écrite), DOM-10 (Rhétorique et stylistique)  
 > **Volume horaire estimé** : 18 heures (Étude théorique et dissection de périodes oratoires historiques : 5 h 30 | Pratique délibérée : 6 h 30 | Correction raisonnée et analyse comparative de cadence : 3 h 30 | Révision active et consolidation : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md` (DEP-PRD-02)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#24-axe-syntaxe-complexe--rhétorique-de-la-phrase-simple-à-la-période-oratoire), [`competency-framework.md` (FR-SYNTAX-003)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-syntax-003-maîtrise-de-la-grande-période-oratoire-et-de-la-macro-syntaxe), [`syllabus.md` (S5)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/syllabus.md#module-mod-501--macro-syntaxe-dislocations-incises-et-grande-période-oratoire), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---
