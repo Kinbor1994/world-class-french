@@ -5,7 +5,7 @@
 > **Semestre** : Année 2 — Semestre 3 (S3)  
 > **Domaines mobilisés** : DOM-02 (Orthographe grammaticale), DOM-04 (Conjugaison et syntaxe du verbe), DOM-12 (Correction, révision et contrôle qualité)  
 > **Volume horaire estimé** : 17 heures (Étude théorique : 4 h 30 | Pratique délibérée : 6 h 30 | Correction raisonnée : 3 h 30 | Révision active : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md` (DEP-ORT-03)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#22-axe-orthographe-grammaticale--accords-du-canonique-aux-cas-limites), [`competency-framework.md` (FR-ORTHO-004)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-ortho-004-résolution-des-accords-des-verbes-pronominaux), [`syllabus.md` (S3)](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/syllabus.md#module-mod-303--orthographe-grammaticale-approfondie--accords-des-verbes-pronominaux), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

@@ -1,56 +1,11 @@
 {
-  "chp-302-01-typologie-syntaxique-semantique-circonstancielles.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 107
-    }
-  },
-  "chp-302-02-semantique-fondamentale-subjonctif-vs-indicatif.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 93
-    }
-  },
-  "chp-302-03-pieges-normatifs-regimes-modaux-alternatifs.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 77
-    }
-  },
-  "chp-302-04-systeme-conditionnel-structures-en-si.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 74
-    }
-  },
-  "chp-302-05-ne-expletif-polarite-enonciative.md": {
+  "changelog.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 77
-    }
-  },
-  "chp-302-06-concordance-temps-indicatif-subjonctif.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 2,
-      "link_checks": 81
+      "link_checks": 166
     }
   }
 }

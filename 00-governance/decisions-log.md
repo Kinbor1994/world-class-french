@@ -558,7 +558,32 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
      - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-302-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-302-audit-report.md).
 - **Conséquences** :
   - Positives : Clôture certifiée de `MOD-302` (4 263 lignes, 584,3 Ko de cours de référence, 30 à 36 h d'apprentissage autonome délibéré), dotant l'étudiant d'une maîtrise infaillible de la sélection modale et de la concordance temporelle.
-  - Prochaine étape : Lancement de la rédaction du module [`MOD-303` — Orthographe Grammaticale Approfondie : Accords des Verbes Pronominaux](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303-orthographe-accords-verbes-pronominaux.md).
+  - Prochaine étape : Lancement de la rédaction du module [`MOD-303` — Orthographe Grammaticale Approfondie : Accords des Verbes Pronominaux](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303-accords-verbes-pronominaux.md).
+
+---
+
+### [DEC-033] Rédaction intégrale et audit automatisé des 6 chapitres de cours du module MOD-303 — Accords des Verbes Pronominaux et Pièges Morphologiques (Étape 11)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Développer le troisième module de l'Année 2 (Semestre 3 / Cycle 3) : [`MOD-303` — Orthographe Grammaticale Approfondie : Accords des Verbes Pronominaux et Pièges Morphologiques](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303-accords-verbes-pronominaux.md).
+- **Décision** :
+  1. Conception et rédaction intégrale des 6 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-3/mod-303/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/) :
+     - [`chp-303-01-fondement-linguistique-systeme-pronominal.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/chp-303-01-fondement-linguistique-systeme-pronominal.md) (`CHP-303-01`, 87,0 Ko / 654 lignes) : *Fondement Linguistique du Système Pronominal : Clitique Syntaxique, Diathèse, Voix Moyenne et le Leurre de l'Auxiliaire « Être »*.
+     - [`chp-303-02-verbes-essentiellement-pronominaux-sens-passif.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/chp-303-02-verbes-essentiellement-pronominaux-sens-passif.md) (`CHP-303-02`, 86,5 Ko / 642 lignes) : *Verbes Essentiellement Pronominaux et Verbes à Sens Passif : Accord Systématique avec le Sujet et l'Exception Unique de « S'arroger »*.
+     - [`chp-303-03-verbes-accidentellement-pronominaux-reflechis-reciproques.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/chp-303-03-verbes-accidentellement-pronominaux-reflechis-reciproques.md) (`CHP-303-03`, 102,1 Ko / 774 lignes) : *Verbes Accidentellement Pronominaux : Réfléchis, Réciproques, Analyse du Clitique COD vs COI et Concurrence d'Objets*.
+     - [`chp-303-04-liste-fermee-participes-intransitifs-invariables.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/chp-303-04-liste-fermee-participes-intransitifs-invariables.md) (`CHP-303-04`, 83,1 Ko / 676 lignes) : *La Liste Fermée des Participes Intransitifs Invariablement Invariables : Rection Prépositionnelle, Verbes Cardinaux et Démystification de « Ils se sont succédé »*.
+     - [`chp-303-05-pluriel-noms-composes-pieges-morphologiques.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/chp-303-05-pluriel-noms-composes-pieges-morphologiques.md) (`CHP-303-05`, 80,3 Ko / 709 lignes) : *Le Pluriel des Noms Composés et Pièges Morphologiques : Règles Traditionnelles, Statut Critique de « Garde- » et Rectifications de 1990*.
+     - [`chp-303-06-synthese-algorithmique-protocole-arbitrage.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303/chp-303-06-synthese-algorithmique-protocole-arbitrage.md) (`CHP-303-06`, 81,5 Ko / 599 lignes) : *Synthèse Algorithmique et Protocole d'Arbitrage Morphosyntaxique : Arbre Décisionnel Unifié et Résolution de Haute Précision*.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 519 liens internes et identifiants contrôlés (519 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-NORM-02`, `SRC-NORM-03`, `SRC-TYPO-01`, `SRC-GRAM-05`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-303-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-303-audit-report.md).
+- **Conséquences** :
+  - Positives : Clôture certifiée de `MOD-303` (4 054 lignes, 520,5 Ko de cours de référence, 30 à 36 h d'apprentissage autonome délibéré), dotant l'étudiant d'une fiabilité orthographique absolue sur les verbes pronominaux et noms composés.
+  - Prochaine étape : Lancement du dernier module du Semestre 3 : [`MOD-304` — Synthèse Comparative de Documents, Compte Rendu Critique et Argumentation Logique](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304-synthese-comparative-documents.md).
+
 
 
 
