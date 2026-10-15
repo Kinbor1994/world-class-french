@@ -631,6 +631,28 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : **OUVERTURE DU SEMESTRE 4 (CYCLE 4)**. Le premier module de S4 est intégralement achevé, audité et validé (**7 chapitres de cours de référence universitaire**, **5 056 lignes**, **665 Ko de contenus didactiques de haut niveau**). Le prérequis bloquant `DEP-ORT-04` est satisfait.
   - Prochaine étape : Lancement du deuxième module du Semestre 4 : [`MOD-402` — Rhétorique Fondamentale, Analyse de l'Argumentation et Réfutation des Sophismes](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402-rhetorique-argumentation-refutation-sophismes.md).
 
+---
+
+### [DEC-036] Rédaction intégrale et audit automatisé des 4 chapitres de cours du module MOD-402 — Rhétorique Argumentative et Détection des Sophismes (Étape 13)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Développer le deuxième module de l'Année 2 / Semestre 4 (Cycle 4) : [`MOD-402` — Rhétorique Argumentative : Thèses, Réfutation et Détection des Sophismes](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402-rhetorique-argumentation-refutation-sophismes.md).
+- **Décision** :
+  1. Conception et rédaction intégrale des 4 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-4/mod-402/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402/) :
+     - [`chp-402-01-logique-formelle-argument-mecanique-raisonnement.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402/chp-402-01-logique-formelle-argument-mecanique-raisonnement.md) (`CHP-402-01`, 86,9 Ko / 687 lignes) : *Logique Formelle de l'Argument et Mécanique du Raisonnement : Syllogisme Canonique, Enthymème et Modes d'Inférence*.
+     - [`chp-402-02-typologie-operatoire-arguments-techniques-probatoires.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402/chp-402-02-typologie-operatoire-arguments-techniques-probatoires.md) (`CHP-402-02`, 92,7 Ko / 585 lignes) : *Typologie Opératoire des Arguments et Techniques Probatoires : Arguments Quasi-Logiques, Empiriques et d'Autorité*.
+     - [`chp-402-03-traite-complet-sophismes-paralogismes.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402/chp-402-03-traite-complet-sophismes-paralogismes.md) (`CHP-402-03`, 104,8 Ko / 637 lignes) : *Traité Complet des Sophismes et Paralogismes : Typologie des Réfutations et Matrice de Riposte Déontologique*.
+     - [`chp-402-04-pragmatique-debat-contradictoire-concession-deontologie.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402/chp-402-04-pragmatique-debat-contradictoire-concession-deontologie.md) (`CHP-402-04`, 103,2 Ko / 635 lignes) : *Pragmatique du Débat Contradictoire, Concession et Déontologie : Principe de Charité, Concession Ternaire et Joute Oratoire*.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 229 liens internes et identifiants contrôlés (229 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-RHET-03`, `SRC-RHET-01`, `SRC-RHET-02`, `SRC-GRAM-02`, `SRC-NORM-03`, `SRC-TYPO-01`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-402-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-402-audit-report.md).
+- **Conséquences** :
+  - Positives : Socle dialectique et logique de S4 intégralement achevé, audité et validé (**4 chapitres de cours de référence universitaire**, **2 544 lignes**, **387,6 Ko de contenus didactiques de haut niveau**). Le prérequis argumentatif pour la dissertation académique tripartite (`MOD-403`) est pleinement satisfait.
+  - Prochaine étape : Lancement du troisième module du Semestre 4 : [`MOD-403` — Méthodologie Approfondie de la Dissertation et de l'Essai Académique](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403-methodologie-dissertation-essai-academique.md).
+
 
 
 
