@@ -606,6 +606,31 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : **CLÔTURE DU SEMESTRE 3 (CYCLE 3)**. Le Semestre 3 est intégralement achevé, audité et validé (**4 modules**, **22 chapitres de cours de référence universitaire**, **14 915 lignes**, **2,03 Mo de contenus didactiques de haut niveau**).
   - Prochaine étape : Passage à l'Étape 12 — Bilan de Porte 3 et Transition vers l'Année 2 / Semestre 4 (Cycle 4 : Pragmatique énonciative, participe suivi d'un infinitif, rhétorique et dissertation académique).
 
+---
+
+### [DEC-035] Rédaction intégrale et audit automatisé des 7 chapitres de cours du module MOD-401 — Ouverture du Semestre 4 / Cycle 4 (Étape 12)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Développer le premier module de l'Année 2 / Semestre 4 (Cycle 4) : [`MOD-401` — Pragmatique Énonciative, Cas Limites d'Accord (Participe + Infinitif), Rectifications de 1990 et Registres de Langue](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401-pragmatique-accords-limites-rectifications-1990.md).
+- **Décision** :
+  1. Conception et rédaction intégrale des 7 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-4/mod-401/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/) :
+     - [`chp-401-01-linguistique-enonciation-cadre-pragmatique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-01-linguistique-enonciation-cadre-pragmatique.md) (`CHP-401-01`, 92,1 Ko / 662 lignes) : *Linguistique de l'Énonciation et Cadre Pragmatique : Appropriation de l'Appareil Formel, Déixis, Corrélation de Personne et Modalisateurs*.
+     - [`chp-401-02-polyphonie-enonciative-discours-rapportes.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-02-polyphonie-enonciative-discours-rapportes.md) (`CHP-401-02`, 102,4 Ko / 725 lignes) : *Polyphonie Énonciative et Discours Rapportés : Théorie de Ducrot, Triade Posé/Présupposé/Sous-Entendu, Ironie et Régimes de Discours*.
+     - [`chp-401-03-participe-passe-infinitif-verbes-perception.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-03-participe-passe-infinitif-verbes-perception.md) (`CHP-401-03`, 94,0 Ko / 826 lignes) : *Le Participe Passé suivi d'un Infinitif : Verbes de Perception et Règle d'Agentivité (« Entendues Chanter » vs « Entendu Chanter »)*.
+     - [`chp-401-04-cas-limites-invariabilite-fait-statut-laisse.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-04-cas-limites-invariabilite-fait-statut-laisse.md) (`CHP-401-04`, 87,6 Ko / 629 lignes) : *Cas Limites : L'Invariabilité Absolue de « Fait », le Statut Dual de « Laissé » et Semi-Auxiliaires*.
+     - [`chp-401-05-rectifications-orthographiques-1990.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-05-rectifications-orthographiques-1990.md) (`CHP-401-05`, 93,5 Ko / 745 lignes) : *Les Rectifications Orthographiques de 1990 : Principes Directeurs, Numéraux Composés, Mots Composés, Accent Circonflexe et Verbes en -eler/-eter*.
+     - [`chp-401-06-sociolinguistique-registres-langue.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-06-sociolinguistique-registres-langue.md) (`CHP-401-06`, 97,1 Ko / 691 lignes) : *Sociolinguistique des Registres de Langue : Variations Diaphasiques (Familier, Courant, Soutenu, Solennel) aux Niveaux Phonétique, Lexical et Syntaxique*.
+     - [`chp-401-07-synthese-algorithmique-arbitrage-editorial.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-401/chp-401-07-synthese-algorithmique-arbitrage-editorial.md) (`CHP-401-07`, 98,3 Ko / 778 lignes) : *Synthèse Algorithmique et Protocole d'Arbitrage Éditorial : Arbre Décisionnel en 4 Filtres, Guide 1990 et Grille Universitaire*.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 562 liens internes et identifiants contrôlés (562 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-NORM-02`, `SRC-NORM-03`, `SRC-TYPO-01`, `SRC-SOCIO-02`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-401-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-401-audit-report.md).
+- **Conséquences** :
+  - Positives : **OUVERTURE DU SEMESTRE 4 (CYCLE 4)**. Le premier module de S4 est intégralement achevé, audité et validé (**7 chapitres de cours de référence universitaire**, **5 056 lignes**, **665 Ko de contenus didactiques de haut niveau**). Le prérequis bloquant `DEP-ORT-04` est satisfait.
+  - Prochaine étape : Lancement du deuxième module du Semestre 4 : [`MOD-402` — Rhétorique Fondamentale, Analyse de l'Argumentation et Réfutation des Sophismes](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-402-rhetorique-argumentation-refutation-sophismes.md).
+
 
 
 

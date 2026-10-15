@@ -1,11 +1,65 @@
 {
-  "changelog.md": {
+  "chp-401-01-linguistique-enonciation-cadre-pragmatique.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 173
+      "announcement_checks": 1,
+      "link_checks": 52
+    }
+  },
+  "chp-401-02-polyphonie-enonciative-discours-rapportes.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 71
+    }
+  },
+  "chp-401-03-participe-passe-infinitif-verbes-perception.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 1,
+      "announcement_checks": 1,
+      "link_checks": 73
+    }
+  },
+  "chp-401-04-cas-limites-invariabilite-fait-statut-laisse.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 94
+    }
+  },
+  "chp-401-05-rectifications-orthographiques-1990.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 76
+    }
+  },
+  "chp-401-06-sociolinguistique-registres-langue.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 63
+    }
+  },
+  "chp-401-07-synthese-algorithmique-arbitrage-editorial.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 2,
+      "link_checks": 133
     }
   }
 }

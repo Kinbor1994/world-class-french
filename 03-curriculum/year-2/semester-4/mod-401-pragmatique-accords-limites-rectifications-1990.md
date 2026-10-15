@@ -5,7 +5,7 @@
 > **Semestre** : Année 2 — Semestre 4 (S4)  
 > **Domaines mobilisés** : DOM-02 (Orthographe grammaticale et lexicale), DOM-04 (Conjugaison, syntaxe et sémantique du verbe), DOM-07 (Expression écrite et stylistique), DOM-12 (Correction, révision et contrôle qualité éditorial)  
 > **Volume horaire estimé** : 18 heures (Étude théorique : 5 h | Pratique délibérée : 6 h 30 | Correction raisonnée : 3 h 30 | Révision active : 3 h)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md` (S4)](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md#5-fiche-détaillée--semestre-4-s4), [`dependency-graph.md` (DEP-ORT-04)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#22-axe-orthographe-grammaticale--accords-du-canonique-aux-cas-limites), [`competency-framework.md` (FR-ORTHO-003, FR-ORTHO-004, FR-SOCIOL-001)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md), [`syllabus.md` (S4)](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/syllabus.md#module-mod-401--pragmatique-énonciative-cas-limites-daccord-et-rectifications-de-1990), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---
