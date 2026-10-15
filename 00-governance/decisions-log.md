@@ -519,7 +519,7 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 
 ### [DEC-031] Rédaction intégrale et audit automatisé des 6 chapitres de cours du module MOD-301 — Ouverture de l'Année 2 / Semestre 3 (Étape 9)
 - **Date** : 2026-10-14
-- **Statut** : Proposé (en attente de validation humaine)
+- **Statut** : Validé
 - **Contexte** : Développer le premier module de l'Année 2 (Cycle 3) du cursus : [`MOD-301` — Architecture de la Subordination : Complétives Conjonctives, Interrogatives Indirectes, Infinitives et Relatives Complexes](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-301-architecture-subordination-completives.md).
 - **Décision** :
   1. Conception et rédaction intégrale des 6 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-3/mod-301/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-301/) :
@@ -536,8 +536,29 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
      - Zéro erreur critique, zéro avertissement résiduel ;
      - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-301-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-301-audit-report.md).
 - **Conséquences** :
-  - Positives : Franchissement réussi du cap de la macro-syntaxe de la phrase complexe pour l'Année 2 (4 110 lignes, 563,6 Ko de cours autonome de référence, 30 à 36 h d'apprentissage délibéré), établissant le socle indispensable pour l'étude des propositions circonstancielles et du subjonctif (`MOD-302`).
-  - Prochaine étape : Soumission à la validation humaine du commanditaire pour officialiser la validation de `MOD-301` et engager la rédaction du module `MOD-302`.
+  - Positives : Validation officielle de `MOD-301` et passage sans réserve à `MOD-302`.
+
+### [DEC-032] Rédaction intégrale et audit automatisé des 6 chapitres de cours du module MOD-302 — Circonstancielles, Système Modal et Concordance des Temps (Étape 10)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Développer le deuxième module de l'Année 2 (Semestre 3 / Cycle 3) : [`MOD-302` — Subordonnées Circonstancielles, Système Modal (Subjonctif et Conditionnel) et Concordance des Temps](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302-circonstancielles-systeme-modal-concordance.md).
+- **Décision** :
+  1. Conception et rédaction intégrale des 6 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-3/mod-302/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/) :
+     - [`chp-302-01-typologie-syntaxique-semantique-circonstancielles.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/chp-302-01-typologie-syntaxique-semantique-circonstancielles.md) (`CHP-302-01`, 115,6 Ko / 805 lignes) : *Typologie Syntaxique et Sémantique des Subordonnées Circonstancielles : Les Sept Relations Logiques Fondamentales*.
+     - [`chp-302-02-semantique-fondamentale-subjonctif-vs-indicatif.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/chp-302-02-semantique-fondamentale-subjonctif-vs-indicatif.md) (`CHP-302-02`, 92,5 Ko / 686 lignes) : *Sémantique Fondamentale du Subjonctif vs Indicatif : Théorie de la Virtualisation, Typologie des Matrices et Morphologie*.
+     - [`chp-302-03-pieges-normatifs-regimes-modaux-alternatifs.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/chp-302-03-pieges-normatifs-regimes-modaux-alternatifs.md) (`CHP-302-03`, 89,9 Ko / 681 lignes) : *Les Pièges Normatifs du Système Modal : « Après que », « Espérer que », Verbes d'Opinion Négatifs/Interrogatifs et Solécisme de « Malgré que »*.
+     - [`chp-302-04-systeme-conditionnel-structures-en-si.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/chp-302-04-systeme-conditionnel-structures-en-si.md) (`CHP-302-04`, 105,8 Ko / 751 lignes) : *Le Système du Conditionnel et les Périodes Hypothétiques en « Si » : Valeurs Temporelle vs Modale, les Trois Structures Canoniques et Proscription de l'Irréel dans la Protase*.
+     - [`chp-302-05-ne-expletif-polarite-enonciative.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/chp-302-05-ne-expletif-polarite-enonciative.md) (`CHP-302-05`, 95,7 Ko / 676 lignes) : *Le « Ne » Explétif et la Polarité Énonciative : Morphème de Discordance, Déclencheurs Normatifs et Distinction avec la Négation Forclusive*.
+     - [`chp-302-06-concordance-temps-indicatif-subjonctif.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-302/chp-302-06-concordance-temps-indicatif-subjonctif.md) (`CHP-302-06`, 84,9 Ko / 664 lignes) : *La Concordance des Temps à l'Indicatif et au Subjonctif : Repères Temporels, Subjonctif Imparfait/Plus-que-parfait et Seconde Forme du Conditionnel Passé*.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 509 liens internes et identifiants contrôlés (509 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-NORM-03`, `SRC-TYPO-01`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-302-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-302-audit-report.md).
+- **Conséquences** :
+  - Positives : Clôture certifiée de `MOD-302` (4 263 lignes, 584,3 Ko de cours de référence, 30 à 36 h d'apprentissage autonome délibéré), dotant l'étudiant d'une maîtrise infaillible de la sélection modale et de la concordance temporelle.
+  - Prochaine étape : Lancement de la rédaction du module [`MOD-303` — Orthographe Grammaticale Approfondie : Accords des Verbes Pronominaux](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-303-orthographe-accords-verbes-pronominaux.md).
 
 
 
