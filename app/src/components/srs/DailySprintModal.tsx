@@ -45,12 +45,9 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
     if (isOpen && !isCompleted) {
-      setIsActive(true);
       interval = setInterval(() => {
         setSeconds((s) => s + 1);
       }, 1000);
-    } else {
-      setIsActive(false);
     }
     return () => {
       if (interval) clearInterval(interval);
