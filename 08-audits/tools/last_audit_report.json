@@ -1,38 +1,56 @@
 {
-  "chp-403-01-genre-dissertation-epistemologie-posture.md": {
+  "chp-404-01-theorie-sociolinguistique-francophonie-modele-polycentrique.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 39
+      "link_checks": 63
     }
   },
-  "chp-403-02-phase-preparatoire-analyse-sujet-problematique.md": {
+  "chp-404-02-typologie-variations-continuum-lectal.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 41
+      "link_checks": 61
     }
   },
-  "chp-403-03-typologie-plans-art-depassement-dialectique.md": {
+  "chp-404-03-francais-afrique-ouest-benin-contacts-vitalite-lexicale.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 1,
+      "announcement_checks": 1,
+      "link_checks": 71
+    }
+  },
+  "chp-404-04-morphosyntaxe-ouest-africaine-calques-substrat-frontieres.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 29
+      "announcement_checks": 1,
+      "link_checks": 80
     }
   },
-  "chp-403-04-scenographie-redactionnelle-introduction-paragraphes-conclusion.md": {
+  "chp-404-05-insecurite-linguistique-hypercorrection-emancipation.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 0,
+      "announcement_checks": 1,
       "link_checks": 66
+    }
+  },
+  "chp-404-06-calibration-polylectale-appliquee-trois-registres.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 74
     }
   }
 }

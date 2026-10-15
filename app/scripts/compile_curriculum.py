@@ -1,0 +1,1219 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+compile_curriculum.py
+Compilateur didactique pour la PWA World-Class French.
+Transforme les chapitres normatifs en base structurée JSON pour les 8 Paliers pédagogiques,
+avec support des 7 moteurs d'exercices, cartes SRS (fata.srs) et diagnostic initial.
+"""
+
+import os
+import re
+import json
+from pathlib import Path
+
+WORKSPACE_ROOT = Path(__file__).resolve().parent.parent.parent
+CURRICULUM_DIR = WORKSPACE_ROOT / "03-curriculum"
+OUTPUT_JSON = WORKSPACE_ROOT / "app" / "src" / "data" / "compiled-curriculum.json"
+
+def clean_md(text: str) -> str:
+    """Nettoie le balisage markdown basique pour l'affichage propre dans les composants."""
+    if not text:
+        return ""
+    text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
+    text = re.sub(r'[*_`]', '', text)
+    return text.strip()
+
+def build_curriculum():
+    print("[COMPILATEUR] Début de la compilation didactique pour World-Class French...")
+
+    # 1. Définition des 8 Paliers Pédagogiques
+    stages = [
+        {
+            "id": 1,
+            "code": "STAGE-1",
+            "name": "Palier 1 : Initiation Absolue (Niveau CI / A0)",
+            "shortName": "CI (A0) · Initiation",
+            "description": "Éveil phonétique, combinatoire syllabique (b+a = ba), premiers mots illustrés et salutations. Zéro jargon grammatical.",
+            "badge": "🌱 A0",
+            "hasInfiniteHearts": True,
+            "color": "from-emerald-400 to-teal-500",
+            "modules": []
+        },
+        {
+            "id": 2,
+            "code": "STAGE-2",
+            "name": "Palier 2 : Découverte & Survie (Niveau CP–CE1 / A1)",
+            "shortName": "CP–CE1 (A1) · Survie",
+            "description": "Genre et nombre (un/une, le/la), les 4 verbes piliers (être, avoir, aller, faire) et la négation simple (ne... pas).",
+            "badge": "🌿 A1",
+            "hasInfiniteHearts": True,
+            "color": "from-green-500 to-emerald-600",
+            "modules": []
+        },
+        {
+            "id": 3,
+            "code": "STAGE-3",
+            "name": "Palier 3 : Fondations Solides (Niveau CE2–CM2 / A2)",
+            "shortName": "CE2–CM2 (A2) · Fondations",
+            "description": "Phonétique appliquée (API), chaîne d'accord du nom, accord sujet-verbe canonique et passé composé vs imparfait.",
+            "badge": "📘 A2",
+            "hasInfiniteHearts": False,
+            "color": "from-sky-500 to-blue-600",
+            "modules": []
+        },
+        {
+            "id": 4,
+            "code": "STAGE-4",
+            "name": "Palier 4 : Autonomie & Fluidité (Niveau Collège / B1)",
+            "shortName": "Collège (B1) · Autonomie",
+            "description": "Pronoms compléments (lui, leur, y, en), conditionnel de politesse et hypothèse en si, connecteurs logiques et relative simple.",
+            "badge": "📙 B1",
+            "hasInfiniteHearts": False,
+            "color": "from-amber-500 to-orange-600",
+            "modules": []
+        },
+        {
+            "id": 5,
+            "code": "STAGE-5",
+            "name": "Palier 5 : Argumentation & Nuances (Niveau Lycée / B2)",
+            "shortName": "Lycée (B2) · Argumentation",
+            "description": "Subjonctif présent et verbes irréguliers, concordance des temps, relatives composées (auquel, dont) et discours rapporté.",
+            "badge": "🎓 B2",
+            "hasInfiniteHearts": False,
+            "color": "from-indigo-500 to-purple-600",
+            "modules": []
+        },
+        {
+            "id": 6,
+            "code": "STAGE-6",
+            "name": "Palier 6 : Perfectionnement & Zéro Faute (Niveau Supérieur / C1)",
+            "shortName": "Supérieur (C1) · Perfectionnement",
+            "description": "Accords complexes du participe passé (pronominaux, invariabilité avec en), adjectifs de couleur et chasse aux pièges Voltaire.",
+            "badge": "⚡ C1",
+            "hasInfiniteHearts": False,
+            "color": "from-violet-500 to-fuchsia-600",
+            "modules": []
+        },
+        {
+            "id": 7,
+            "code": "STAGE-7",
+            "name": "Palier 7 : Excellence (Niveau C2 / Haute Rigueur)",
+            "shortName": "Excellence (C2) · Haut Style",
+            "description": "Constructions verbales délicates (pallier qc, se rappeler qc), participe suivi d'un infinitif, rectifications 1990 et subjonctif imparfait.",
+            "badge": "👑 C2",
+            "hasInfiniteHearts": False,
+            "color": "from-rose-500 to-pink-600",
+            "modules": []
+        },
+        {
+            "id": 8,
+            "code": "STAGE-8",
+            "name": "Palier 8 : World-Class (Niveau C2+ / Éloquence & Diplomatie)",
+            "shortName": "World-Class (C2+) · Éloquence",
+            "description": "Figures de rhétorique, détection des sophismes, argumentation dialectique 3x3, protocole diplomatique et art oratoire.",
+            "badge": "🏆 C2+",
+            "hasInfiniteHearts": False,
+            "color": "from-amber-600 to-yellow-500",
+            "modules": []
+        }
+    ]
+
+    # Dictionnaire des modules par ID
+    all_modules = {}
+
+    # =========================================================================
+    # PALIER 1 : NIVEAU CI (A0) - INITIATION ABSOLUE (MOD-001)
+    # =========================================================================
+    mod_001 = {
+        "id": "MOD-001",
+        "stage": 1,
+        "title": "Éveil Phonétique, Combinatoire Syllabique & Premiers Mots",
+        "description": "Le sas d'entrée doux pour tout débutant : découverte des sons, fusion des syllabes et premiers mots illustrés.",
+        "chapters": [
+            {
+                "id": "CHP-001-01",
+                "moduleId": "MOD-001",
+                "stage": 1,
+                "title": "Les Voyelles Royales & l'Association Son-Image",
+                "summary": "Découvrez les voyelles fondamentales (a, e, i, o, u) par l'écoute douce et les images du quotidien.",
+                "rules": [
+                    {
+                        "id": "FR-INI-001",
+                        "title": "La voix des voyelles",
+                        "statement": "Chaque voyelle chante librement dans la gorge sans obstacle. Le son /a/ ouvre grand la bouche.",
+                        "formula": "A = /a/ (avocat), O = /o/ (orange), I = /i/ (île)"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-001-01-01",
+                        "chapterId": "CHP-001-01",
+                        "title": "Reconnaissance des 5 Voyelles",
+                        "durationMinutes": 3,
+                        "exercises": [
+                            {
+                                "id": "EX-001-01",
+                                "type": "visual_sound_match",
+                                "ruleId": "FR-INI-001",
+                                "prompt": "Écoute et clique sur l'image qui commence par le son [a] comme dans 'Avocat' :",
+                                "audioText": "Avocat",
+                                "ipa": "/a.vɔ.ka/",
+                                "data": {
+                                    "targetSound": "a",
+                                    "cards": [
+                                        {"id": "c1", "label": "Avocat", "imageEmoji": "🥑", "sound": "Avocat", "isCorrect": True},
+                                        {"id": "c2", "label": "Étoile", "imageEmoji": "⭐️", "sound": "Étoile", "isCorrect": False},
+                                        {"id": "c3", "label": "Orange", "imageEmoji": "🍊", "sound": "Orange", "isCorrect": False},
+                                        {"id": "c4", "label": "Île", "imageEmoji": "🏝", "sound": "Île", "isCorrect": False}
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "EX-001-02",
+                                "type": "visual_sound_match",
+                                "ruleId": "FR-INI-001",
+                                "prompt": "Écoute et trouve l'objet correspondant au son [o] comme dans 'Orange' :",
+                                "audioText": "Orange",
+                                "ipa": "/ɔ.ʁɑ̃ʒ/",
+                                "data": {
+                                    "targetSound": "o",
+                                    "cards": [
+                                        {"id": "c1", "label": "Livre", "imageEmoji": "📖", "sound": "Livre", "isCorrect": False},
+                                        {"id": "c2", "label": "Orange", "imageEmoji": "🍊", "sound": "Orange", "isCorrect": True},
+                                        {"id": "c3", "label": "Arbre", "imageEmoji": "🌳", "sound": "Arbre", "isCorrect": False},
+                                        {"id": "c4", "label": "Soleil", "imageEmoji": "☀️", "sound": "Soleil", "isCorrect": False}
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "EX-001-03",
+                                "type": "diagnostic_mcq",
+                                "ruleId": "FR-INI-001",
+                                "prompt": "Quel mot commence par la voyelle I ?",
+                                "audioText": "Île",
+                                "data": {
+                                    "question": "Écoute bien : quel mot commence par le son [i] ?",
+                                    "options": [
+                                        {"id": "o1", "text": "Île 🏝", "isCorrect": True, "feedback": "Bravo ! Île commence bien par le son /i/."},
+                                        {"id": "o2", "text": "Maison 🏠", "isCorrect": False, "feedback": "Maison commence par la consonne M /m/."},
+                                        {"id": "o3", "text": "Vélo 🚲", "isCorrect": False, "feedback": "Vélo commence par la consonne V /v/."}
+                                    ],
+                                    "explanation": "La voyelle 'i' produit un son aigu et clair avec les lèvres étirées."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "CHP-001-02",
+                "moduleId": "MOD-001",
+                "stage": 1,
+                "title": "La Combinatoire Magique : Assembler les Syllabes",
+                "summary": "Apprenez à fusionner une consonne et une voyelle pour chanter les syllabes : b + a = ba !",
+                "rules": [
+                    {
+                        "id": "FR-INI-002",
+                        "title": "La fusion syllabique",
+                        "statement": "Quand la consonne rencontre la voyelle, elles forment un pont sonore inséparable.",
+                        "formula": "Consonne + Voyelle = Syllabe (B + A = BA)"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-001-02-01",
+                        "chapterId": "CHP-001-02",
+                        "title": "Assemblage b+a, m+a, p+a",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-001-04",
+                                "type": "syllable_bricks",
+                                "ruleId": "FR-INI-002",
+                                "prompt": "Assemble les syllabes pour composer le mot 'BANANE' :",
+                                "audioText": "Banane",
+                                "ipa": "/ba.nan/",
+                                "data": {
+                                    "targetPhrase": "BANANE",
+                                    "targetPhonemes": "ba + na + ne",
+                                    "availableBricks": ["na", "ba", "po", "ne", "li"],
+                                    "correctSequence": ["ba", "na", "ne"]
+                                }
+                            },
+                            {
+                                "id": "EX-001-05",
+                                "type": "syllable_bricks",
+                                "ruleId": "FR-INI-002",
+                                "prompt": "Assemble les syllabes pour former le mot 'MAMAN' :",
+                                "audioText": "Maman",
+                                "ipa": "/ma.mɑ̃/",
+                                "data": {
+                                    "targetPhrase": "MAMAN",
+                                    "targetPhonemes": "ma + man",
+                                    "availableBricks": ["man", "to", "ma", "pa"],
+                                    "correctSequence": ["ma", "man"]
+                                }
+                            },
+                            {
+                                "id": "EX-001-06",
+                                "type": "syllable_bricks",
+                                "ruleId": "FR-INI-002",
+                                "prompt": "Assemble les syllabes pour former le mot 'PAPA' :",
+                                "audioText": "Papa",
+                                "ipa": "/pa.pa/",
+                                "data": {
+                                    "targetPhrase": "PAPA",
+                                    "targetPhonemes": "pa + pa",
+                                    "availableBricks": ["pa", "ro", "pa", "mi"],
+                                    "correctSequence": ["pa", "pa"]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "CHP-001-03",
+                "moduleId": "MOD-001",
+                "stage": 1,
+                "title": "Premiers Mots Illustrés & Salutations Courantes",
+                "summary": "Les mots essentiels pour saluer, remercier et nommer son environnement.",
+                "rules": [
+                    {
+                        "id": "FR-INI-003",
+                        "title": "Les formules de courtoisie",
+                        "statement": "En français, 'Bonjour' ouvre la journée avec le sourire, et 'Merci' témoigne de la reconnaissance.",
+                        "formula": "Bonjour / Merci / Au revoir"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-001-03-01",
+                        "chapterId": "CHP-001-03",
+                        "title": "Saluer et Remercier",
+                        "durationMinutes": 3,
+                        "exercises": [
+                            {
+                                "id": "EX-001-07",
+                                "type": "visual_sound_match",
+                                "ruleId": "FR-INI-003",
+                                "prompt": "Écoute et sélectionne 'Bonjour' :",
+                                "audioText": "Bonjour",
+                                "ipa": "/bɔ̃.ʒuʁ/",
+                                "data": {
+                                    "targetSound": "bonjour",
+                                    "cards": [
+                                        {"id": "c1", "label": "Bonjour", "imageEmoji": "👋", "sound": "Bonjour", "isCorrect": True},
+                                        {"id": "c2", "label": "Merci", "imageEmoji": "🙏", "sound": "Merci", "isCorrect": False},
+                                        {"id": "c3", "label": "Au revoir", "imageEmoji": "🚪", "sound": "Au revoir", "isCorrect": False},
+                                        {"id": "c4", "label": "Nuit", "imageEmoji": "🌙", "sound": "Bonne nuit", "isCorrect": False}
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "EX-001-08",
+                                "type": "dictation",
+                                "ruleId": "FR-INI-003",
+                                "prompt": "Écoute attentivement et tape le mot entendu :",
+                                "audioText": "Merci",
+                                "data": {
+                                    "fullText": "Merci",
+                                    "audioNormalRate": 1.0,
+                                    "audioSlowRate": 0.65,
+                                    "hints": ["Commence par un M majuscule", "Comporte 5 lettres"],
+                                    "targetAccents": []
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[0]["modules"].append(mod_001)
+    all_modules["MOD-001"] = mod_001
+
+    # =========================================================================
+    # PALIER 2 : NIVEAU CP–CE1 (A1) - DÉCOUVERTE & SURVIE (MOD-002)
+    # =========================================================================
+    mod_002 = {
+        "id": "MOD-002",
+        "stage": 2,
+        "title": "Fondations du Mot, Verbes Piliers & Négation Simple",
+        "description": "Le genre des noms (un/une), les 4 verbes essentiels au présent et la structure 'ne... pas'.",
+        "chapters": [
+            {
+                "id": "CHP-002-01",
+                "moduleId": "MOD-002",
+                "stage": 2,
+                "title": "Le Masculin et le Féminin : Un ou Une ?",
+                "summary": "Découvrez le genre des noms sans stress grâce aux déterminants un / le (masculin) et une / la (féminin).",
+                "rules": [
+                    {
+                        "id": "FR-A1-001",
+                        "title": "Le genre grammatical",
+                        "statement": "En français, chaque nom a un genre : masculin (un livre, le soleil) ou féminin (une table, la lune).",
+                        "formula": "Masculin = UN / LE | Féminin = UNE / LA"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-002-01-01",
+                        "chapterId": "CHP-002-01",
+                        "title": "Choisir Un ou Une",
+                        "durationMinutes": 3,
+                        "exercises": [
+                            {
+                                "id": "EX-002-01",
+                                "type": "diagnostic_mcq",
+                                "ruleId": "FR-A1-001",
+                                "prompt": "Complète correctement la phrase : 'C'est ___ maison accueillante.'",
+                                "audioText": "C'est une maison accueillante.",
+                                "data": {
+                                    "question": "Quel déterminant convient pour 'maison' ?",
+                                    "options": [
+                                        {"id": "o1", "text": "une", "isCorrect": True, "feedback": "Exact ! Maison est un nom féminin : une maison, la maison."},
+                                        {"id": "o2", "text": "un", "isCorrect": False, "feedback": "Non, 'maison' n'est pas masculin. On dit 'la maison'."},
+                                        {"id": "o3", "text": "des", "isCorrect": False, "feedback": "'Des' s'utilise pour plusieurs objets au pluriel."}
+                                    ],
+                                    "explanation": "Le mot 'maison' est de genre féminin, il prend donc l'article 'une' ou 'la'."
+                                }
+                            },
+                            {
+                                "id": "EX-002-02",
+                                "type": "cloze_morphology",
+                                "ruleId": "FR-A1-001",
+                                "prompt": "Écris 'un' ou 'une' pour compléter :",
+                                "audioText": "Voici un vélo rapide.",
+                                "data": {
+                                    "sentenceBefore": "Voici ",
+                                    "sentenceAfter": " vélo rapide.",
+                                    "expectedAnswer": "un",
+                                    "acceptableAnswers": ["un", "le"],
+                                    "hint1": "Vélo est un mot masculin.",
+                                    "hint2": "Deux lettres : u...",
+                                    "baseForm": "vélo (masculin)"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "CHP-002-02",
+                "moduleId": "MOD-002",
+                "stage": 2,
+                "title": "Les Deux Verbes Piliers : Être & Avoir au Présent",
+                "summary": "Maîtrisez les deux verbes les plus importants de la langue française : Je suis, Tu es / J'ai, Tu as.",
+                "rules": [
+                    {
+                        "id": "FR-A1-002",
+                        "title": "Être et Avoir au présent",
+                        "statement": "Être sert à décrire un état (Je suis prêt) ; Avoir sert à exprimer la possession (J'ai un livre).",
+                        "formula": "Être : je suis, tu es, il est | Avoir : j'ai, tu as, il a"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-002-02-01",
+                        "chapterId": "CHP-002-02",
+                        "title": "Conjuguer Être et Avoir",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-002-03",
+                                "type": "syllable_bricks",
+                                "ruleId": "FR-A1-002",
+                                "prompt": "Construis la phrase : 'Je suis très heureux aujourd'hui'",
+                                "audioText": "Je suis très heureux aujourd'hui",
+                                "data": {
+                                    "targetPhrase": "Je suis très heureux aujourd'hui",
+                                    "availableBricks": ["Je", "suis", "très", "heureux", "aujourd'hui", "es", "ai"],
+                                    "correctSequence": ["Je", "suis", "très", "heureux", "aujourd'hui"]
+                                }
+                            },
+                            {
+                                "id": "EX-002-04",
+                                "type": "cloze_morphology",
+                                "ruleId": "FR-A1-002",
+                                "prompt": "Complète avec le verbe avoir au présent :",
+                                "audioText": "Nous avons un beau projet.",
+                                "data": {
+                                    "sentenceBefore": "Nous ",
+                                    "sentenceAfter": " un beau projet.",
+                                    "expectedAnswer": "avons",
+                                    "acceptableAnswers": ["avons"],
+                                    "hint1": "Verbe avoir avec 'nous'.",
+                                    "hint2": "Terminaison en -ons.",
+                                    "baseForm": "avoir (nous)"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "CHP-002-03",
+                "moduleId": "MOD-002",
+                "stage": 2,
+                "title": "Dire Non avec Élégance : La Négation Ne... Pas",
+                "summary": "Apprenez à encadrer le verbe avec 'ne' et 'pas' comme un sandwich protecteur.",
+                "rules": [
+                    {
+                        "id": "FR-A1-003",
+                        "title": "La négation bipartite",
+                        "statement": "En français correct, la négation se compose de deux mots qui encadrent le verbe : NE + Verbe + PAS.",
+                        "formula": "Sujet + NE + Verbe + PAS (devant voyelle : N')"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-002-03-01",
+                        "chapterId": "CHP-002-03",
+                        "title": "Construire la négation",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-002-05",
+                                "type": "voltaire_hunter",
+                                "ruleId": "FR-A1-003",
+                                "prompt": "Chasse à l'erreur : repère le mot manquant ou fautif dans cette phrase négative :",
+                                "audioText": "Il ne dort pas encore.",
+                                "data": {
+                                    "sentence": "Il dort pas encore cette nuit.",
+                                    "words": [
+                                        {"text": "Il", "isError": False},
+                                        {"text": "dort", "isError": True, "correction": "ne dort"},
+                                        {"text": "pas", "isError": False},
+                                        {"text": "encore", "isError": False},
+                                        {"text": "cette", "isError": False},
+                                        {"text": "nuit.", "isError": False}
+                                    ],
+                                    "hasError": True,
+                                    "explanation": "À l'écrit soutenu, il ne faut jamais oublier le premier terme de la négation 'ne' : 'Il ne dort pas'.",
+                                    "mnemonic": "Le verbe est le fromage dans le sandwich : 'ne' est la tranche de pain du haut, 'pas' celle du bas !"
+                                }
+                            },
+                            {
+                                "id": "EX-002-06",
+                                "type": "syllable_bricks",
+                                "ruleId": "FR-A1-003",
+                                "prompt": "Construis la phrase négative complète :",
+                                "audioText": "Elle n'aime pas le bruit.",
+                                "data": {
+                                    "targetPhrase": "Elle n'aime pas le bruit.",
+                                    "availableBricks": ["Elle", "n'aime", "pas", "le", "bruit.", "ne", "aime"],
+                                    "correctSequence": ["Elle", "n'aime", "pas", "le", "bruit."]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[1]["modules"].append(mod_002)
+    all_modules["MOD-002"] = mod_002
+
+    # =========================================================================
+    # PALIER 3 : NIVEAU CE2–CM2 (A2) - FONDATIONS SOLIDES (MOD-101 & MOD-102)
+    # =========================================================================
+    mod_101 = {
+        "id": "MOD-101",
+        "stage": 3,
+        "title": "Phonétique Appliquée (API), Chaîne Sonore & Alphabet Orthographique",
+        "description": "Distinguer le son et la lettre, maîtriser les 36 phonèmes et le système des liaisons.",
+        "chapters": [
+            {
+                "id": "CHP-101-01",
+                "moduleId": "MOD-101",
+                "stage": 3,
+                "title": "La Double Nature du Code Linguistique : Phonème vs Graphème & API",
+                "summary": "Découvrez pourquoi 'oiseau' a 7 lettres mais seulement 4 sons, et apprenez l'API.",
+                "rules": [
+                    {
+                        "id": "FR-PHON-001",
+                        "title": "Phonème vs Graphème",
+                        "statement": "Le phonème est l'unité distinctive sonore perçue par l'oreille ; le graphème est l'unité écrite perçue par l'œil.",
+                        "formula": "1 graphème peut noter plusieurs phonèmes, et 1 phonème plusieurs graphèmes."
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-101-01-01",
+                        "chapterId": "CHP-101-01",
+                        "title": "Comptage Sons vs Lettres",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-101-01",
+                                "type": "diagnostic_mcq",
+                                "ruleId": "FR-PHON-001",
+                                "prompt": "Dans le mot 'champ', combien comptez-vous de lettres écrites et de sons prononcés ?",
+                                "audioText": "champ",
+                                "ipa": "/ʃɑ̃/",
+                                "data": {
+                                    "question": "Analyse le mot 'champ' :",
+                                    "options": [
+                                        {"id": "o1", "text": "5 lettres et 2 sons (/ʃ/ + /ɑ̃/)", "isCorrect": True, "feedback": "Excellent ! 'ch' = /ʃ/, 'am' = /ɑ̃/, 'p' est muet."},
+                                        {"id": "o2", "text": "5 lettres et 5 sons", "isCorrect": False, "feedback": "Attention, en français chaque lettre ne produit pas un son isolé."},
+                                        {"id": "o3", "text": "4 lettres et 3 sons", "isCorrect": False, "feedback": "Compte bien : c-h-a-m-p fait 5 lettres."}
+                                    ],
+                                    "explanation": "Le mot 'champ' compte 5 lettres mais seulement 2 phonèmes /ʃɑ̃/ car 'ch' forme un digramme consonantique et 'am' transcrit la voyelle nasale /ɑ̃/."
+                                }
+                            },
+                            {
+                                "id": "EX-101-02",
+                                "type": "dictation",
+                                "ruleId": "FR-PHON-001",
+                                "prompt": "Écoute et retranscris le mot avec ses accents exacts :",
+                                "audioText": "élégante",
+                                "data": {
+                                    "fullText": "élégante",
+                                    "audioNormalRate": 1.0,
+                                    "audioSlowRate": 0.65,
+                                    "hints": ["Adjectif féminin", "Deux accents aigus"],
+                                    "targetAccents": ["é", "è", "ê", "à"]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "CHP-101-04",
+                "moduleId": "MOD-101",
+                "stage": 3,
+                "title": "Le Système Formel des Liaisons : Obligatoires, Interdites & Pataquès",
+                "summary": "Comprendre quand réactiver une consonne finale muette et bannir les velours et cuirs.",
+                "rules": [
+                    {
+                        "id": "FR-PHON-004",
+                        "title": "Règle de la liaison obligatoire",
+                        "statement": "La liaison est obligatoire entre le déterminant et le nom (les_amis) et entre le pronom sujet et le verbe (ils_ont).",
+                        "formula": "Déterminant + Nom : OBLIGATOIRE | Nom singulier + Adjectif : INTERDITE"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-101-04-01",
+                        "chapterId": "CHP-101-04",
+                        "title": "Chasse aux faux raccords (Liaisons)",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-101-03",
+                                "type": "voltaire_hunter",
+                                "ruleId": "FR-PHON-004",
+                                "prompt": "Repère l'erreur de liaison ou de transcription phonétique dans la phrase :",
+                                "audioText": "Donne-moi-z-en un peu.",
+                                "data": {
+                                    "sentence": "Donne-moi-z-en un peu.",
+                                    "words": [
+                                        {"text": "Donne-moi-z-en", "isError": True, "correction": "Donnes-en-moi"},
+                                        {"text": "un", "isError": False},
+                                        {"text": "peu.", "isError": False}
+                                    ],
+                                    "hasError": True,
+                                    "explanation": "Le 'z' intercalé ('moi-z-en') est une faute de liaison populaire (pataquès). À l'impératif régulier avec 'en', le verbe reprend son 's' étymologique : 'Donnes-en'.",
+                                    "mnemonic": "Pas de 'z' parasite en l'air : rattache le 's' au verbe (donnes-en) !"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[2]["modules"].append(mod_101)
+    all_modules["MOD-101"] = mod_101
+
+    # =========================================================================
+    # PALIER 4 : NIVEAU COLLÈGE (B1) - AUTONOMIE & FLUIDITÉ (MOD-201 & MOD-202)
+    # =========================================================================
+    mod_202 = {
+        "id": "MOD-202",
+        "stage": 4,
+        "title": "Participe Passé avec Avoir, COD Antéposé & Ponctuation Interne",
+        "description": "Maîtriser la règle historique de Clément Marot et la ponctuation expressive (virgule, point-virgule).",
+        "chapters": [
+            {
+                "id": "CHP-202-01",
+                "moduleId": "MOD-202",
+                "stage": 4,
+                "title": "La Règle de Marot : Participe Passé avec Avoir et COD Antéposé",
+                "summary": "Découvrez le mécanisme exact de l'accord avec le complément d'objet direct placé avant l'auxiliaire.",
+                "rules": [
+                    {
+                        "id": "FR-ORTHO-003",
+                        "title": "Règle de Clément Marot (1538)",
+                        "statement": "Le participe passé conjugué avec l'auxiliaire avoir s'accorde en genre et en nombre avec son COD si et seulement si celui-ci est placé AVANT le verbe.",
+                        "formula": "COD antéposé -> Accord | COD postposé ou absent -> Invariable"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-202-01-01",
+                        "chapterId": "CHP-202-01",
+                        "title": "Détecter la place du COD",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-202-01",
+                                "type": "voltaire_hunter",
+                                "ruleId": "FR-ORTHO-003",
+                                "prompt": "Clique sur le mot contenant une faute d'accord :",
+                                "audioText": "Les lettres que j'ai reçu ce matin sont importantes.",
+                                "data": {
+                                    "sentence": "Les lettres que j'ai reçu ce matin sont importantes.",
+                                    "words": [
+                                        {"text": "Les", "isError": False},
+                                        {"text": "lettres", "isError": False},
+                                        {"text": "que", "isError": False},
+                                        {"text": "j'ai", "isError": False},
+                                        {"text": "reçu", "isError": True, "correction": "reçues"},
+                                        {"text": "ce", "isError": False},
+                                        {"text": "matin", "isError": False},
+                                        {"text": "sont", "isError": False},
+                                        {"text": "importantes.", "isError": False}
+                                    ],
+                                    "hasError": True,
+                                    "explanation": "Le pronom relatif 'que' a pour antécédent 'les lettres' (féminin pluriel). Placé avant le verbe 'ai reçu', il impose l'accord : 'reçues'.",
+                                    "mnemonic": "Pose la question : 'J'ai reçu quoi ?' -> Les lettres ! Réponse AVANT = Accord !"
+                                }
+                            },
+                            {
+                                "id": "EX-202-02",
+                                "type": "cloze_morphology",
+                                "ruleId": "FR-ORTHO-003",
+                                "prompt": "Accorde correctement le participe passé 'écrire' :",
+                                "audioText": "Ces notes, il les a écrites hier.",
+                                "data": {
+                                    "sentenceBefore": "Ces notes, il les a ",
+                                    "sentenceAfter": " hier soir.",
+                                    "expectedAnswer": "écrites",
+                                    "acceptableAnswers": ["écrites"],
+                                    "hint1": "Le pronom COD 'les' remplace 'notes' (féminin pluriel) et précède l'auxiliaire avoir.",
+                                    "hint2": "Féminin pluriel : terminaison -tes.",
+                                    "baseForm": "écrire (participe passé)"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[3]["modules"].append(mod_202)
+    all_modules["MOD-202"] = mod_202
+
+    # =========================================================================
+    # PALIER 5 : NIVEAU LYCÉE (B2) - ARGUMENTATION & NUANCES (MOD-301)
+    # =========================================================================
+    mod_301 = {
+        "id": "MOD-301",
+        "stage": 5,
+        "title": "Subjonctif Présent, Modes et Concordance des Temps",
+        "description": "Exprimer le doute, la volonté, la nécessité et maîtriser les verbes irréguliers du subjonctif.",
+        "chapters": [
+            {
+                "id": "CHP-301-01",
+                "moduleId": "MOD-301",
+                "stage": 5,
+                "title": "La Mécanique Modale : Indicatif du Réel vs Subjonctif du Virtuel",
+                "summary": "Comprendre quand et pourquoi le subjonctif s'impose après les verbes de sentiment, volonté ou obligation.",
+                "rules": [
+                    {
+                        "id": "FR-SYN-005",
+                        "title": "La valence modale du subjonctif",
+                        "statement": "Le subjonctif s'emploie dans les subordonnées dépendant d'un verbe exprimant la volonté, le doute ou l'évaluation subjective.",
+                        "formula": "Il faut que + Subjonctif | Je pense que + Indicatif (affirmation)"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-301-01-01",
+                        "chapterId": "CHP-301-01",
+                        "title": "Subjonctif vs Indicatif",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-301-01",
+                                "type": "diagnostic_mcq",
+                                "ruleId": "FR-SYN-005",
+                                "prompt": "Quelle phrase est rigoureusement conforme à la syntaxe académique ?",
+                                "audioText": "Il faut que nous soyons vigilants.",
+                                "data": {
+                                    "question": "Choisis la forme verbale correcte :",
+                                    "options": [
+                                        {"id": "o1", "text": "Bien qu'il fasse froid, nous sortirons.", "isCorrect": True, "feedback": "Exact ! 'Bien que' exige toujours le subjonctif (fasse)."},
+                                        {"id": "o2", "text": "Bien qu'il fait froid, nous sortirons.", "isCorrect": False, "feedback": "'Bien que' suivi de l'indicatif est une faute syntaxique majeure."},
+                                        {"id": "o3", "text": "Après qu'il soit parti, nous avons mangé.", "isCorrect": False, "feedback": "Attention ! 'Après que' exige l'indicatif (est parti) et non le subjonctif."}
+                                    ],
+                                    "explanation": "La conjonction 'bien que' régit obligatoirement le subjonctif concessif."
+                                }
+                            },
+                            {
+                                "id": "EX-301-02",
+                                "type": "cloze_morphology",
+                                "ruleId": "FR-SYN-005",
+                                "prompt": "Conjugue le verbe 'pouvoir' au subjonctif présent :",
+                                "audioText": "Pourvu qu'il puisse nous rejoindre.",
+                                "data": {
+                                    "sentenceBefore": "Pourvu qu'il ",
+                                    "sentenceAfter": " nous rejoindre à temps !",
+                                    "expectedAnswer": "puisse",
+                                    "acceptableAnswers": ["puisse"],
+                                    "hint1": "Forme irrégulière du subjonctif de pouvoir à la 3e personne du singulier.",
+                                    "hint2": "Termine par -sse.",
+                                    "baseForm": "pouvoir (subjonctif 3e sg)"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[4]["modules"].append(mod_301)
+    all_modules["MOD-301"] = mod_301
+
+    # =========================================================================
+    # PALIER 6 : NIVEAU SUPÉRIEUR (C1) - PERFECTIONNEMENT & ZÉRO FAUTE (MOD-303)
+    # =========================================================================
+    mod_303 = {
+        "id": "MOD-303",
+        "stage": 6,
+        "title": "Accords Complexes du Participe Passé : Pronominaux, En & Adjectifs de Couleur",
+        "description": "L'accord subtil des verbes pronominaux (se plaire, se succéder), la neutralisation par 'en' et les adjectifs composés.",
+        "chapters": [
+            {
+                "id": "CHP-303-01",
+                "moduleId": "MOD-303",
+                "stage": 6,
+                "title": "L'Accord des Verbes Pronominaux Réfléchis et Réciproques",
+                "summary": "Analyser la fonction du pronom réfléchi (COD ou COI) pour éviter l'accord abusif avec 'se succéder'.",
+                "rules": [
+                    {
+                        "id": "FR-ORTHO-007",
+                        "title": "Verbes pronominaux à complément indirect",
+                        "statement": "Les verbes pronominaux dont le pronom 'se' est un COI (se succéder, se parler, se plaire, se nuire) restent toujours invariables au participe passé.",
+                        "formula": "Se succéder à soi-même / aux autres -> COI -> Invariable (ils se sont succédé)"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-303-01-01",
+                        "chapterId": "CHP-303-01",
+                        "title": "Chasse aux pièges pronominaux Voltaire",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-303-01",
+                                "type": "voltaire_hunter",
+                                "ruleId": "FR-ORTHO-007",
+                                "prompt": "Clique sur le mot comportant une faute d'accord (ou clique sur Aucune Faute) :",
+                                "audioText": "Ces deux directeurs se sont succédé à la tête de l'entreprise.",
+                                "data": {
+                                    "sentence": "Ces deux directeurs se sont succédés à la tête de l'entreprise.",
+                                    "words": [
+                                        {"text": "Ces", "isError": False},
+                                        {"text": "deux", "isError": False},
+                                        {"text": "directeurs", "isError": False},
+                                        {"text": "se", "isError": False},
+                                        {"text": "sont", "isError": False},
+                                        {"text": "succédés", "isError": True, "correction": "succédé"},
+                                        {"text": "à", "isError": False},
+                                        {"text": "la", "isError": False},
+                                        {"text": "tête", "isError": False},
+                                        {"text": "de", "isError": False},
+                                        {"text": "l'entreprise.", "isError": False}
+                                    ],
+                                    "hasError": True,
+                                    "explanation": "On succède À quelqu'un : le pronom 'se' est un COI (Complément d'Objet Indirect). Le participe passé reste strictement invariable : 'se sont succédé'.",
+                                    "mnemonic": "Si on dit 'parler à', 'plaire à', 'succéder à' -> le participe ne s'accorde jamais avec 'se' !"
+                                }
+                            },
+                            {
+                                "id": "EX-303-02",
+                                "type": "diagnostic_mcq",
+                                "ruleId": "FR-ORTHO-007",
+                                "prompt": "Identifie la phrase correctement accordée :",
+                                "audioText": "Elles se sont rendu compte de leur oubli.",
+                                "data": {
+                                    "question": "Quelle phrase est rigoureusement correcte ?",
+                                    "options": [
+                                        {"id": "o1", "text": "Elles se sont rendu compte de leur bévue.", "isCorrect": True, "feedback": "Exact ! Dans la locution figée 'se rendre compte', 'compte' est le COD postposé : 'rendu' reste invariable."},
+                                        {"id": "o2", "text": "Elles se sont rendues compte de leur bévue.", "isCorrect": False, "feedback": "Erreur classique : 'compte' est COD postposé, donc pas d'accord."},
+                                        {"id": "o3", "text": "Elles se sont rendue compte de leur bévue.", "isCorrect": False, "feedback": "Accord erroné au singulier."}
+                                    ],
+                                    "explanation": "La locution 'se rendre compte' ne prend jamais d'accord au participe passé car 'compte' est le COD placé après le verbe."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[5]["modules"].append(mod_303)
+    all_modules["MOD-303"] = mod_303
+
+    # =========================================================================
+    # PALIER 7 : NIVEAU EXCELLENCE (C2) - HAUT STYLE & SYNTAXE PURE (MOD-401)
+    # =========================================================================
+    mod_401 = {
+        "id": "MOD-401",
+        "stage": 7,
+        "title": "Syntaxe Pure, Invariabilité de 'Fait', Statut de 'Laissé' & Rectifications 1990",
+        "description": "L'invariabilité absolue de 'fait + infinitif', l'arbitrage 1990 et les constructions verbales directes vs prépositionnelles.",
+        "chapters": [
+            {
+                "id": "CHP-401-04",
+                "moduleId": "MOD-401",
+                "stage": 7,
+                "title": "L'Invariabilité Absolue de 'Fait' et le Statut Dual de 'Laissé' + Infinitif",
+                "summary": "Découvrez pourquoi 'fait' suivi d'un infinitif ne prend JAMAIS d'accord, quelle que soit la position du COD.",
+                "rules": [
+                    {
+                        "id": "FR-C2-001",
+                        "title": "Invariabilité absolue de 'fait' semi-auxiliaire",
+                        "statement": "Le participe passé 'fait' suivi immédiatement d'un infinitif forme une périphrase causale indissociable et demeure rigoureusement invariable.",
+                        "formula": "FAIT + Infinitif = INVARIABLE EN TOUTES CIRCONSTANCES"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-401-04-01",
+                        "chapterId": "CHP-401-04",
+                        "title": "Fait + Infinitif : Zéro Faute Garanti",
+                        "durationMinutes": 4,
+                        "exercises": [
+                            {
+                                "id": "EX-401-01",
+                                "type": "voltaire_hunter",
+                                "ruleId": "FR-C2-001",
+                                "prompt": "Trouve l'erreur d'accord dans cette correspondance académique :",
+                                "audioText": "Les maisons qu'il a fait construire sont splendides.",
+                                "data": {
+                                    "sentence": "Les maisons qu'il a faites construire sont splendides.",
+                                    "words": [
+                                        {"text": "Les", "isError": False},
+                                        {"text": "maisons", "isError": False},
+                                        {"text": "qu'il", "isError": False},
+                                        {"text": "a", "isError": False},
+                                        {"text": "faites", "isError": True, "correction": "fait"},
+                                        {"text": "construire", "isError": False},
+                                        {"text": "sont", "isError": False},
+                                        {"text": "splendides.", "isError": False}
+                                    ],
+                                    "hasError": True,
+                                    "explanation": "'Fait' suivi d'un infinitif forme une locution verbale causale indissociable. Il est TOUJOURS invariable : 'il a fait construire'.",
+                                    "mnemonic": "Fait + verbe à l'infinitif = FAIT sans e ni s, quoi qu'il arrive !"
+                                }
+                            },
+                            {
+                                "id": "EX-401-02",
+                                "type": "diagnostic_mcq",
+                                "ruleId": "FR-C2-001",
+                                "prompt": "Quelle construction verbale est correcte selon l'Académie française ?",
+                                "audioText": "Ce projet permettra de pallier ces difficultés.",
+                                "data": {
+                                    "question": "Choisis la tournure syntaxique irréprochable :",
+                                    "options": [
+                                        {"id": "o1", "text": "Ce dispositif permet de pallier les difficultés rencontrées.", "isCorrect": True, "feedback": "Exact ! 'Pallier' est transitif direct : on pallie QUELQUE CHOSE, jamais 'à quelque chose'."},
+                                        {"id": "o2", "text": "Ce dispositif permet de pallier aux difficultés rencontrées.", "isCorrect": False, "feedback": "'Pallier à' est un solécisme très fréquent mais proscrit par le bon usage."},
+                                        {"id": "o3", "text": "Je me rappelle de cette journée mémorable.", "isCorrect": False, "feedback": "On se rappelle QUELQUE CHOSE (transitif direct), ou on se souvient DE quelque chose."}
+                                    ],
+                                    "explanation": "Le verbe 'pallier' est transitif direct : son emploi avec la préposition 'à' est une faute de registre."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[6]["modules"].append(mod_401)
+    all_modules["MOD-401"] = mod_401
+
+    # =========================================================================
+    # PALIER 8 : NIVEAU WORLD-CLASS (C2+) - ÉLOQUENCE & DIPLOMATIE (MOD-402/403)
+    # =========================================================================
+    mod_402 = {
+        "id": "MOD-402",
+        "stage": 8,
+        "title": "Rhétorique Argumentative, Réfutation des Sophismes & Haute Éloquence",
+        "description": "Les figures de style majeures (litote, prétérition, chiasme), la détection des sophismes et le protocole diplomatique.",
+        "chapters": [
+            {
+                "id": "CHP-402-03",
+                "moduleId": "MOD-402",
+                "stage": 8,
+                "title": "Traité Complet des Sophismes : Détection et Riposte Déontologique",
+                "summary": "Distinguer l'argument valable de l'attaque ad hominem, de l'épouvantail ou du faux dilemme.",
+                "rules": [
+                    {
+                        "id": "FR-RHET-003",
+                        "title": "Détection du sophisme de l'épouvantail",
+                        "statement": "L'épouvantail (homme de paille) consiste à caricaturer la thèse adverse pour la réfuter plus facilement au lieu de répondre à l'argument réel.",
+                        "formula": "Caricature déformante -> Réfutation aisée de la caricature -> Fausse victoire dialectique"
+                    }
+                ],
+                "lessons": [
+                    {
+                        "id": "LES-402-03-01",
+                        "chapterId": "CHP-402-03",
+                        "title": "Atelier de Rhétorique & Détection",
+                        "durationMinutes": 5,
+                        "exercises": [
+                            {
+                                "id": "EX-402-01",
+                                "type": "rhetoric_studio",
+                                "ruleId": "FR-RHET-003",
+                                "prompt": "Identifie la figure de style employée dans cette réplique célèbre :",
+                                "audioText": "Va, je ne te hais point.",
+                                "data": {
+                                    "textToAnalyze": "« Va, je ne te hais point. » (Corneille, Le Cid)",
+                                    "mode": "identify_figure",
+                                    "figureOptions": ["Litote", "Hyperbole", "Oxymore", "Chiasme"],
+                                    "correctFigure": "Litote",
+                                    "explanation": "La litote consiste à dire moins pour suggérer beaucoup plus : 'je ne te hais point' signifie passionnément 'je t'aime'."
+                                }
+                            },
+                            {
+                                "id": "EX-402-02",
+                                "type": "rhetoric_studio",
+                                "ruleId": "FR-RHET-003",
+                                "prompt": "Reclassement de registres : identifie la formule relevant du protocole diplomatique et soutenu :",
+                                "audioText": "Veuillez agréer, Monsieur le Ministre, l'assurance de ma très haute considération.",
+                                "data": {
+                                    "mode": "classify_register",
+                                    "textToAnalyze": "Courriers officiels et correspondance administrative",
+                                    "registerOptions": [
+                                        {"text": "À l'attention de Monsieur le Ministre (destinataire)", "register": "soutenu"},
+                                        {"text": "C'est à l'intention de son bien-être (pour lui plaire)", "register": "courant"},
+                                        {"text": "Je vous écris deux mots vite fait", "register": "familier"}
+                                    ],
+                                    "explanation": "'À l'attention de' désigne le destinataire formel d'un courrier, tandis que 'à l'intention de' signifie 'en l'honneur de' ou 'dans le but de faire plaisir à'."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    stages[7]["modules"].append(mod_402)
+    all_modules["MOD-402"] = mod_402
+
+    # =========================================================================
+    # 2. DIAGNOSTIC INITIAL EN 4 QUESTIONS (POSITIONNEMENT ADAPTATIF 60 SECONDES)
+    # =========================================================================
+    diagnostic_questions = [
+        {
+            "id": "DIAG-Q1",
+            "stageTarget": 1,
+            "stageName": "Palier 1 / 2 : Initiation & Survie (A0–A1)",
+            "question": "Écoute attentivement : quel mot contient le son [a] et rime avec 'maman' ?",
+            "audioText": "Banane, Pomme, Maman",
+            "options": [
+                {"id": "d1", "text": "Banane", "isCorrect": True, "score": 1, "feedback": "Excellent pour débuter !"},
+                {"id": "d2", "text": "Pomme", "isCorrect": False, "score": 0, "feedback": "Pomme contient le son [o]."},
+                {"id": "d3", "text": "Nuit", "isCorrect": False, "score": 0, "feedback": "Nuit contient le son [ɥi]."}
+            ]
+        },
+        {
+            "id": "DIAG-Q2",
+            "stageTarget": 3,
+            "stageName": "Palier 3 / 4 : Fondations & Autonomie (A2–B1)",
+            "question": "Quelle phrase est correctement orthographiée ?",
+            "audioText": "Les fleurs que j'ai cueillies sont parfumées.",
+            "options": [
+                {"id": "d1", "text": "Les fleurs que j'ai cueillies sont parfumées.", "isCorrect": True, "score": 2, "feedback": "Parfait : accord du COD antéposé 'que' (fleurs)."},
+                {"id": "d2", "text": "Les fleurs que j'ai cueilli sont parfumées.", "isCorrect": False, "score": 0, "feedback": "Oubli de l'accord du participe passé avec avoir."},
+                {"id": "d3", "text": "Les fleurs que j'ai cueillit sont parfumés.", "isCorrect": False, "score": 0, "feedback": "Erreur sur le participe et sur l'attribut."}
+            ]
+        },
+        {
+            "id": "DIAG-Q3",
+            "stageTarget": 5,
+            "stageName": "Palier 5 / 6 : Argumentation & Zéro Faute (B2–C1)",
+            "question": "Dans quelle phrase le participe passé est-il rigoureusement accordé ?",
+            "audioText": "Elles se sont succédé sans heurts.",
+            "options": [
+                {"id": "d1", "text": "Ces deux rivales se sont succédé à la présidence.", "isCorrect": True, "score": 3, "feedback": "Remarquable ! Succéder est transitif indirect (succéder à), donc invariable."},
+                {"id": "d2", "text": "Ces deux rivales se sont succédées à la présidence.", "isCorrect": False, "score": 0, "feedback": "Erreur classique : 'se' est COI, pas d'accord."},
+                {"id": "d3", "text": "Elles se sont rendues compte du problème.", "isCorrect": False, "score": 0, "feedback": "Dans 'se rendre compte', compte est le COD postposé, donc invariable."}
+            ]
+        },
+        {
+            "id": "DIAG-Q4",
+            "stageTarget": 7,
+            "stageName": "Palier 7 / 8 : Excellence & World-Class (C2–C2+)",
+            "question": "Identifie la construction syntaxique conforme au protocole de l'Académie française :",
+            "audioText": "Il s'efforce de pallier les insuffisances du texte.",
+            "options": [
+                {"id": "d1", "text": "Cette réforme permettra de pallier les défaillances du système.", "isCorrect": True, "score": 4, "feedback": "Niveau Maître : 'pallier' est transitif direct (pas de préposition 'à')."},
+                {"id": "d2", "text": "Cette réforme permettra de pallier aux défaillances du système.", "isCorrect": False, "score": 0, "feedback": "'Pallier à' est un solécisme sanctionné au niveau C2."},
+                {"id": "d3", "text": "Après qu'il soit parti, la séance a été levée.", "isCorrect": False, "score": 0, "feedback": "'Après que' appelle l'indicatif (fut parti / est parti) et non le subjonctif."}
+            ]
+        }
+    ]
+
+    # =========================================================================
+    # 3. BANQUE DE CARTES SRS INITIALES (fata.srs ENGINE)
+    # =========================================================================
+    srs_cards = [
+        {
+            "id": "SRS-001",
+            "stage": 1,
+            "chapterId": "CHP-001-01",
+            "ruleId": "FR-INI-001",
+            "front": "Quel son fait la lettre A dans 'Avocat' ?",
+            "back": "Le son /a/ (bouche grande ouverte, son clair).",
+            "explanation": "Les voyelles orales sortent librement sans frottement.",
+            "stability": 2.5,
+            "difficulty": 2.0,
+            "retention": 95.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        },
+        {
+            "id": "SRS-002",
+            "stage": 2,
+            "chapterId": "CHP-002-03",
+            "ruleId": "FR-A1-003",
+            "front": "Quels sont les deux mots inséparables de la négation standard ?",
+            "back": "NE (ou N') ... PAS",
+            "explanation": "Ils encadrent le verbe conjugué comme un sandwich.",
+            "stability": 2.0,
+            "difficulty": 3.0,
+            "retention": 90.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        },
+        {
+            "id": "SRS-003",
+            "stage": 3,
+            "chapterId": "CHP-101-01",
+            "ruleId": "FR-PHON-001",
+            "front": "Combien de phonèmes (sons) compte le mot 'champ' ?",
+            "back": "2 sons : /ʃ/ + /ɑ̃/",
+            "explanation": "5 lettres écrites pour 2 sons seulement ('ch' et 'am').",
+            "stability": 3.0,
+            "difficulty": 4.5,
+            "retention": 85.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        },
+        {
+            "id": "SRS-004",
+            "stage": 4,
+            "chapterId": "CHP-202-01",
+            "ruleId": "FR-ORTHO-003",
+            "front": "Dans 'Les lettres que j'ai reçu(es)', comment s'accorde 'reçu' ?",
+            "back": "reçues (féminin pluriel avec le COD antéposé 'que' = les lettres)",
+            "explanation": "Règle de Marot : avec l'auxiliaire avoir, accord si le COD précède le verbe.",
+            "stability": 1.5,
+            "difficulty": 6.0,
+            "retention": 78.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        },
+        {
+            "id": "SRS-005",
+            "stage": 5,
+            "chapterId": "CHP-301-01",
+            "ruleId": "FR-SYN-005",
+            "front": "La locution 'Bien que' exige-t-elle l'indicatif ou le subjonctif ?",
+            "back": "Le subjonctif (« Bien qu'il fasse froid »)",
+            "explanation": "Conjonction concessive subordonnante de virtualité.",
+            "stability": 4.0,
+            "difficulty": 5.0,
+            "retention": 88.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        },
+        {
+            "id": "SRS-006",
+            "stage": 6,
+            "chapterId": "CHP-303-01",
+            "ruleId": "FR-ORTHO-007",
+            "front": "Pourquoi écrit-on 'Ils se sont succédé' sans accord ?",
+            "back": "Parce qu'on succède À quelqu'un : le pronom 'se' est un COI.",
+            "explanation": "Les pronominaux à COI exclusif ne s'accordent jamais au participe passé.",
+            "stability": 1.0,
+            "difficulty": 7.5,
+            "retention": 72.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 1
+        },
+        {
+            "id": "SRS-007",
+            "stage": 7,
+            "chapterId": "CHP-401-04",
+            "ruleId": "FR-C2-001",
+            "front": "Quelle est la règle d'accord pour 'fait' suivi d'un infinitif ?",
+            "back": "Invariabilité absolue (« Les maisons qu'il a fait construire »)",
+            "explanation": "Fait forme avec l'infinitif une unité prédicative causale indissoluble.",
+            "stability": 5.0,
+            "difficulty": 6.5,
+            "retention": 82.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        },
+        {
+            "id": "SRS-008",
+            "stage": 8,
+            "chapterId": "CHP-402-03",
+            "ruleId": "FR-RHET-003",
+            "front": "Quelle est la différence entre 'À l'attention de' et 'À l'intention de' ?",
+            "back": "'À l'attention de' = destinataire d'un courrier. 'À l'intention de' = pour faire plaisir à.",
+            "explanation": "Protocole épistolaire et administratif de rigueur.",
+            "stability": 3.5,
+            "difficulty": 7.0,
+            "retention": 80.0,
+            "lastReviewedAt": None,
+            "nextReviewAt": None,
+            "lapses": 0
+        }
+    ]
+
+    # Construction du JSON final
+    curriculum_data = {
+        "metadata": {
+            "title": "World-Class French · Interactive Curriculum Bank",
+            "version": "1.0.0",
+            "totalStages": len(stages),
+            "generatedAt": "2026-10-15T19:40:00Z",
+            "normativeReferences": [
+                "SRC-GRAM-01 (Grevisse & Goosse)",
+                "SRC-GRAM-02 (Riegel, Pellat, Rioul)",
+                "SRC-PHON-01 (Léon)",
+                "SRC-NORM-03 (Terminologie MEN)"
+            ]
+        },
+        "stages": stages,
+        "diagnosticQuestions": diagnostic_questions,
+        "initialSrsCards": srs_cards
+    }
+
+    # Sauvegarde
+    OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(curriculum_data, f, ensure_ascii=False, indent=2)
+
+    print(f"[COMPILATEUR] Compilation achevée avec succès dans {OUTPUT_JSON} !")
+    print(f"[COMPILATEUR] Statistiques : {len(stages)} paliers, {len(all_modules)} modules actifs, {len(diagnostic_questions)} questions diagnostiques, {len(srs_cards)} cartes SRS initiales.")
+
+if __name__ == "__main__":
+    build_curriculum()

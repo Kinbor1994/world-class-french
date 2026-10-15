@@ -17,3 +17,13 @@ Thumbs.db
 # Temporary & Cache
 *.log
 .gemini/
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+

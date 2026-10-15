@@ -1,0 +1,42 @@
+{
+  "name": "World-Class French · Maîtrise Interactive & SRS",
+  "short_name": "French PWA",
+  "description": "Progressive Web App d'apprentissage adaptatif du français, du niveau CI (A0) au niveau World-Class (C2+)",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#58CC02",
+  "orientation": "portrait-primary",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "books", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Daily Fata Sprint",
+      "short_name": "Sprint",
+      "description": "Lancer le défi quotidien chronométré de 6 questions",
+      "url": "/?mode=sprint",
+      "icons": [{ "src": "/icons/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Rappels SRS Dus",
+      "short_name": "Rappels",
+      "description": "Réviser les compétences fragiles de la journée",
+      "url": "/?mode=srs",
+      "icons": [{ "src": "/icons/icon-192.svg", "sizes": "192x192" }]
+    }
+  ]
+}

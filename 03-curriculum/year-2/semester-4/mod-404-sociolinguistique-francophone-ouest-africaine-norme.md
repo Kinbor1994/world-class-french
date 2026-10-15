@@ -5,7 +5,7 @@
 > **Semestre** : Année 2 — Semestre 4 (S4)  
 > **Domaines mobilisés** : DOM-01 (Phonétique et phonologie), DOM-05 (Lexicologie et sémantique), DOM-08 (Expression orale), DOM-10 (Rhétorique et stylistique), DOM-11 (Sociolinguistique), DOM-13 (Compétences intégrées)  
 > **Volume horaire estimé** : 17 heures (Étude sociolinguistique : 4 h 30 | Pratique délibérée : 6 h 30 | Correction raisonnée : 3 h 30 | Révision active et synthèse : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`syllabus.md` (S4)](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/syllabus.md), [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md`](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md), [`competency-framework.md`](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---
