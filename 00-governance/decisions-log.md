@@ -653,28 +653,25 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : Socle dialectique et logique de S4 intégralement achevé, audité et validé (**4 chapitres de cours de référence universitaire**, **2 544 lignes**, **387,6 Ko de contenus didactiques de haut niveau**). Le prérequis argumentatif pour la dissertation académique tripartite (`MOD-403`) est pleinement satisfait.
   - Prochaine étape : Lancement du troisième module du Semestre 4 : [`MOD-403` — Méthodologie Approfondie de la Dissertation et de l'Essai Académique](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403-methodologie-dissertation-essai-academique.md).
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### [DEC-037] Rédaction intégrale et audit automatisé des 4 chapitres de cours du module MOD-403 — Méthodologie Universitaire de la Dissertation et de l'Essai Académique (Étape 13)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Développer le troisième module de l'Année 2 / Semestre 4 (Cycle 4) : [`MOD-403` — Méthodologie Universitaire de la Dissertation et de l'Essai Académique](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403-methodologie-dissertation-essai-academique.md).
+- **Décision** :
+  1. Conception et rédaction intégrale des 4 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-4/mod-403/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403/) :
+     - [`chp-403-01-genre-dissertation-epistemologie-posture.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403/chp-403-01-genre-dissertation-epistemologie-posture.md) (`CHP-403-01`, 91,8 Ko / 841 lignes) : *Le Genre de la Dissertation : Épistémologie, Histoire et Posture Intellectuelle de l'Enquêteur*.
+     - [`chp-403-02-phase-preparatoire-analyse-sujet-problematique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403/chp-403-02-phase-preparatoire-analyse-sujet-problematique.md) (`CHP-403-02`, 91,0 Ko / 787 lignes) : *La Phase Préparatoire : Analyse Conceptuelle du Sujet, Détection des Présupposés et Formulation de la Problématique*.
+     - [`chp-403-03-typologie-plans-art-depassement-dialectique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403/chp-403-03-typologie-plans-art-depassement-dialectique.md) (`CHP-403-03`, 94,2 Ko / 1 000 lignes) : *Typologie Architecturale des Plans et Art du Dépassement Dialectique : Du Plan Dialectique au Modèle 3x3*.
+     - [`chp-403-04-scenographie-redactionnelle-introduction-paragraphes-conclusion.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-403/chp-403-04-scenographie-redactionnelle-introduction-paragraphes-conclusion.md) (`CHP-403-04`, 109,4 Ko / 1 082 lignes) : *La Scénographie Rédactionnelle : Introduction en Quatre Mouvements, Paragraphes Démonstratifs, Transitions et Conclusion*.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 175 liens internes et identifiants contrôlés (175 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-RHET-03`, `SRC-RHET-01`, `SRC-GRAM-02`, `SRC-LEX-04`, `SRC-NORM-03`, `SRC-TYPO-01`, `SRC-GRAM-01`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-403-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-403-audit-report.md).
+- **Conséquences** :
+  - Positives : Sommet méthodologique de la rédaction universitaire en S4 intégralement achevé, audité et validé (**4 chapitres de cours de référence universitaire**, **3 710 lignes**, **386,4 Ko de contenus didactiques de haut niveau**). Les prérequis `DEP-RED-02` et `DEP-RED-03` sont pleinement honorés.
+  - Prochaine étape : Lancement du quatrième et dernier module du Semestre 4 : [`MOD-404` — Sociolinguistique Francophone : Dynamiques Ouest-Africaines et Norme Internationale](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/mod-404-sociolinguistique-francophone-ouest-africaine-norme.md) pour clore définitivement le Semestre 4 et l'ensemble de l'Année 2 (Cycle 4).
 

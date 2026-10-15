@@ -5,7 +5,7 @@
 > **Semestre** : Année 2 — Semestre 4 (S4)  
 > **Domaines mobilisés** : DOM-07 (Expression écrite), DOM-09 (Logique et rhétorique argumentative), DOM-11 (Littérature et histoire des idées), DOM-13 (Intégration)  
 > **Volume horaire estimé** : 18 heures (Étude de sujets modèles et corrigés de concours : 5 h | Pratique délibérée : 7 h | Correction annotée détaillée et réécriture d'axes : 3 h 30 | Révision active et consolidation : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md` (DEP-RED-02, DEP-RED-03)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#25-axe-expression-écrite--argumentation--du-paragraphe-à-la-dissertation), [`competency-framework.md` (FR-INT-001, FR-ARGUM-001)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-int-001-rédiger-un-texte-long-cohérent-en-maîtrisant-accords-et-ponctuation), [`syllabus.md` (S4)](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-4/syllabus.md#module-mod-403--méthodologie-universitaire-de-la-dissertation-et-de-lessai-académique), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

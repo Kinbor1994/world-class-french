@@ -1,38 +1,38 @@
 {
-  "chp-402-01-logique-formelle-argument-mecanique-raisonnement.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 33
-    }
-  },
-  "chp-402-02-typologie-operatoire-arguments-techniques-probatoires.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 70
-    }
-  },
-  "chp-402-03-traite-complet-sophismes-paralogismes.md": {
+  "chp-403-01-genre-dissertation-epistemologie-posture.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 64
+      "link_checks": 39
     }
   },
-  "chp-402-04-pragmatique-debat-contradictoire-concession-deontologie.md": {
+  "chp-403-02-phase-preparatoire-analyse-sujet-problematique.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 41
+    }
+  },
+  "chp-403-03-typologie-plans-art-depassement-dialectique.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 62
+      "link_checks": 29
+    }
+  },
+  "chp-403-04-scenographie-redactionnelle-introduction-paragraphes-conclusion.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 66
     }
   }
 }
