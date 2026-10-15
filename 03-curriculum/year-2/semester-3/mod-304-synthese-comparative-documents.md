@@ -5,7 +5,7 @@
 > **Semestre** : Année 2 — Semestre 3 (S3)  
 > **Domaines mobilisés** : DOM-06 (Compréhension écrite), DOM-07 (Expression écrite), DOM-12 (Correction/révision), DOM-13 (Intégration)  
 > **Volume horaire estimé** : 17 heures (Étude théorique et méthodologique : 4 h 30 | Pratique délibérée : 6 h 30 | Correction raisonnée et analyse critique : 3 h 30 | Révision active et consolidation : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md`](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md), [`competency-framework.md`](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md), [`syllabus.md` (S3)](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/syllabus.md), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

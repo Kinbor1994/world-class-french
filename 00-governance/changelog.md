@@ -221,9 +221,23 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 - **Passage officiel de MOD-303 au statut VALIDÉ** :
   - Les 6 chapitres de `MOD-303` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
 
+- **Année 2 (Semestre 3 — Cycle 3) — Conception et rédaction intégrale des 4 chapitres de cours du module MOD-304 — Clôture du Semestre 3** dans [`03-curriculum/year-2/semester-3/mod-304/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/) (2 488 lignes, 366,4 Ko, 21 rubriques normatives, volume de 5-6 h/chapitre) :
+  - [`chp-304-01-epistemologie-methodologie-universitaire-synthese.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-01-epistemologie-methodologie-universitaire-synthese.md) (`CHP-304-01`, 91,2 Ko / 600 lignes) : Épistémologie et Méthodologie Universitaire de la Synthèse de Documents : L'Intelligence Polyphonique, les Trois Lois et la Typologie des Dossiers (polyphonie bakhtinienne, triade Résumé/Synthèse/Dissertation, les 3 lois d'airain, proscription du plan juxtaposé).
+  - [`chp-304-02-lecture-croisee-matrice-confrontation-tableau-synoptique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-02-lecture-croisee-matrice-confrontation-tableau-synoptique.md) (`CHP-304-02`, 91,5 Ko / 625 lignes) : La Phase Préparatoire et la Matrice de Confrontation : Lecture Croisée, Détection des Lignes de Fracture et Tableau Synoptique (protocole en 2 passes chronométrées, armature du Tableau Synoptique à 4 colonnes, règle du vis-à-vis absolu, passage au plan croisé).
+  - [`chp-304-03-architecture-redactionnelle-grammaire-enonciative-synthese.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-03-architecture-redactionnelle-grammaire-enonciative-synthese.md) (`CHP-304-03`, 100,2 Ko / 727 lignes) : Architecture Rédactionnelle et Grammaire Énonciative de la Synthèse : Introduction Canonique, Paragraphes Croisés et Distanciation (introduction en 4 mouvements, navette dialectique permanente, connecteurs de confrontation et concession, conclusion en 2 temps, synthèse modèle de 500 mots, verbes d'attribution sans *dire*).
+  - [`chp-304-04-compte-rendu-critique-expose-ouvrage.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-04-compte-rendu-critique-expose-ouvrage.md) (`CHP-304-04`, 83,5 Ko / 536 lignes) : Le Compte Rendu Critique d'Exposé et d'Ouvrage : Fidélité Analytique, Condensation Structurée et Mise en Perspective Épistémologique (structure tripartite canonique de 350 mots, cadrage institutionnel, condensation des apports théoriques majeurs, mise en perspective critique sans polémique).
+- **Audit automatisé complet et publication du rapport officiel de MOD-304** :
+  - Exécution du banc d'essai [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) : 333 liens internes et identifiants contrôlés (333 valides, 0 lien brisé), 0 erreur critique, 0 avertissement.
+  - Publication du rapport officiel [`08-audits/pedagogical/mod-304-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-304-audit-report.md) et enregistrement de [`[DEC-034]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-034-rédaction-intégrale-et-audit-automatisé-des-4-chapitres-de-cours-du-module-mod-304--synthèse-comparative-de-documents-et-compte-rendu-critique--clôture-du-semestre-3--cycle-3-étape-11) dans le journal des décisions.
+- **Passage officiel de MOD-304 au statut VALIDÉ** :
+  - Les 4 chapitres de `MOD-304` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
+- **ACCOMPLISSEMENT MAJEUR — ACHÈVEMENT DU SEMESTRE 3 (CYCLE 3) DU CURSUS WORLD-CLASS FRENCH** :
+  - Le Semestre 3 est intégralement achevé, audité et validé : **4 modules**, **22 chapitres de cours de référence universitaire**, totalisant **14 915 lignes / 2,03 Mo de contenus didactiques**.
+  - Total cumulé dans le cursus : **63 chapitres**, **5,51 Mo / 48 042 lignes** de cours de référence, 0 anomalie résiduelle.
+
 ### Planifié
-- Validation formelle par le commanditaire du module `MOD-303` et du rapport d'audit associé.
-- Conception et rédaction des chapitres de cours du module terminal du Semestre 3 : `MOD-304` (*Synthèse Comparative de Documents, Compte Rendu Critique et Argumentation Logique*).
+- Validation formelle par le commanditaire du module `MOD-304` et du rapport d'audit associé.
+- Étape 12 : Bilan de Porte 3 et lancement de l'Année 2 / Semestre 4 (Cycle 4 : Pragmatique énonciative, participe suivi d'infinitif, rhétorique et dissertation académique).
 
 ---
 

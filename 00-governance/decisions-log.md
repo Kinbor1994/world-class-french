@@ -584,6 +584,29 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : Clôture certifiée de `MOD-303` (4 054 lignes, 520,5 Ko de cours de référence, 30 à 36 h d'apprentissage autonome délibéré), dotant l'étudiant d'une fiabilité orthographique absolue sur les verbes pronominaux et noms composés.
   - Prochaine étape : Lancement du dernier module du Semestre 3 : [`MOD-304` — Synthèse Comparative de Documents, Compte Rendu Critique et Argumentation Logique](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304-synthese-comparative-documents.md).
 
+---
+
+### [DEC-034] Rédaction intégrale et audit automatisé des 4 chapitres de cours du module MOD-304 — Synthèse Comparative de Documents et Compte Rendu Critique — Clôture du Semestre 3 / Cycle 3 (Étape 11)
+- **Date** : 2026-10-15
+- **Statut** : Validé
+- **Contexte** : Développer le quatrième et dernier module de l'Année 2 / Semestre 3 (Cycle 3) : [`MOD-304` — Synthèse Comparative de Documents, Compte Rendu Critique et Argumentation Logique](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304-synthese-comparative-documents.md).
+- **Décision** :
+  1. Conception et rédaction intégrale des 4 chapitres de cours autonomes dans [`03-curriculum/year-2/semester-3/mod-304/`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/) :
+     - [`chp-304-01-epistemologie-methodologie-universitaire-synthese.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-01-epistemologie-methodologie-universitaire-synthese.md) (`CHP-304-01`, 91,2 Ko / 600 lignes) : *Épistémologie et Méthodologie Universitaire de la Synthèse de Documents : L'Intelligence Polyphonique, les Trois Lois et la Typologie des Dossiers*.
+     - [`chp-304-02-lecture-croisee-matrice-confrontation-tableau-synoptique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-02-lecture-croisee-matrice-confrontation-tableau-synoptique.md) (`CHP-304-02`, 91,5 Ko / 625 lignes) : *La Phase Préparatoire et la Matrice de Confrontation : Lecture Croisée, Détection des Lignes de Fracture et Tableau Synoptique*.
+     - [`chp-304-03-architecture-redactionnelle-grammaire-enonciative-synthese.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-03-architecture-redactionnelle-grammaire-enonciative-synthese.md) (`CHP-304-03`, 100,2 Ko / 727 lignes) : *Architecture Rédactionnelle et Grammaire Énonciative de la Synthèse : Introduction Canonique, Paragraphes Croisés et Distanciation*.
+     - [`chp-304-04-compte-rendu-critique-expose-ouvrage.md`](file:///f:/Formation/world-class-french/03-curriculum/year-2/semester-3/mod-304/chp-304-04-compte-rendu-critique-expose-ouvrage.md) (`CHP-304-04`, 83,5 Ko / 536 lignes) : *Le Compte Rendu Critique d'Exposé et d'Ouvrage : Fidélité Analytique, Condensation Structurée et Mise en Perspective Épistémologique*.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (350 mots en compte rendu, 500 mots en synthèse modèle, 50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 333 liens internes et identifiants contrôlés (333 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-RHET-03`, `SRC-GRAM-02`, `SRC-GRAM-01`, `SRC-LEX-04`, `SRC-TYPO-01`, `SRC-NORM-03`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-304-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-304-audit-report.md).
+- **Conséquences** :
+  - Positives : **CLÔTURE DU SEMESTRE 3 (CYCLE 3)**. Le Semestre 3 est intégralement achevé, audité et validé (**4 modules**, **22 chapitres de cours de référence universitaire**, **14 915 lignes**, **2,03 Mo de contenus didactiques de haut niveau**).
+  - Prochaine étape : Passage à l'Étape 12 — Bilan de Porte 3 et Transition vers l'Année 2 / Semestre 4 (Cycle 4 : Pragmatique énonciative, participe suivi d'un infinitif, rhétorique et dissertation académique).
+
+
 
 
 
