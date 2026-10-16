@@ -131,6 +131,7 @@ export interface CurriculumChapter {
   readonly stage: number;
   readonly title: string;
   readonly summary: string;
+  readonly structuredSummary?: string;
   readonly rules: readonly CurriculumRule[];
   readonly lessons: readonly MicroLesson[];
 }

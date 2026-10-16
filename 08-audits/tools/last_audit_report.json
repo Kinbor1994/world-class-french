@@ -1,56 +1,174 @@
 {
-  "chp-604-01-epistemologie-corpus-problematique-savante.md": {
+  "chp-101-01-phoneme-grapheme-api.md": {
+    "issues": [
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 308,
+        "message": "Divergence API pour 'gare': local=/gaʁ/ vs wiktionnaire=['ˈga.ʁə']",
+        "severity": "WARNING",
+        "details": {
+          "word": "gare",
+          "local_api": "/gaʁ/",
+          "wiktionary_ipas": [
+            "ˈga.ʁə"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 313,
+        "message": "Divergence API pour 'chat': local=/ʃa/ vs wiktionnaire=['tʃat']",
+        "severity": "WARNING",
+        "details": {
+          "word": "chat",
+          "local_api": "/ʃa/",
+          "wiktionary_ipas": [
+            "tʃat"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 323,
+        "message": "Divergence API pour 'camping': local=/kɑ̃piŋ/ vs wiktionnaire=['kɑ̃.piŋ(ɡ)', 'kam.piŋ(ɡ)', 'kam.pɪŋ']",
+        "severity": "WARNING",
+        "details": {
+          "word": "camping",
+          "local_api": "/kɑ̃piŋ/",
+          "wiktionary_ipas": [
+            "kɑ̃.piŋ(ɡ)",
+            "kam.piŋ(ɡ)",
+            "kam.pɪŋ"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 702,
+        "message": "Divergence API pour 'condamner': local=/kɔ̃dane/ vs wiktionnaire=['kɔ̃.dɑ.ne']",
+        "severity": "WARNING",
+        "details": {
+          "word": "condamner",
+          "local_api": "/kɔ̃dane/",
+          "wiktionary_ipas": [
+            "kɔ̃.dɑ.ne"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 705,
+        "message": "Divergence API pour 'aiguille': local=/ɛgɥij/ vs wiktionnaire=['e.ɡɥij', 'e.ˈɡɥi.jə', 'ɛ.ɡɥɪj']",
+        "severity": "WARNING",
+        "details": {
+          "word": "aiguille",
+          "local_api": "/ɛgɥij/",
+          "wiktionary_ipas": [
+            "e.ɡɥij",
+            "e.ˈɡɥi.jə",
+            "ɛ.ɡɥɪj"
+          ]
+        }
+      }
+    ],
+    "stats": {
+      "word_checks": 10,
+      "api_checks": 86,
+      "announcement_checks": 1,
+      "link_checks": 40
+    }
+  },
+  "chp-101-02-systeme-vocalique-pieges.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 109
+      "link_checks": 34
     }
   },
-  "chp-604-02-architecture-tripartite-ample-macro-transitions.md": {
+  "chp-101-03-consonnes-syllabation-enchainement.md": {
+    "issues": [
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 244,
+        "message": "Divergence API pour 'élégante': local=/e.le.gɑ̃t/ vs wiktionnaire=['e.le.ɡɑ̃t']",
+        "severity": "WARNING",
+        "details": {
+          "word": "élégante",
+          "local_api": "/e.le.gɑ̃t/",
+          "wiktionary_ipas": [
+            "e.le.ɡɑ̃t"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 389,
+        "message": "Divergence API pour 'grand': local=/gʁɑ̃/ vs wiktionnaire=['ɡʁɑ̃', 'ɡʁɑ̃t', 'œ̃ ɡʁɑ̃.t‿ɔm', 'ɡʁaŋ', 'ɡʁã']",
+        "severity": "WARNING",
+        "details": {
+          "word": "grand",
+          "local_api": "/gʁɑ̃/",
+          "wiktionary_ipas": [
+            "ɡʁɑ̃",
+            "ɡʁɑ̃t",
+            "œ̃ ɡʁɑ̃.t‿ɔm",
+            "ɡʁaŋ",
+            "ɡʁã"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 402,
+        "message": "Divergence API pour 'abbaye': local=/a.bɛ.i/ vs wiktionnaire=['a.be.i']",
+        "severity": "WARNING",
+        "details": {
+          "word": "abbaye",
+          "local_api": "/a.bɛ.i/",
+          "wiktionary_ipas": [
+            "a.be.i"
+          ]
+        }
+      },
+      {
+        "category": "API_WIKTIONNAIRE_DIFF",
+        "line": 483,
+        "message": "Divergence API pour 'immense': local=/i.mɑ̃s/ vs wiktionnaire=['i(m).mɑ̃s']",
+        "severity": "WARNING",
+        "details": {
+          "word": "immense",
+          "local_api": "/i.mɑ̃s/",
+          "wiktionary_ipas": [
+            "i(m).mɑ̃s"
+          ]
+        }
+      }
+    ],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 53,
+      "announcement_checks": 0,
+      "link_checks": 35
+    }
+  },
+  "chp-101-04-systeme-formel-liaisons.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
+      "link_checks": 53
+    }
+  },
+  "chp-101-05-alphabet-orthographique-diacritiques.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
       "link_checks": 65
-    }
-  },
-  "chp-604-03-apparat-critique-citations-deontologie-universitaire.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 89
-    }
-  },
-  "chp-604-04-revision-editoriale-crible-typographique-taux-erreur.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 116
-    }
-  },
-  "chp-604-05-rhetorique-soutenance-magistrale-sans-notes.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 58
-    }
-  },
-  "chp-604-06-resilience-dialectique-debat-contradictoire-grand-oral.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 76
     }
   }
 }

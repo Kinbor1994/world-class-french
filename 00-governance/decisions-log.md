@@ -909,6 +909,42 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
     - **10,21 Mo (9,73 Mio)** de corpus didactique intégralement certifié à **zéro anomalie critique et zéro avertissement** ;
     - Validation terminale de l'ensemble des compétences du référentiel (`FR-INT-001`, `FR-INT-003`, `FR-INT-004`, `FR-INT-005`, `FR-INT-006`, `FR-PHILOL-001`, `FR-STYLE-001`, `FR-SYNTAX-003`, `FR-ORTHO-001`, `FR-LEXIC-001`) au palier suprême **L5 (Expertise transférable)**.
 
+---
+
+### [DEC-048] Finalisation et Déploiement de la Progressive Web App (PWA) Interactive et Adaptative World-Class French
+- **Date** : 2026-10-16
+- **Statut** : Validé
+- **Contexte** : Couronnement numérique de l'ensemble du corpus académique (125 chapitres rédigés, 24 modules semestriels, plus de 100 000 lignes de savoirs linguistiques). Nécessité de doter le projet d'une interface apprenant moderne, réactive, hautement engageante, inspirée de Duolingo (gamification et ergonomie dopaminergique), fata.app (répétition espacée rigoureuse et sprints quotidiens minutés) et du Projet Voltaire (précision orthographique et traque métacognitive de l'erreur).
+- **Décision** :
+  1. **Architecture Technique** : Implémentation sous `app/` d'une Progressive Web App basée sur **Next.js 15 (App Router)**, **TypeScript strict (zéro `any`, typage exhaustif)**, **TailwindCSS** (palette didactique 3D) et **Framer Motion**.
+  2. **8 Paliers Didactiques Continus** :
+     - Paliers 1 & 2 : Sas d'initiation douce (Niveaux CI/A0 et CP-CE1/A1), combinatoire syllabique, vocalisation double vitesse (🔊 1.0x / 🐢 0.65x), identification d'images, **vies illimitées (`❤️ ∞`)** comme bouclier cognitif anti-abandon.
+     - Paliers 3 à 8 : Progression continue couvrant les 24 modules semestriels (`MOD-101` à `MOD-604`), 125 chapitres académiques découpés en micro-leçons de 3 minutes et fiches de synthèse structurées issues de la Rubrique 17.
+  3. **7 Moteurs d'Exercices Didactiques** :
+     - `VisualSoundMatch` : Association phonème-graphème / image-son.
+     - `SyllableAndSentenceBricks` : Combinatoire syllabique et ordonnancement syntaxique par glisser-déposer / clics de briques.
+     - `VoltaireErrorHunter` : Détection chirurgicale de fautes en texte courant avec ancrage explicatif instantané.
+     - `InteractiveDictation` : Dictée sonore interactive avec lecteur audio multi-vitesses et palette intégrée de caractères diacritiques français.
+     - `SmartDiagnosticMCQ` : QCM adaptatif métacognitif avec justifications didactiques différenciées par niveau.
+     - `ClozeMorphologyInput` : Texte à trous avec validation morphologique stricte.
+     - `RhetoricAndRegisterStudio` : Calibration de registre et analyse stylistique avancée.
+  4. **Moteur Mémoriel `fata.srs`** :
+     - Calcul d'oubli d'Ebbinghaus $R(t) = 100 \times e^{-t/S}$ avec seuil critique de rappel fixé à 75 %.
+     - Algorithme de notation FSRS à 4 boutons (*À revoir*, *Difficile*, *Bon*, *Parfait*).
+     - Visualisation graphique interactive de la courbe de rétention en SVG dynamique.
+     - Simulateur temporel `⏩ +24h / +48h` permettant de tester l'évolution de la file de révision.
+  5. **Mode « Daily Fata Sprint »** :
+     - Défi minuté quotidien de 6 questions avec chronomètre et grille emoji partageable (`🟩🟨🟥`).
+  6. **Multi-Canal & Offline** :
+     - Service Worker PWA (`sw.js`) et manifeste Web (`manifest.webmanifest`) pour fonctionnement hors-ligne.
+     - Routines d'étude synchronisables via Web Push Notifications et export de fichier calendrier `.ics` standard (Google Calendar, Apple iCal, Outlook).
+  7. **Compilateur Pédagogique Déterministe** :
+     - Script `app/scripts/compile_curriculum.py` ingérant automatiquement 100 % des chapitres du cursus (`03-curriculum/`) pour produire `app/src/data/compiled-curriculum.json` (129 chapitres, 26 modules, 244 cartes SRS initiales).
+- **Conséquences** :
+  - Positives : La plateforme numérique est complète, rigoureusement typée, construite sans erreur de build (`npm run build` : exit code 0) ni divergence d'hydratation, et directement utilisable localement par les apprenants.
+  - Disponibilité : Lancement local immédiat via `cd app && npm run dev`.
+
+
 
 
 

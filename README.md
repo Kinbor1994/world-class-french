@@ -55,14 +55,15 @@ world-class-french/
 ## 3. État d'avancement
 
 - [x] **Étape 1** : Initialisation du workspace, arborescence, gouvernance et registres.
-- [ ] **Étape 2** : Établissement de la bibliographie de référence et du plan d'ingestion NotebookLM.
-- [ ] **Étape 3** : Cartographie détaillée de l'architecture académique et du graphe des prérequis.
-- [ ] **Étape 4** : Référentiel précis des compétences et barèmes d'évaluation.
-- [ ] **Étape 5** : Élaboration du curriculum Année 1 (Semestres 1 & 2).
-- [ ] **Étape 6** : Élaboration du curriculum Année 2 (Semestres 3 & 4).
-- [ ] **Étape 7** : Élaboration du curriculum Année 3 (Semestres 5 & 6).
-- [ ] **Étape 8** : Travaux pratiques, projets et examens.
-- [ ] **Étape 9** : Audits finaux et livrables d'excellence.
+- [x] **Étape 2** : Établissement de la bibliographie de référence et du plan d'ingestion NotebookLM.
+- [x] **Étape 3** : Cartographie détaillée de l'architecture académique et du graphe des prérequis.
+- [x] **Étape 4** : Référentiel précis des compétences et barèmes d'évaluation.
+- [x] **Étape 5** : Élaboration du curriculum Année 1 (Semestres 1 & 2 — 8 modules).
+- [x] **Étape 6** : Élaboration du curriculum Année 2 (Semestres 3 & 4 — 8 modules).
+- [x] **Étape 7** : Élaboration du curriculum Année 3 (Semestres 5 & 6 — 8 modules).
+- [x] **Étape 8** : Travaux pratiques, projets intégrateurs et épreuves sommatives.
+- [x] **Étape 9** : Audits déterministes automatisés et homologation 100 % (125 chapitres rédigés et certifiés).
+- [x] **Étape 10** : Progressive Web App (PWA) interactive et adaptative (`app/`) avec 8 paliers continus, 7 moteurs d'exercices, répétition espacée `fata.srs` et daily sprint.
 
 ---
 

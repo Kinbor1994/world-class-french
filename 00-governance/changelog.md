@@ -432,6 +432,28 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
 ### Statut Final du Projet
 - **CURSUS ENTIÈREMENT ACHEVÉ ET HOMOLOGUÉ** : Les six semestres (Années 1, 2 et 3 — Cycles 1 à 6) sont intégralement finalisés et certifiés conformes au plus haut niveau académique.
 
+- **Étape 24 — Finalisation et Déploiement de la Progressive Web App (PWA) Interactive et Adaptative (DEC-048)** :
+  - **Ingénierie Frontend & PWA** sous [`app/`](file:///f:/Formation/world-class-french/app/) :
+    - Next.js 15 (App Router), TypeScript strict sans `any`, TailwindCSS (système de design 3D didactique), Framer Motion, Zustand persistant.
+    - Résolution de toutes les divergences d'hydratation liées aux extensions de navigateur et au rendu SSR/client (`suppressHydrationWarning`, garde `mounted`, initialisation déterministe).
+    - Service Worker PWA (`sw.js`) et manifeste pour consultation et révision hors-ligne.
+  - **8 Paliers Didactiques Continus (du CI au C2+)** :
+    - Paliers 1 & 2 : Sas d'initiation douce pour débutants complets (CI/A0 & CP-CE1/A1), sons élémentaires, combinatoire syllabique, vitesse double d'écoute vocale (1.0x / 0.65x) et **vies illimitées (`❤️ ∞`)** comme bouclier cognitif anti-abandon.
+    - Paliers 3 à 8 : Découpage des 125 chapitres universitaires (`MOD-101` à `MOD-604`) en micro-leçons de 3 minutes et fiches synthétiques issues de la Rubrique 17.
+  - **7 Moteurs d'Exercices Interactifs Spécialisés** :
+    - `VisualSoundMatch` (image-son/phonème-graphème), `SyllableAndSentenceBricks` (combinatoire et morphosyntaxe), `VoltaireErrorHunter` (traque d'erreurs en texte courant), `InteractiveDictation` (dictée vocale multi-vitesses avec clavier d'accents), `SmartDiagnosticMCQ` (QCM adaptatif métacognitif), `ClozeMorphologyInput` (textes à trous morphologiques), `RhetoricAndRegisterStudio` (calibration de registre et analyse stylistique).
+  - **Moteur Mémoriel et Répétition Espacée (`fata.srs`)** :
+    - Équation d'Ebbinghaus $R(t) = 100 \times e^{-t/S}$ avec seuil d'alerte à 75 %, algorithme FSRS (4 touches), graphique SVG interactif de la courbe de rétention et simulateur temporel `⏩ +24h / +48h`.
+  - **Daily Fata Sprint & Routines d'Étude Multi-Canal** :
+    - Sprint minuté quotidien de 6 questions avec rapport emoji partageable (`🟩🟨🟥`).
+    - Notifications Web Push et export d'agenda standard `.ics` pour Google Agenda, Apple iCal et Outlook.
+  - **Compilateur Pédagogique Déterministe** :
+    - `app/scripts/compile_curriculum.py` traitant 100 % du cursus : 129 chapitres interactifs, 26 modules didactiques, 244 cartes SRS initiales stockées dans `app/src/data/compiled-curriculum.json`.
+  - **Certification Qualité** :
+    - `npm run build` : 0 erreur, génération réussie des 4 routes statiques.
+    - `npx tsc --noEmit` : 0 erreur TypeScript.
+    - `python 08-audits/tools/verify_chapter.py` : 0 erreur critique.
+
 ---
 
 ## [0.1.0] - 2026-10-11
