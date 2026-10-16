@@ -748,5 +748,28 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : Inauguration souveraine du Semestre 5 (Cycle 5). Le corpus atteint désormais **89 chapitres complets**, **68 269 lignes**, **8,03 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
   - Prochaine étape : Rédaction et audit de `MOD-502` (*Traité des Figures de Rhétorique et Poétique du Style*).
 
+---
+
+### [DEC-041] Rédaction Intégrale, Audit Automatisé et Validation des 5 Chapitres du Module MOD-502 (Traité Complet des Figures de Rhétorique et Cadences de la Prose)
+- **Date** : 2026-10-16
+- **Statut** : Validé
+- **Contexte** : Deuxième jalon de l'Année 3 / Semestre 5 (Cycle 5 : Haute Stylistique, Rhétorique Classique, Déclamation et Révision Éditoriale). Nécessité d'élever l'apprenant au palier L4 (Maîtrise approfondie) par l'enseignement scientifique des tropes (Fontanier, Molinié), des figures de construction (chiasme, parallélisme, zeugma, hyperbate), des figures de pensée (oxymore, litote, euphémisme, allégorie, prosopopée), de la poétique acoustique (déconstruction de la mimophonie naïve, vocalisme, cadences de la prose) et de la méthode du commentaire stylistique de concours (Triptyque d'Or, réseaux figuro-isotopiques).
+- **Décision** :
+  1. Rédaction intégrale en prose académique d'élite des 5 chapitres de cours de `MOD-502` sous [`03-curriculum/year-3/semester-5/mod-502/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/) :
+     - [`chp-502-01-theorie-tropes-mutation-sens-metaphore-metonymie.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-01-theorie-tropes-mutation-sens-metaphore-metonymie.md) (`CHP-502-01`, 91,1 Ko / 714 lignes) : La Théorie des Tropes et la Mutation du Sens : Métaphore, Métonymie, Synecdoque, Catachrèse et Hypallage.
+     - [`chp-502-02-figures-construction-syntaxe-rythme-prose.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-02-figures-construction-syntaxe-rythme-prose.md) (`CHP-502-02`, 95,8 Ko / 763 lignes) : Figures de Construction, Syntaxe et Rythme de la Prose : Chiasme, Parallélisme, Anaphore, Zeugma et Hyperbate.
+     - [`chp-502-03-figures-pensee-strategies-enonciation.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-03-figures-pensee-strategies-enonciation.md) (`CHP-502-03`, 100,5 Ko / 752 lignes) : Figures de Pensée et Stratégies de l'Énonciation : Antithèse, Oxymore, Litote, Euphémisme, Allégorie et Prosopopée.
+     - [`chp-502-04-poetique-sonorites-cadences-prose.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-04-poetique-sonorites-cadences-prose.md) (`CHP-502-04`, 48,8 Ko / 476 lignes) : Poétique des Sonorités et Cadences de la Prose : Allitérations, Assonances, Vocalisme et Déconstruction de la Mimophonie.
+     - [`chp-502-05-methodologie-commentaire-stylistique-universitaire.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-05-methodologie-commentaire-stylistique-universitaire.md) (`CHP-502-05`, 43,9 Ko / 430 lignes) : Méthodologie Universitaire du Commentaire Stylistique : Le Triptyque d'Or, Réseaux Figuro-Isotopiques et Épreuve ENS/Agrégation.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 316 liens internes et identifiants contrôlés (316 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-RHET-01`, `SRC-RHET-02`, `SRC-RHET-03`, `SRC-RHET-04`, `SRC-RHET-05`, `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-PHON-01`, `SRC-NORM-03`, `SRC-TYPO-01`, `SRC-LEX-03`, `SRC-LEX-04`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-502-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-502-audit-report.md).
+- **Conséquences** :
+  - Positives : Consolidation majeure du Semestre 5 (Cycle 5). Le corpus atteint désormais **94 chapitres complets**, **71 404 lignes**, **8,41 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
+  - Prochaine étape : Rédaction et audit de `MOD-503` (*Haute Éloquence : Déclamation Classique, Souffle et Présence Oratoire*).
+
 
 

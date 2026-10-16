@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 5 (S5)  
 > **Domaines mobilisés** : DOM-07 (Expression écrite), DOM-10 (Rhétorique), DOM-11 (Littérature et histoire des idées), DOM-13 (Intégration)  
 > **Volume horaire estimé** : 18 heures (Étude théorique et taxonomie savante : 5 h 30 | Pratique délibérée et analyses stylistiques : 6 h 30 | Correction annotée et arbitrage esthétique : 3 h 30 | Révision active et consolidation : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md` (DEP-LEC-02, DEP-STY-01)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#26-axe-compréhension-de-textes--du-décodage-littéral-à-lherméneutique-savante), [`competency-framework.md` (FR-STYLE-001, Palier L4)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-style-001-maîtrise-des-figures-de-rhétorique-et-commentaire-stylistique), [`syllabus.md` (S5)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/syllabus.md#module-mod-502--traité-complet-des-figures-de-rhétorique-et-cadences-de-la-prose), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

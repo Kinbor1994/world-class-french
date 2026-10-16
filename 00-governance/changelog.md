@@ -313,8 +313,25 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - **68 269 lignes** et **8,03 Mo** de contenus didactiques de très haute précision philologique.
     - **0 anomalie résiduelle**, 100 % de conformité déterministe.
 
+- **Étape 17 — Rédaction Intégrale, Audit Automatisé et Validation de MOD-502 (Semestre 5, Cycle 5)** :
+  - **Rédaction complète des 5 chapitres de cours de MOD-502** dans [`03-curriculum/year-3/semester-5/mod-502/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/) :
+    - [`chp-502-01-theorie-tropes-mutation-sens-metaphore-metonymie.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-01-theorie-tropes-mutation-sens-metaphore-metonymie.md) (`CHP-502-01`, 91,1 Ko / 714 lignes) : La Théorie des Tropes et la Mutation du Sens : Métaphore, Métonymie, Synecdoque, Catachrèse et Hypallage.
+    - [`chp-502-02-figures-construction-syntaxe-rythme-prose.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-02-figures-construction-syntaxe-rythme-prose.md) (`CHP-502-02`, 95,8 Ko / 763 lignes) : Figures de Construction, Syntaxe et Rythme de la Prose : Chiasme, Parallélisme, Anaphore, Zeugma et Hyperbate.
+    - [`chp-502-03-figures-pensee-strategies-enonciation.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-03-figures-pensee-strategies-enonciation.md) (`CHP-502-03`, 100,5 Ko / 752 lignes) : Figures de Pensée et Stratégies de l'Énonciation : Antithèse, Oxymore, Litote, Euphémisme, Allégorie et Prosopopée.
+    - [`chp-502-04-poetique-sonorites-cadences-prose.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-04-poetique-sonorites-cadences-prose.md) (`CHP-502-04`, 48,8 Ko / 476 lignes) : Poétique des Sonorités et Cadences de la Prose : Allitérations, Assonances, Vocalisme et Déconstruction de la Mimophonie.
+    - [`chp-502-05-methodologie-commentaire-stylistique-universitaire.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-502/chp-502-05-methodologie-commentaire-stylistique-universitaire.md) (`CHP-502-05`, 43,9 Ko / 430 lignes) : Méthodologie Universitaire du Commentaire Stylistique : Le Triptyque d'Or, Réseaux Figuro-Isotopiques et Épreuve ENS/Agrégation.
+  - **Audit automatisé complet et publication du rapport officiel de MOD-502** :
+    - Exécution du banc d'essai [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) : 316 liens internes et identifiants contrôlés (316 valides, 0 lien brisé), 0 erreur critique, 0 avertissement.
+    - Publication du rapport officiel [`08-audits/pedagogical/mod-502-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-502-audit-report.md) et enregistrement de [`[DEC-041]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-041-rédaction-intégrale-audit-automatisé-et-validation-des-5-chapitres-du-module-mod-502-traité-complet-des-figures-de-rhétorique-et-cadences-de-la-prose) dans le journal des décisions.
+  - **Passage officiel de MOD-502 au statut VALIDÉ** :
+    - Les 5 chapitres de `MOD-502` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
+  - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-502)** :
+    - **94 chapitres complets** de référence universitaire rédigés, audités et validés.
+    - **71 404 lignes** et **8,41 Mo** de contenus didactiques de très haute précision philologique.
+    - **0 anomalie résiduelle**, 100 % de conformité déterministe.
+
 ### Planifié
-- Rédaction et audit de `MOD-502` (*Traité des Figures de Rhétorique et Poétique du Style*).
+- Rédaction et audit de `MOD-503` (*Haute Éloquence : Déclamation Classique, Souffle et Présence Oratoire*).
 
 ---
 
