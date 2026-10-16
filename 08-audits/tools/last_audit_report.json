@@ -1,47 +1,56 @@
 {
-  "chp-603-01-epistemologie-instruments-typologie-sources.md": {
+  "chp-604-01-epistemologie-corpus-problematique-savante.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 119
+      "link_checks": 109
     }
   },
-  "chp-603-02-architecture-maniement-bon-usage-grevisse.md": {
+  "chp-604-02-architecture-tripartite-ample-macro-transitions.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 54
+      "link_checks": 65
     }
   },
-  "chp-603-03-corpus-numeriques-dictionnaires-historiques.md": {
+  "chp-604-03-apparat-critique-citations-deontologie-universitaire.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 94
+      "link_checks": 89
     }
   },
-  "chp-603-04-methodologie-note-arbitrage-philologique.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 82
-    }
-  },
-  "chp-603-05-pathologies-raisonnement-philologique-audit.md": {
+  "chp-604-04-revision-editoriale-crible-typographique-taux-erreur.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 93
+      "link_checks": 116
+    }
+  },
+  "chp-604-05-rhetorique-soutenance-magistrale-sans-notes.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 58
+    }
+  },
+  "chp-604-06-resilience-dialectique-debat-contradictoire-grand-oral.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 76
     }
   }
 }
