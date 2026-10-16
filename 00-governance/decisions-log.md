@@ -813,9 +813,29 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
      - Zéro source inventée (alignement strict sur `SRC-TYPO-01`, `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-LEX-01`, `SRC-LEX-02`, `SRC-NORM-02`, `SRC-NORM-03`) ;
      - Zéro erreur critique, zéro avertissement résiduel ;
      - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-504-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-504-audit-report.md).
+---
+
+### [DEC-044] Rédaction Intégrale, Audit Automatisé et Validation des 5 Chapitres du Module MOD-601 (Diachronie et Histoire de la Langue Française : Des Origines aux Réformes) — Ouverture du Semestre 6 / Cycle 6
+- **Date** : 2026-10-16
+- **Statut** : Validé
+- **Contexte** : Premier jalon de l'Année 3 / Semestre 6 (Cycle 6 : Diachronie, Herméneutique, Autonomie Philologique et Capstone Project Grand Oral). Clé de voûte de l'axe Diachronie, Histoire & Philologie (*DEP-HIS-01*, *DEP-LIN-02*, *DEP-LIN-03*). Nécessité d'élever l'apprenant aux paliers L4/L5 (Maîtrise approfondie à Expertise transférable) par l'élucidation historique de la langue : les matrices originelles (substrat celtique, latin vulgaire, superstrat francique, Serments de Strasbourg 842, Cantilène de sainte Eulalie v. 880-881), l'ancien français classique et le bicasualisme (Cas Sujet/Cas Régime, lois de syncope et d'apocope, vocalisation du [l] vélaire en [w], syntaxe V2 et langue pro-drop), le moyen français et la latinisation graphique cléricale (effondrement du bicasualisme, ordre SVO, consonnes muettes étymologiques réelles vs fausses étymologies *poids*, *legs*, *sçavoir*, Villers-Cotterêts 1539, Pléiade 1549), la fixation classique de la norme vaugelienne (bon usage de la Cour, Académie française 1635, style noble, querelle Vaugelas vs Port-Royal 1660), et des Lumières aux réformes contemporaines (mythe de Rivarol 1784, rapport Grégoire 1794, Jules Ferry 1881-1882, réforme académique de 1835 *oi* -> *ai*, rectifications orthographiques de 1990).
+- **Décision** :
+  1. Rédaction intégrale en prose académique d'élite des 5 chapitres de cours de `MOD-601` sous [`03-curriculum/year-3/semester-6/mod-601/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/) :
+     - [`chp-601-01-origines-latines-naissance-langue-romane.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-01-origines-latines-naissance-langue-romane.md) (`CHP-601-01`, 39,8 Ko / 361 lignes) : Des Origines Latines à la Naissance de la Langue Romane (Ier - Xe s.).
+     - [`chp-601-02-ancien-francais-classique-systeme-bicasuel.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-02-ancien-francais-classique-systeme-bicasuel.md) (`CHP-601-02`, 41,5 Ko / 383 lignes) : L'Ancien Français Classique et le Système Bicasuel (XIe - XIIIe s.).
+     - [`chp-601-03-moyen-francais-renaissance-latinisation-graphique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-03-moyen-francais-renaissance-latinisation-graphique.md) (`CHP-601-03`, 39,6 Ko / 357 lignes) : Le Moyen Français et la Renaissance : Mutations et Latinisation Graphique (XIVe - XVIe s.).
+     - [`chp-601-04-grand-siecle-fixation-classique-norme-vaugelas.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-04-grand-siecle-fixation-classique-norme-vaugelas.md) (`CHP-601-04`, 37,8 Ko / 327 lignes) : Le Grand Siècle et la Fixation Classique de la Norme (XVIIe s.).
+     - [`chp-601-05-lumieres-ecole-republicaine-reformes-orthographe.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-05-lumieres-ecole-republicaine-reformes-orthographe.md) (`CHP-601-05`, 41,3 Ko / 359 lignes) : Des Lumières aux Réformes de l'Orthographe : École Républicaine, Évolution Normative et Rectifications de 1990 (XVIIIe - XXe s.).
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire canonique en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 222 liens internes et identifiants contrôlés (222 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-GRAM-01`, `SRC-GRAM-02`, `SRC-LEX-01`, `SRC-LEX-03`, `SRC-PHON-01`, `SRC-SOCIO-02`, `SRC-NORM-02`, `SRC-NORM-03`, `SRC-TYPO-01`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-601-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-601-audit-report.md).
 - **Conséquences** :
-  - Positives : **ACHÈVEMENT COMPLET DU SEMESTRE 5 (CYCLE 5)**. L'ensemble des 20 chapitres de S5 (`MOD-501`, `MOD-502`, `MOD-503`, `MOD-504`) est homologué et validé. Le corpus atteint désormais le jalon historique de **104 chapitres complets**, **76 888 lignes**, **8,80 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
-  - Prochaine étape : Ouverture de l'Année 3 / Semestre 6 (Cycle 6 : Diachronie, Herméneutique, Autonomie Philologique et Capstone Project Grand Oral), débutant par le module [`MOD-601` — Diachronie et Histoire de la Langue Française](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601-diachronie-histoire-langue-francaise.md).
+  - Positives : **HOMOLOGATION COMPLÈTE DU MODULE MOD-601**. Le corpus atteint désormais **109 chapitres complets**, **78 675 lignes**, **9,00 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
+  - Prochaine étape : Rédaction et audit de `MOD-602` (*Herméneutique Littéraire, Stylistique Appliquée et Explication de Concours*).
+
 
 
 

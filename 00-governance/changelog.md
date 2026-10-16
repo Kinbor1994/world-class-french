@@ -360,8 +360,25 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
       - **76 888 lignes** et **8,80 Mo** de contenus didactiques de très haute précision philologique.
       - **0 anomalie résiduelle**, 100 % de conformité déterministe.
 
+- **Étape 20 — Rédaction Intégrale, Audit Automatisé et Validation de MOD-601 — Ouverture du Semestre 6 (Cycle 6)** :
+  - **Rédaction complète des 5 chapitres de cours de MOD-601** dans [`03-curriculum/year-3/semester-6/mod-601/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/) :
+    - [`chp-601-01-origines-latines-naissance-langue-romane.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-01-origines-latines-naissance-langue-romane.md) (`CHP-601-01`, 39,8 Ko / 361 lignes) : Des Origines Latines à la Naissance de la Langue Romane (Ier - Xe s.).
+    - [`chp-601-02-ancien-francais-classique-systeme-bicasuel.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-02-ancien-francais-classique-systeme-bicasuel.md) (`CHP-601-02`, 41,5 Ko / 383 lignes) : L'Ancien Français Classique et le Système Bicasuel (XIe - XIIIe s.).
+    - [`chp-601-03-moyen-francais-renaissance-latinisation-graphique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-03-moyen-francais-renaissance-latinisation-graphique.md) (`CHP-601-03`, 39,6 Ko / 357 lignes) : Le Moyen Français et la Renaissance : Mutations et Latinisation Graphique (XIVe - XVIe s.).
+    - [`chp-601-04-grand-siecle-fixation-classique-norme-vaugelas.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-04-grand-siecle-fixation-classique-norme-vaugelas.md) (`CHP-601-04`, 37,8 Ko / 327 lignes) : Le Grand Siècle et la Fixation Classique de la Norme (XVIIe s.).
+    - [`chp-601-05-lumieres-ecole-republicaine-reformes-orthographe.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/mod-601/chp-601-05-lumieres-ecole-republicaine-reformes-orthographe.md) (`CHP-601-05`, 41,3 Ko / 359 lignes) : Des Lumières aux Réformes de l'Orthographe : École Républicaine, Évolution Normative et Rectifications de 1990 (XVIIIe - XXe s.).
+  - **Audit automatisé complet et publication du rapport officiel de MOD-601** :
+    - Exécution du banc d'essai [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) : 222 liens internes et identifiants contrôlés (222 valides, 0 lien brisé), 0 erreur critique, 0 avertissement.
+    - Publication du rapport officiel [`08-audits/pedagogical/mod-601-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-601-audit-report.md) et enregistrement de [`[DEC-044]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-044-rédaction-intégrale-audit-automatisé-et-validation-des-5-chapitres-du-module-mod-601-diachronie-et-histoire-de-la-langue-française--des-origines-aux-réformes--ouverture-du-semestre-6--cycle-6) dans le journal des décisions.
+  - **Passage officiel de MOD-601 au statut VALIDÉ** :
+    - Les 5 chapitres de `MOD-601` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
+  - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-601)** :
+    - **109 chapitres complets** de référence universitaire rédigés, audités et validés.
+    - **78 675 lignes** et **9,00 Mo** de contenus didactiques de très haute précision philologique.
+    - **0 anomalie résiduelle**, 100 % de conformité déterministe.
+
 ### Planifié
-- Ouverture du Semestre 6 (Année 3 — Cycle 6 : Diachronie, Herméneutique, Autonomie Philologique et Capstone Project Grand Oral), à commencer par `MOD-601` (*Diachronie et Histoire de la Langue Française*).
+- Poursuite du Semestre 6 (Année 3 — Cycle 6 : Diachronie, Herméneutique, Autonomie Philologique et Capstone Project Grand Oral), avec le module `MOD-602` (*Herméneutique Littéraire, Stylistique Appliquée et Explication de Concours*).
 
 ---
 

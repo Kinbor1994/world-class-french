@@ -1,47 +1,47 @@
 {
-  "chp-504-01-semiologie-pathologies-texte-ecrit.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 27
-    }
-  },
-  "chp-504-02-code-typographique-espaces-ponctuation-guillemets.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 21
-    }
-  },
-  "chp-504-03-famille-tirets-capitales-accentuees-italique.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 47
-    }
-  },
-  "chp-504-04-numeration-editoriale-protocole-trois-passes.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 41
-    }
-  },
-  "chp-504-05-apparat-critique-deontologie-hypercorrection.md": {
+  "chp-601-01-origines-latines-naissance-langue-romane.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 71
+      "link_checks": 44
+    }
+  },
+  "chp-601-02-ancien-francais-classique-systeme-bicasuel.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 39
+    }
+  },
+  "chp-601-03-moyen-francais-renaissance-latinisation-graphique.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 40
+    }
+  },
+  "chp-601-04-grand-siecle-fixation-classique-norme-vaugelas.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 42
+    }
+  },
+  "chp-601-05-lumieres-ecole-republicaine-reformes-orthographe.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 57
     }
   }
 }

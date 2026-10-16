@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 6 (S6)  
 > **Domaines mobilisés** : DOM-01 (Phonétique et phonologie), DOM-02 (Orthographe et morphologie), DOM-05 (Lexicologie et sémantique), DOM-11 (Histoire des idées et sociolinguistique), DOM-13 (Compétences intégrées d'excellence)  
 > **Volume horaire estimé** : 18 heures (Étude historique et lois phonétiques : 5 h 30 | Pratique délibérée : 6 h 30 | Correction raisonnée : 3 h 30 | Révision active et frises chronologiques : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md` (S6)](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md#7-fiche-détaillée--semestre-6-s6), [`dependency-graph.md` (DEP-HIS-01, DEP-LIN-02, DEP-LIN-03)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#27-axe-linguistique--philologie-du-fonctionnement-synchronique-à-la-diachronie), [`competency-framework.md` (FR-PHILOL-001, FR-LEXIC-001, FR-ORTHO-001)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-philol-001-autonomie-philologique-et-consultation-experte-des-sources), [`syllabus.md` (S6)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/syllabus.md#module-mod-601--diachronie-et-histoire-de-la-langue-française--des-origines-aux-réformes), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---
