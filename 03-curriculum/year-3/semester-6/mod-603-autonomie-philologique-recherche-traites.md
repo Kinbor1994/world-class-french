@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 6 (S6)  
 > **Domaines mobilisés** : DOM-02 (Orthographe), DOM-03 (Grammaire et morphosyntaxe), DOM-05 (Lexique et sémantique), DOM-12 (Correction, révision et contrôle qualité éditorial), DOM-13 (Intégration et haute expertise)  
 > **Volume horaire estimé** : 18 heures (Étude de la méthode philologique : 4 h 30 | Pratique délibérée : 7 h 30 | Correction raisonnée : 3 h 30 | Révision active : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md` (S6)](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md#7-fiche-détaillée--semestre-6-s6), [`dependency-graph.md` (DEP-REV-01, DEP-LIN-03)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#27-axe-linguistique--philologie-du-fonctionnement-synchronique-à-la-diachronie), [`competency-framework.md` (FR-PHILOL-001, FR-INT-003)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-philol-001-autonomie-philologique-et-consultation-experte-des-sources), [`mastery-levels.md` (Palier L5)](file:///f:/Formation/world-class-french/02-competency-framework/mastery-levels.md#l5--expertise-transférable-haute-maîtrise-et-posture-philologique), [`syllabus.md` (S6)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/syllabus.md#module-mod-603--autonomie-philologique--méthode-de-recherche-experte-dans-les-traités-savants), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

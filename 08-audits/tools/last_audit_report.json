@@ -1,47 +1,47 @@
 {
-  "chp-602-01-epistemologie-hermeneutique-cercle-dialectique.md": {
+  "chp-603-01-epistemologie-instruments-typologie-sources.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 42
+      "link_checks": 119
     }
   },
-  "chp-602-02-methodologie-explication-lineaire-concours.md": {
+  "chp-603-02-architecture-maniement-bon-usage-grevisse.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 35
+      "announcement_checks": 1,
+      "link_checks": 54
     }
   },
-  "chp-602-03-chair-verbale-pensee-syntaxe-metaphysique.md": {
+  "chp-603-03-corpus-numeriques-dictionnaires-historiques.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 39
+      "announcement_checks": 1,
+      "link_checks": 94
     }
   },
-  "chp-602-04-philologie-implicite-intertextualite-anachronisme.md": {
+  "chp-603-04-methodologie-note-arbitrage-philologique.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
-      "link_checks": 57
+      "link_checks": 82
     }
   },
-  "chp-602-05-epreuve-orale-ecrite-haut-concours-agregation.md": {
+  "chp-603-05-pathologies-raisonnement-philologique-audit.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 36
+      "announcement_checks": 1,
+      "link_checks": 93
     }
   }
 }
