@@ -340,13 +340,28 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Publication du rapport officiel [`08-audits/pedagogical/mod-503-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-503-audit-report.md) et enregistrement de [`[DEC-042]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-042-rédaction-intégrale-audit-automatisé-et-validation-des-5-chapitres-du-module-mod-503-haute-éloquence-déclamation-classique-souffle-et-présence-oratoire) dans le journal des décisions.
   - **Passage officiel de MOD-503 au statut VALIDÉ** :
     - Les 5 chapitres de `MOD-503` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
-  - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-503)** :
-    - **99 chapitres complets** de référence universitaire rédigés, audités et validés.
-    - **74 320 lignes** et **8,61 Mo** de contenus didactiques de très haute précision philologique.
-    - **0 anomalie résiduelle**, 100 % de conformité déterministe.
+
+- **Étape 19 — Rédaction Intégrale, Audit Automatisé et Validation de MOD-504 — Clôture Complète du Semestre 5 (Cycle 5)** :
+  - **Rédaction complète des 5 chapitres de cours de MOD-504** dans [`03-curriculum/year-3/semester-5/mod-504/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-504/) :
+    - [`chp-504-01-semiologie-pathologies-texte-ecrit.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-504/chp-504-01-semiologie-pathologies-texte-ecrit.md) (`CHP-504-01`, 41,5 Ko / 605 lignes) : Sémiologie des Pathologies du Texte Écrit : Solécismes, Barbarismes, Impropriétés, Pléonasmes Vicieux et Faux-Amis Savants.
+    - [`chp-504-02-code-typographique-espaces-ponctuation-guillemets.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-504/chp-504-02-code-typographique-espaces-ponctuation-guillemets.md) (`CHP-504-02`, 38,9 Ko / 578 lignes) : Le Code Typographique Officiel (Imprimerie Nationale) : Espaces Insécables, Ponctuation Simple vs Double et Guillemets Français.
+    - [`chp-504-03-famille-tirets-capitales-accentuees-italique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-504/chp-504-03-famille-tirets-capitales-accentuees-italique.md) (`CHP-504-03`, 36,6 Ko / 470 lignes) : Famille des Tirets, Capitales Accentuées et Règles de l'Italique.
+    - [`chp-504-04-numeration-editoriale-protocole-trois-passes.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-504/chp-504-04-numeration-editoriale-protocole-trois-passes.md) (`CHP-504-04`, 36,4 Ko / 466 lignes) : Numération Éditoriale et Protocole de Révision en Trois Passes.
+    - [`chp-504-05-apparat-critique-deontologie-hypercorrection.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-504/chp-504-05-apparat-critique-deontologie-hypercorrection.md) (`CHP-504-05`, 34,2 Ko / 449 lignes) : L'Apparat Critique, Déontologie Éditoriale et Prévention de l'Hypercorrection.
+  - **Audit automatisé complet et publication du rapport officiel de MOD-504** :
+    - Exécution du banc d'essai [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) : 207 liens internes et identifiants contrôlés (207 valides, 0 lien brisé), 0 erreur critique, 0 avertissement.
+    - Publication du rapport officiel [`08-audits/pedagogical/mod-504-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-504-audit-report.md) et enregistrement de [`[DEC-043]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-043-rédaction-intégrale-audit-automatisé-et-validation-des-5-chapitres-du-module-mod-504-révision-éditoriale-professionnelle-typographie-savante-et-haute-tenue-écrite--clôture-complète-du-semestre-5--cycle-5) dans le journal des décisions.
+  - **Passage officiel de MOD-504 au statut VALIDÉ** :
+    - Les 5 chapitres de `MOD-504` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
+  - **ACCOMPLISSEMENT MAJEUR — ACHÈVEMENT DU SEMESTRE 5 (CYCLE 5)** :
+    - Les 4 modules du Semestre 5 (`MOD-501`, `MOD-502`, `MOD-503`, `MOD-504`) sont intégralement validés.
+    - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-504)** :
+      - **104 chapitres complets** de référence universitaire rédigés, audités et validés (dépassement du seuil symbolique des 100 chapitres d'excellence !).
+      - **76 888 lignes** et **8,80 Mo** de contenus didactiques de très haute précision philologique.
+      - **0 anomalie résiduelle**, 100 % de conformité déterministe.
 
 ### Planifié
-- Rédaction et audit de `MOD-504` (*Révision Éditoriale Professionnelle, Typographie Savante et Haute Tenue Écrite*), dernier module du Semestre 5.
+- Ouverture du Semestre 6 (Année 3 — Cycle 6 : Diachronie, Herméneutique, Autonomie Philologique et Capstone Project Grand Oral), à commencer par `MOD-601` (*Diachronie et Histoire de la Langue Française*).
 
 ---
 

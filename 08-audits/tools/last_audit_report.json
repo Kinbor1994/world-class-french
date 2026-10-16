@@ -1,32 +1,5 @@
 {
-  "chp-503-01-cinq-canons-rhetorique-souverainete-actio.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 42
-    }
-  },
-  "chp-503-02-physiologie-voix-souffle-projection-acoustique.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 21
-    }
-  },
-  "chp-503-03-prosodie-oratoire-silences-metrique-periode.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 1,
-      "link_checks": 30
-    }
-  },
-  "chp-503-04-scenographie-corporelle-ancrage-chironomie.md": {
+  "chp-504-01-semiologie-pathologies-texte-ecrit.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
@@ -35,13 +8,40 @@
       "link_checks": 27
     }
   },
-  "chp-503-05-art-memoire-memoria-declamation-sans-notes.md": {
+  "chp-504-02-code-typographique-espaces-ponctuation-guillemets.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 1,
-      "link_checks": 24
+      "link_checks": 21
+    }
+  },
+  "chp-504-03-famille-tirets-capitales-accentuees-italique.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 47
+    }
+  },
+  "chp-504-04-numeration-editoriale-protocole-trois-passes.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 1,
+      "link_checks": 41
+    }
+  },
+  "chp-504-05-apparat-critique-deontologie-hypercorrection.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 71
     }
   }
 }

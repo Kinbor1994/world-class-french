@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 5 (S5)  
 > **Domaines mobilisés** : DOM-02 (Orthographe grammaticale et lexicale), DOM-03 (Grammaire et morphosyntaxe), DOM-07 (Expression écrite et stylistique), DOM-12 (Correction, révision et contrôle qualité éditorial), DOM-13 (Intégration et haute expertise)  
 > **Volume horaire estimé** : 18 heures (Étude théorique : 5 h | Pratique délibérée : 7 h | Correction raisonnée : 3 h 30 | Révision active : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md` (S5)](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md#6-fiche-détaillée--semestre-5-s5), [`dependency-graph.md` (DEP-ORT-04, Axe Révision & Censure)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md), [`competency-framework.md` (FR-INT-003, FR-STYLE-001, FR-ORTHO-001)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-int-003-réviser-et-corriger-un-texte-tiers-en-justifiant-les-interventions), [`assessment-rubrics.md` (Section 3)](file:///f:/Formation/world-class-french/02-competency-framework/assessment-rubrics.md#3-grille-dévaluation-de-la-révision-éditoriale-correction-dépreuves), [`syllabus.md` (S5)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/syllabus.md#module-mod-504--révision-éditoriale-professionnelle-typographie-savante-et-haute-tenue-écrite), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---
