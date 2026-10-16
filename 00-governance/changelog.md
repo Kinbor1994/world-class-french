@@ -328,10 +328,25 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-502)** :
     - **94 chapitres complets** de référence universitaire rédigés, audités et validés.
     - **71 404 lignes** et **8,41 Mo** de contenus didactiques de très haute précision philologique.
+- **Étape 18 — Rédaction Intégrale, Audit Automatisé et Validation de MOD-503 (Semestre 5, Cycle 5)** :
+  - **Rédaction complète des 5 chapitres de cours de MOD-503** dans [`03-curriculum/year-3/semester-5/mod-503/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/) :
+    - [`chp-503-01-cinq-canons-rhetorique-souverainete-actio.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-01-cinq-canons-rhetorique-souverainete-actio.md) (`CHP-503-01`, 39,6 Ko / 567 lignes) : Les Cinq Canons de la Rhétorique Classique et la Souveraineté de l'Actio : Inventio, Dispositio, Elocutio, Actio, Memoria et Triade Aristotélicienne.
+    - [`chp-503-02-physiologie-voix-souffle-projection-acoustique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-02-physiologie-voix-souffle-projection-acoustique.md) (`CHP-503-02`, 41,2 Ko / 597 lignes) : Physiologie de la Voix Parlée, Technique du Souffle et Projection Acoustique : De l'Ancrage Diaphragmatique aux Résonateurs du Masque.
+    - [`chp-503-03-prosodie-oratoire-silences-metrique-periode.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-03-prosodie-oratoire-silences-metrique-periode.md) (`CHP-503-03`, 42,6 Ko / 611 lignes) : Prosodie Oratoire Avancée, Architecture des Silences et Métrique de la Période : Du Tempo Lento aux Trois Silences Dramatiques.
+    - [`chp-503-04-scenographie-corporelle-ancrage-chironomie.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-04-scenographie-corporelle-ancrage-chironomie.md) (`CHP-503-04`, 40,2 Ko / 576 lignes) : Scénographie Corporelle, Ancrage Postural et Chironomie du Geste : Du Balayage Circulaire à l'Immobilité Habitée.
+    - [`chp-503-05-art-memoire-memoria-declamation-sans-notes.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-05-art-memoire-memoria-declamation-sans-notes.md) (`CHP-503-05`, 40,9 Ko / 565 lignes) : L'Art de la Mémoire (Memoria) et la Déclamation sans Notes : Palais Mental, Images Agissantes et Gestion du Blanc Mnésique.
+  - **Audit automatisé complet et publication du rapport officiel de MOD-503** :
+    - Exécution du banc d'essai [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) : 144 liens internes et identifiants contrôlés (144 valides, 0 lien brisé), 0 erreur critique, 0 avertissement.
+    - Publication du rapport officiel [`08-audits/pedagogical/mod-503-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-503-audit-report.md) et enregistrement de [`[DEC-042]`](file:///f:/Formation/world-class-french/00-governance/decisions-log.md#dec-042-rédaction-intégrale-audit-automatisé-et-validation-des-5-chapitres-du-module-mod-503-haute-éloquence-déclamation-classique-souffle-et-présence-oratoire) dans le journal des décisions.
+  - **Passage officiel de MOD-503 au statut VALIDÉ** :
+    - Les 5 chapitres de `MOD-503` et sa fiche pédagogique opérationnelle sont passés au statut `[STATUT : VALIDÉ]`.
+  - **TOTAL CUMULÉ DU CURSUS (MOD-101 À MOD-503)** :
+    - **99 chapitres complets** de référence universitaire rédigés, audités et validés.
+    - **74 320 lignes** et **8,61 Mo** de contenus didactiques de très haute précision philologique.
     - **0 anomalie résiduelle**, 100 % de conformité déterministe.
 
 ### Planifié
-- Rédaction et audit de `MOD-503` (*Haute Éloquence : Déclamation Classique, Souffle et Présence Oratoire*).
+- Rédaction et audit de `MOD-504` (*Révision Éditoriale Professionnelle, Typographie Savante et Haute Tenue Écrite*), dernier module du Semestre 5.
 
 ---
 

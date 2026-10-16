@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 5 (S5)  
 > **Domaines mobilisés** : DOM-01 (Phonétique & Prosodie), DOM-08 (Expression orale & Art oratoire), DOM-10 (Rhétorique classique & Figures), DOM-13 (Compétences intégrées & Haute performance)  
 > **Volume horaire estimé** : 18 heures (Étude théorique et analyse de corpus : 4 h 30 | Pratique délibérée, ateliers corporels et diction : 7 h 30 | Correction raisonnée et débriefing vocal critique : 3 h 30 | Révision active, mémorisation topographique et consolidation : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md), [`dependency-graph.md`](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md), [`competency-framework.md`](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md), [`syllabus.md` (S5)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/syllabus.md), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

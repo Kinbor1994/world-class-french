@@ -771,5 +771,29 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : Consolidation majeure du Semestre 5 (Cycle 5). Le corpus atteint désormais **94 chapitres complets**, **71 404 lignes**, **8,41 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
   - Prochaine étape : Rédaction et audit de `MOD-503` (*Haute Éloquence : Déclamation Classique, Souffle et Présence Oratoire*).
 
+---
+
+### [DEC-042] Rédaction Intégrale, Audit Automatisé et Validation des 5 Chapitres du Module MOD-503 (Haute Éloquence : Déclamation Classique, Souffle et Présence Oratoire)
+- **Date** : 2026-10-16
+- **Statut** : Validé
+- **Contexte** : Troisième jalon de l'Année 3 / Semestre 5 (Cycle 5 : Haute Stylistique, Rhétorique Classique, Déclamation et Révision Éditoriale). Clé de voûte de l'axe Expression Orale et Art Oratoire (*DEP-ORL-01*, *DEP-ORL-02*). Nécessité d'élever l'apprenant au palier L4 (Maîtrise approfondie) par l'incarnation vivante des cinq canons rhétoriques (souveraineté de l'*actio* et triade *logos/éthos/pathos*), la physiologie vocale sans fatigue (souffle costo-diaphragmatique bas, *appoggio* abdominal, masque osseux et *formant de l'orateur* 2 800-3 200 Hz), la prosodie avancée (*tempo lento* 105-125 mots/min, trilogie des silences dramatiques, mélodie de la période oratoire, code des liaisons nobles), la scénographie corporelle (ancrage podal, verticalité axiale, regard circulaire à 180°, chironomie dans le cadre utile et immobilité habitée) et l'art de la mémoire (*ars memoriae* cicéronienne, palais mental, images agissantes et déclamation publique de 15 minutes sans notes).
+- **Décision** :
+  1. Rédaction intégrale en prose académique d'élite des 5 chapitres de cours de `MOD-503` sous [`03-curriculum/year-3/semester-5/mod-503/`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/) :
+     - [`chp-503-01-cinq-canons-rhetorique-souverainete-actio.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-01-cinq-canons-rhetorique-souverainete-actio.md) (`CHP-503-01`, 39,6 Ko / 567 lignes) : Les Cinq Canons de la Rhétorique Classique et la Souveraineté de l'Actio : Inventio, Dispositio, Elocutio, Actio, Memoria et Triade Aristotélicienne.
+     - [`chp-503-02-physiologie-voix-souffle-projection-acoustique.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-02-physiologie-voix-souffle-projection-acoustique.md) (`CHP-503-02`, 41,2 Ko / 597 lignes) : Physiologie de la Voix Parlée, Technique du Souffle et Projection Acoustique : De l'Ancrage Diaphragmatique aux Résonateurs du Masque.
+     - [`chp-503-03-prosodie-oratoire-silences-metrique-periode.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-03-prosodie-oratoire-silences-metrique-periode.md) (`CHP-503-03`, 42,6 Ko / 611 lignes) : Prosodie Oratoire Avancée, Architecture des Silences et Métrique de la Période : Du Tempo Lento aux Trois Silences Dramatiques.
+     - [`chp-503-04-scenographie-corporelle-ancrage-chironomie.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-04-scenographie-corporelle-ancrage-chironomie.md) (`CHP-503-04`, 40,2 Ko / 576 lignes) : Scénographie Corporelle, Ancrage Postural et Chironomie du Geste : Du Balayage Circulaire à l'Immobilité Habitée.
+     - [`chp-503-05-art-memoire-memoria-declamation-sans-notes.md`](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-5/mod-503/chp-503-05-art-memoire-memoria-declamation-sans-notes.md) (`CHP-503-05`, 40,9 Ko / 565 lignes) : L'Art de la Mémoire (Memoria) et la Déclamation sans Notes : Palais Mental, Images Agissantes et Gestion du Blanc Mnésique.
+  2. Chaque chapitre respecte scrupuleusement le gabarit des 21 rubriques normatives, la ventilation horaire de 5-6 h en 4 phases opératoires (`DEC-006`), les décomptes métriques certifiés selon `SRC-TYPO-01` (50 mots en exercice L3, 60 mots en production réelle) et l'annexe de classification pédagogique (`CORE-NOW`, `DEFER`, etc.).
+  3. Exécution du banc d'essai d'audit [`08-audits/tools/verify_chapter.py`](file:///f:/Formation/world-class-french/08-audits/tools/verify_chapter.py) sur l'ensemble du module :
+     - 144 liens internes et identifiants contrôlés (144 valides, 0 lien brisé) ;
+     - Zéro source inventée (alignement strict sur `SRC-RHET-01`, `SRC-RHET-03`, `SRC-PHON-01`, `SRC-PHON-02`, `SRC-GRAM-01`, `SRC-NORM-03`, `SRC-TYPO-01`) ;
+     - Zéro erreur critique, zéro avertissement résiduel ;
+     - Publication du rapport d'audit officiel [`08-audits/pedagogical/mod-503-audit-report.md`](file:///f:/Formation/world-class-french/08-audits/pedagogical/mod-503-audit-report.md).
+- **Conséquences** :
+  - Positives : Clôture de l'axe de haute éloquence oratoire du cursus. Le corpus atteint désormais **99 chapitres complets**, **74 320 lignes**, **8,61 Mo de savoirs académiques**, avec 0 anomalie résiduelle.
+  - Prochaine étape : Rédaction et audit de `MOD-504` (*Révision Éditoriale Professionnelle, Typographie Savante et Haute Tenue Écrite*), module terminal du Semestre 5 avant le Semestre 6.
+
+
 
 
