@@ -5,7 +5,7 @@
 > **Semestre** : Année 3 — Semestre 6 (S6)  
 > **Domaines mobilisés** : DOM-06 (Compréhension écrite), DOM-08 (Expression orale), DOM-10 (Rhétorique), DOM-11 (Littérature et histoire des idées), DOM-13 (Intégration)  
 > **Volume horaire estimé** : 18 heures (Étude théorique et herméneutique : 5 h 30 | Pratique délibérée : 6 h 30 | Correction raisonnée : 3 h 30 | Révision active : 2 h 30)  
-> **Statut** : [STATUT : PROPOSÉ — EN ATTENTE DE VALIDATION]  
+> **Statut** : [STATUT : VALIDÉ]  
 > **Alignement** : [`academic-structure.md`](file:///f:/Formation/world-class-french/01-architecture/academic-structure.md#7-fiche-détaillée--semestre-6-s6), [`dependency-graph.md` (DEP-LEC-02, DEP-LEC-03)](file:///f:/Formation/world-class-french/01-architecture/dependency-graph.md#26-axe-compréhension-de-textes--du-décodage-littéral-à-lherméneutique-savante), [`competency-framework.md` (FR-INT-006, Palier L5)](file:///f:/Formation/world-class-french/02-competency-framework/competency-framework.md#fr-int-006-analyser-un-texte-littéraire-sans-confondre-interprétation-et-preuve-textuelle), [`syllabus.md` (S6)](file:///f:/Formation/world-class-french/03-curriculum/year-3/semester-6/syllabus.md#module-mod-602--herméneutique-littéraire-philosophique-et-explication-de-concours), [`source-registry.md`](file:///f:/Formation/world-class-french/07-resources/source-registry.md)
 
 ---

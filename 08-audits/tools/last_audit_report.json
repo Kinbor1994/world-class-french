@@ -1,32 +1,5 @@
 {
-  "chp-601-01-origines-latines-naissance-langue-romane.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 44
-    }
-  },
-  "chp-601-02-ancien-francais-classique-systeme-bicasuel.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 39
-    }
-  },
-  "chp-601-03-moyen-francais-renaissance-latinisation-graphique.md": {
-    "issues": [],
-    "stats": {
-      "word_checks": 0,
-      "api_checks": 0,
-      "announcement_checks": 0,
-      "link_checks": 40
-    }
-  },
-  "chp-601-04-grand-siecle-fixation-classique-norme-vaugelas.md": {
+  "chp-602-01-epistemologie-hermeneutique-cercle-dialectique.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
@@ -35,13 +8,40 @@
       "link_checks": 42
     }
   },
-  "chp-601-05-lumieres-ecole-republicaine-reformes-orthographe.md": {
+  "chp-602-02-methodologie-explication-lineaire-concours.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 35
+    }
+  },
+  "chp-602-03-chair-verbale-pensee-syntaxe-metaphysique.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 39
+    }
+  },
+  "chp-602-04-philologie-implicite-intertextualite-anachronisme.md": {
     "issues": [],
     "stats": {
       "word_checks": 0,
       "api_checks": 0,
       "announcement_checks": 0,
       "link_checks": 57
+    }
+  },
+  "chp-602-05-epreuve-orale-ecrite-haut-concours-agregation.md": {
+    "issues": [],
+    "stats": {
+      "word_checks": 0,
+      "api_checks": 0,
+      "announcement_checks": 0,
+      "link_checks": 36
     }
   }
 }
