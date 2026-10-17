@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import type { DiagnosticMcqData, McqOption } from "@/types/curriculum";
 
@@ -30,58 +29,76 @@ export const SmartDiagnosticMCQ: React.FC<SmartDiagnosticMCQProps> = ({
     if (!chosen) return;
 
     if (chosen.isCorrect) {
-      onAnswer(true, `${chosen.feedback}\nExplication : ${data.explanation}`);
+      onAnswer(true, `${chosen.feedback}\nAnalyse : ${data.explanation}`);
     } else {
-      onAnswer(false, `${chosen.feedback}\nExplication : ${data.explanation}`);
+      onAnswer(false, `${chosen.feedback}\nAnalyse : ${data.explanation}`);
     }
   };
 
+  const optionLetters = ["A", "B", "C", "D", "E"];
+
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Intitulé de la question */}
-      <div className="w-full p-6 bg-slate-50 dark:bg-slate-800/80 rounded-3xl border-2 border-slate-200 dark:border-slate-700 mb-6 text-center">
-        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">
+      {/* Intitulé de la proposition */}
+      <div className="w-full p-5 bg-white dark:bg-academic-dark-surface rounded-xl border border-academic-border dark:border-academic-dark-border shadow-card mb-5 text-center">
+        <h3 className="text-lg sm:text-xl font-bold font-serif text-academic-ink dark:text-slate-100 leading-snug">
           {data.question}
         </h3>
       </div>
 
-      {/* Liste des options */}
-      <div className="flex flex-col gap-3 w-full mb-6">
-        {data.options.map((option: McqOption) => {
+      {/* Options ordonnées avec lettrines */}
+      <div className="flex flex-col gap-2.5 w-full mb-6">
+        {data.options.map((option: McqOption, idx: number) => {
           const isSelected = selectedOptionId === option.id;
+          const letter = optionLetters[idx] ?? String(idx + 1);
+
           return (
-            <motion.button
+            <button
               key={option.id}
               type="button"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
               onClick={() => handleSelect(option.id)}
-              className={`flex items-center justify-between p-4 rounded-2xl border-2 text-left transition-all ${
+              className={`flex items-center justify-between p-3.5 rounded-lg border text-left transition-all ${
                 isSelected
-                  ? "border-sky-500 bg-sky-50 dark:bg-sky-950/40 text-sky-900 dark:text-sky-100 font-bold shadow-md"
-                  : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-300 font-medium"
+                  ? "border-academic-gold bg-amber-50/70 dark:bg-amber-950/30 text-academic-ink dark:text-slate-100 shadow-fine"
+                  : "border-academic-border dark:border-academic-dark-border bg-white dark:bg-academic-dark-surface text-academic-ink-light dark:text-slate-200 hover:border-academic-gold/60 shadow-fine"
               }`}
             >
-              <span className="text-base leading-relaxed pr-3">{option.text}</span>
-              <div className="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center shrink-0">
-                {isSelected && (
-                  <div className="w-3 h-3 bg-sky-500 rounded-full" />
-                )}
+              <div className="flex items-center gap-3 pr-2">
+                <span
+                  className={`w-6 h-6 rounded flex items-center justify-center font-mono font-bold text-xs shrink-0 ${
+                    isSelected
+                      ? "bg-academic-gold text-white"
+                      : "bg-academic-paper dark:bg-academic-dark-card text-academic-muted dark:text-academic-dark-muted"
+                  }`}
+                >
+                  {letter}
+                </span>
+                <span className="text-sm font-sans leading-relaxed">{option.text}</span>
               </div>
-            </motion.button>
+
+              <div
+                className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                  isSelected
+                    ? "border-academic-gold bg-academic-gold text-white"
+                    : "border-academic-border dark:border-academic-dark-border"
+                }`}
+              >
+                {isSelected && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
+              </div>
+            </button>
           );
         })}
       </div>
 
-      {/* Bouton de validation */}
+      {/* Validation */}
       <button
         type="button"
         onClick={handleValidate}
         disabled={!selectedOptionId || hasValidated}
-        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none"
+        className="w-full flex items-center justify-center gap-2 py-3 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all select-none"
       >
-        <Check className="w-6 h-6 stroke-[3]" />
-        <span>Confirmer ma réponse</span>
+        <Check className="w-4 h-4" />
+        <span>Confirmer l'arbitrage</span>
       </button>
     </div>
   );

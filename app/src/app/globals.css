@@ -1,28 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #FAF8F5;
+  --foreground: #111827;
+  --surface: #FFFFFF;
+  --border: #E7E2D8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #090d16;
-    --foreground: #f8fafc;
+    --background: #0B0F19;
+    --foreground: #F8FAFC;
+    --surface: #131A2A;
+    --border: #222F46;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar discrète */
+/* Typographie éditoriale pour les titres */
+.font-display {
+  font-family: "Newsreader", "Charter", "Sitka Text", "Georgia", serif;
+  font-feature-settings: "liga", "dlig", "calt";
+}
+
+/* Scrollbar sobre et épurée */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -31,9 +44,9 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.4);
+  background: rgba(148, 163, 184, 0.35);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.7);
+  background: rgba(148, 163, 184, 0.6);
 }

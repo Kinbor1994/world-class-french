@@ -45,25 +45,30 @@ export default function HomePage() {
     }
   }, [mounted]);
 
-  // Squelette initial de chargement propre pour éliminer toute désynchronisation SSR / localStorage
+  // Squelette initial de chargement digne d'une grande institution éditoriale
   if (!mounted) {
     return (
       <main
         suppressHydrationWarning
-        className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 p-4"
+        className="min-h-screen flex flex-col items-center justify-center bg-academic-paper dark:bg-academic-dark-bg text-academic-ink dark:text-slate-100 p-4"
       >
-        <div className="flex flex-col items-center gap-4 text-center">
-          <div className="w-16 h-16 rounded-3xl bg-emerald-500/10 border-2 border-emerald-500/20 flex items-center justify-center text-3xl animate-pulse">
-            🇫🇷
+        <div className="flex flex-col items-center gap-3 text-center">
+          <div className="w-12 h-12 rounded-xl bg-academic-navy dark:bg-academic-dark-card border border-amber-900/30 flex items-center justify-center font-serif font-bold text-amber-500 text-lg shadow-fine">
+            W
           </div>
-          <div className="text-xl font-black tracking-wide text-slate-800 dark:text-slate-100">
-            World-Class French
+          <div className="space-y-0.5">
+            <div className="text-xs font-bold tracking-widest uppercase font-sans text-academic-ink dark:text-slate-100">
+              World-Class French
+            </div>
+            <div className="text-[10px] uppercase tracking-wider text-academic-muted dark:text-academic-dark-muted font-medium">
+              Institut Supérieur de Langue Française
+            </div>
           </div>
-          <div className="w-48 h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-            <div className="h-full bg-duo-green w-2/3 rounded-full animate-pulse" />
+          <div className="w-36 h-1 bg-academic-border-subtle dark:bg-academic-dark-border rounded-full overflow-hidden mt-2">
+            <div className="h-full bg-academic-gold w-1/2 rounded-full animate-pulse" />
           </div>
-          <span className="text-xs text-slate-400 font-semibold">
-            Initialisation du parcours adaptatif...
+          <span className="text-[11px] text-academic-muted dark:text-academic-dark-muted font-mono pt-1">
+            Chargement du corpus souverain...
           </span>
         </div>
       </main>
@@ -73,7 +78,7 @@ export default function HomePage() {
   return (
     <main
       suppressHydrationWarning
-      className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pb-16"
+      className="min-h-screen flex flex-col bg-academic-paper dark:bg-academic-dark-bg text-academic-ink dark:text-slate-100 pb-16 transition-colors"
     >
       {/* Barre supérieure de navigation */}
       <Navbar

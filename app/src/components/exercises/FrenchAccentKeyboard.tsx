@@ -10,16 +10,16 @@ const ACCENTS = ["é", "è", "ê", "ë", "à", "â", "ù", "û", "î", "ï", "ô
 
 export const FrenchAccentKeyboard: React.FC<FrenchAccentKeyboardProps> = ({ onInsertChar }) => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-1.5 p-2 bg-slate-100 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700/60 my-3">
-      <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 mr-1 select-none">
-        Accents :
+    <div className="flex flex-wrap items-center justify-center gap-1.5 p-2 bg-academic-paper dark:bg-academic-dark-card rounded-lg border border-academic-border-subtle dark:border-academic-dark-border my-3 w-full">
+      <span className="text-[10px] font-mono uppercase font-bold text-academic-muted dark:text-academic-dark-muted mr-1 select-none">
+        Caractères diacritiques :
       </span>
       {ACCENTS.map((char) => (
         <button
           key={char}
           type="button"
           onClick={() => onInsertChar(char)}
-          className="w-8 h-8 flex items-center justify-center font-bold text-base bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-900/40 active:scale-95 transition-all select-none"
+          className="w-7 h-7 flex items-center justify-center font-serif font-bold text-sm bg-white dark:bg-academic-dark-surface text-academic-ink dark:text-slate-100 rounded border border-academic-border dark:border-academic-dark-border hover:border-academic-gold hover:text-academic-gold transition-colors select-none shadow-fine"
         >
           {char}
         </button>

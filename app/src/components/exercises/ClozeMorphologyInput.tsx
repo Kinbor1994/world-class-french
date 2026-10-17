@@ -41,20 +41,20 @@ export const ClozeMorphologyInput: React.FC<ClozeMorphologyInputProps> = ({
     if (isAccepted) {
       onAnswer(
         true,
-        `Bravo ! La forme exacte est bien « ${data.expectedAnswer} ».\nForme de base : ${data.baseForm}.`
+        `Morphologie exacte : « ${data.expectedAnswer} » est la flexion attendue.\nForme de base : ${data.baseForm}.`
       );
     } else {
       onAnswer(
         false,
-        `Vous avez répondu « ${userInput.trim()} ».\nLa forme attendue était « ${data.expectedAnswer} ».\nRappel : ${data.hint1}`
+        `Flexion erronée (« ${userInput.trim()} »). La graphie attendue était « ${data.expectedAnswer} ».\nRègle : ${data.hint1}`
       );
     }
   };
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Phrase avec trou inséré */}
-      <div className="w-full p-6 bg-slate-50 dark:bg-slate-800/80 rounded-3xl border-2 border-slate-200 dark:border-slate-700 mb-6 flex flex-wrap items-center justify-center gap-2 text-xl font-medium text-slate-800 dark:text-slate-100">
+      {/* Phrase avec champ lacunaire */}
+      <div className="w-full p-6 bg-white dark:bg-academic-dark-surface rounded-xl border border-academic-border dark:border-academic-dark-border shadow-card mb-4 flex flex-wrap items-center justify-center gap-2 text-lg sm:text-xl font-serif text-academic-ink dark:text-slate-100 leading-relaxed text-center">
         <span>{data.sentenceBefore}</span>
         <input
           type="text"
@@ -62,24 +62,24 @@ export const ClozeMorphologyInput: React.FC<ClozeMorphologyInputProps> = ({
           disabled={hasValidated}
           onChange={(e) => setUserInput(e.target.value)}
           placeholder="..."
-          className="w-36 text-center font-bold px-3 py-1.5 bg-white dark:bg-slate-900 border-b-4 border-emerald-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-slate-900 dark:text-slate-100 text-xl"
+          className="w-36 text-center font-bold font-serif px-2 py-1 bg-academic-paper dark:bg-academic-dark-card border-b-2 border-academic-gold rounded focus:outline-none text-academic-ink dark:text-slate-100 text-lg transition-all"
         />
         <span>{data.sentenceAfter}</span>
       </div>
 
-      {/* Clavier d'accents */}
+      {/* Clavier virtuel d'accents */}
       <FrenchAccentKeyboard onInsertChar={handleInsertChar} />
 
-      {/* Système d'indices progressifs à deux niveaux */}
-      <div className="w-full flex flex-col items-center my-3">
+      {/* Indices didactiques gradués */}
+      <div className="w-full flex flex-col items-center my-2 space-y-2">
         {hintLevel >= 1 && (
-          <div className="p-3 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800 rounded-2xl text-sky-800 dark:text-sky-200 text-sm font-medium w-full text-center mb-2">
-            💡 Indice 1 (Règle) : {data.hint1}
+          <div className="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-900 dark:text-amber-200 text-xs font-sans w-full text-center">
+            Indice de règle : {data.hint1}
           </div>
         )}
         {hintLevel >= 2 && (
-          <div className="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-2xl text-amber-800 dark:text-amber-200 text-sm font-medium w-full text-center mb-2">
-            ✨ Indice 2 (Terminaison) : {data.hint2}
+          <div className="p-3 bg-academic-paper dark:bg-academic-dark-card border border-academic-border-subtle dark:border-academic-dark-border rounded-lg text-academic-ink dark:text-slate-200 text-xs font-mono w-full text-center">
+            Indice désinentiel : {data.hint2}
           </div>
         )}
 
@@ -87,25 +87,25 @@ export const ClozeMorphologyInput: React.FC<ClozeMorphologyInputProps> = ({
           <button
             type="button"
             onClick={handleNextHint}
-            className="text-xs text-sky-600 dark:text-sky-400 font-semibold flex items-center gap-1 hover:underline"
+            className="text-[11px] text-academic-gold font-semibold flex items-center gap-1 hover:underline pt-1"
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-3 h-3" />
             <span>
-              {hintLevel === 0 ? "Besoin d'un indice de règle ?" : "Révéler l'indice de terminaison"}
+              {hintLevel === 0 ? "Consulter un indice de règle" : "Révéler la désinence"}
             </span>
           </button>
         )}
       </div>
 
-      {/* Bouton de validation */}
+      {/* Validation */}
       <button
         type="button"
         onClick={handleValidate}
         disabled={userInput.trim().length === 0 || hasValidated}
-        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none mt-4"
+        className="w-full flex items-center justify-center gap-2 py-3 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all select-none mt-4"
       >
-        <Check className="w-6 h-6 stroke-[3]" />
-        <span>Vérifier l'accord</span>
+        <Check className="w-4 h-4" />
+        <span>Vérifier la désinence</span>
       </button>
     </div>
   );

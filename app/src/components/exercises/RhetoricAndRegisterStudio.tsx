@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Check, Feather, Crown } from "lucide-react";
+import { Check, Feather } from "lucide-react";
 import type { RhetoricStudioData } from "@/types/curriculum";
 
 interface RhetoricAndRegisterStudioProps {
   data: RhetoricStudioData;
+  speechRate?: number;
+  isAudioMuted?: boolean;
   onAnswer: (isCorrect: boolean, feedback: string) => void;
 }
 
@@ -26,12 +27,12 @@ export const RhetoricAndRegisterStudio: React.FC<RhetoricAndRegisterStudioProps>
     if (isMatch) {
       onAnswer(
         true,
-        `Remarquable analyse stylistique ! Il s'agit bien d'une ${data.correctFigure}.\n${data.explanation ?? ""}`
+        `Remarquable analyse stylistique : il s'agit bien d'une figure de type « ${data.correctFigure} ».\n${data.explanation ?? ""}`
       );
     } else {
       onAnswer(
         false,
-        `Ce n'est pas une figure de type « ${selectedFigure} » mais une « ${data.correctFigure ?? ""} ».\n${data.explanation ?? ""}`
+        `Ce n'est pas une figure de type « ${selectedFigure} », mais une « ${data.correctFigure ?? ""} ».\n${data.explanation ?? ""}`
       );
     }
   };
@@ -44,7 +45,7 @@ export const RhetoricAndRegisterStudio: React.FC<RhetoricAndRegisterStudioProps>
     if (chosen && chosen.register === "soutenu") {
       onAnswer(
         true,
-        `Parfait ! « ${chosen.text} » relève avec éclat du registre soutenu et diplomatique.\n${data.explanation ?? ""}`
+        `Parfaitement calibré : « ${chosen.text} » relève avec pureté du registre soutenu et diplomatique.\n${data.explanation ?? ""}`
       );
     } else {
       onAnswer(
@@ -56,38 +57,36 @@ export const RhetoricAndRegisterStudio: React.FC<RhetoricAndRegisterStudioProps>
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Citation ou texte analysé */}
-      <div className="w-full p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-900 rounded-3xl border-2 border-amber-200 dark:border-amber-800/60 mb-6 text-center shadow-sm">
-        <div className="flex items-center justify-center gap-2 mb-2 text-amber-700 dark:text-amber-400 font-bold text-xs uppercase tracking-wider">
-          <Feather className="w-4 h-4" />
-          <span>Atelier de Rhétorique & Stylistique Pure</span>
+      {/* Extrait textuel analysé */}
+      <div className="w-full p-6 bg-academic-paper dark:bg-academic-dark-card rounded-xl border border-academic-border dark:border-academic-dark-border mb-6 text-center shadow-card">
+        <div className="flex items-center justify-center gap-1.5 mb-2 text-academic-gold font-bold text-[10px] uppercase tracking-widest font-mono">
+          <Feather className="w-3.5 h-3.5" />
+          <span>Atelier de Rhétorique & Stylistique Littéraire</span>
         </div>
-        <p className="text-xl italic font-serif text-slate-800 dark:text-slate-100 leading-relaxed">
-          {data.textToAnalyze}
+        <p className="text-lg sm:text-xl italic font-serif text-academic-ink dark:text-slate-100 leading-relaxed">
+          « {data.textToAnalyze} »
         </p>
       </div>
 
       {/* Mode 1 : Identification de figure de style */}
       {data.mode === "identify_figure" && data.figureOptions && (
         <div className="w-full flex flex-col gap-3 mb-6">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2.5">
             {data.figureOptions.map((fig) => {
               const isSelected = selectedFigure === fig;
               return (
-                <motion.button
+                <button
                   key={fig}
                   type="button"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => !hasValidated && setSelectedFigure(fig)}
-                  className={`p-4 rounded-2xl border-2 font-bold text-base transition-all ${
+                  className={`p-3.5 rounded-lg border text-sm font-serif font-bold transition-all text-center ${
                     isSelected
-                      ? "border-amber-500 bg-amber-500 text-white shadow-duo-gold"
-                      : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 hover:border-amber-300"
+                      ? "border-academic-gold bg-amber-50/70 dark:bg-amber-950/40 text-academic-ink dark:text-slate-100 shadow-fine"
+                      : "border-academic-border dark:border-academic-dark-border bg-white dark:bg-academic-dark-surface text-academic-ink-light dark:text-slate-200 hover:border-academic-gold/60 shadow-fine"
                   }`}
                 >
                   {fig}
-                </motion.button>
+                </button>
               );
             })}
           </div>
@@ -96,37 +95,32 @@ export const RhetoricAndRegisterStudio: React.FC<RhetoricAndRegisterStudioProps>
             type="button"
             onClick={handleValidateFigure}
             disabled={!selectedFigure || hasValidated}
-            className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none mt-2"
+            className="w-full flex items-center justify-center gap-2 py-3 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all select-none mt-2"
           >
-            <Check className="w-6 h-6 stroke-[3]" />
-            <span>Valider l'analyse stylistique</span>
+            <Check className="w-4 h-4" />
+            <span>Valider l'identification de la figure</span>
           </button>
         </div>
       )}
 
-      {/* Mode 2 : Reclassement de registres (Diplomatie) */}
+      {/* Mode 2 : Discrimination de registre de langue */}
       {data.mode === "classify_register" && data.registerOptions && (
-        <div className="w-full flex flex-col gap-3 mb-6">
-          <p className="text-sm font-semibold text-slate-600 dark:text-slate-300 text-center mb-1">
-            Sélectionne la formulation relevant du protocole diplomatique et soutenu :
-          </p>
+        <div className="w-full flex flex-col gap-2.5 mb-6">
           {data.registerOptions.map((opt, idx) => {
             const isSelected = selectedRegisterIndex === idx;
             return (
-              <motion.button
+              <button
                 key={opt.text}
                 type="button"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
                 onClick={() => !hasValidated && setSelectedRegisterIndex(idx)}
-                className={`p-4 rounded-2xl border-2 text-left font-medium transition-all ${
+                className={`p-3.5 rounded-lg border text-left transition-all ${
                   isSelected
-                    ? "border-amber-500 bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-100 font-bold shadow-md"
-                    : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:border-slate-300"
+                    ? "border-academic-gold bg-amber-50/70 dark:bg-amber-950/40 text-academic-ink dark:text-slate-100 shadow-fine"
+                    : "border-academic-border dark:border-academic-dark-border bg-white dark:bg-academic-dark-surface text-academic-ink-light dark:text-slate-200 hover:border-academic-gold/60 shadow-fine"
                 }`}
               >
-                {opt.text}
-              </motion.button>
+                <div className="text-sm font-serif font-medium">{opt.text}</div>
+              </button>
             );
           })}
 
@@ -134,10 +128,10 @@ export const RhetoricAndRegisterStudio: React.FC<RhetoricAndRegisterStudioProps>
             type="button"
             onClick={handleValidateRegister}
             disabled={selectedRegisterIndex === null || hasValidated}
-            className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none mt-2"
+            className="w-full flex items-center justify-center gap-2 py-3 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all select-none mt-2"
           >
-            <Crown className="w-6 h-6" />
-            <span>Confirmer la formulation diplomatique</span>
+            <Check className="w-4 h-4" />
+            <span>Confirmer la formulation soutenue</span>
           </button>
         </div>
       )}

@@ -454,6 +454,19 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - `npx tsc --noEmit` : 0 erreur TypeScript.
     - `python 08-audits/tools/verify_chapter.py` : 0 erreur critique.
 
+- **Étape 25 — Refonte Graphique Éditoriale et Éradication des Biais « IA » (DEC-049)** :
+  - **Nouveau Design Système Éditorial & Académique** :
+    - Palette papier d'imprimerie, ivoire chaud (`#FAF8F5`), noir d'encre (`#111827`), dorure à chaud (`#B45309`), vert impérial (`#065F46`) et bordeaux reliure (`#881337`).
+    - Typographie noble avec empattements (*Newsreader*, *Charter*, *Georgia*) pour les titres et citations d'autorité, associée à *Plus Jakarta Sans* et *JetBrains Mono*.
+    - Éradication complète des boutons 3D cartoon fluorescents, des ombres plastiques épaisses et des émojis surdimensionnés.
+  - **Transformation du Parcours en Syllabus Universitaire Interactif** :
+    - Suppression du serpentin sinusoïdal en zigzag.
+    - Organisation en dossiers d'études par chapitre avec ruban de micro-sessions de 3 minutes et consultation instantanée de la **Fiche de synthèse de chapitre (Rubrique 17)** via [`ChapterSummaryModal.tsx`](file:///f:/Formation/world-class-french/app/src/components/curriculum/ChapterSummaryModal.tsx).
+  - **Refonte intégrale des 7 moteurs d'exercices et des modales** :
+    - Harmonisation sobre des interfaces (`VisualSoundMatch`, `SyllableAndSentenceBricks`, `VoltaireErrorHunter`, `InteractiveDictation`, `SmartDiagnosticMCQ`, `ClozeMorphologyInput`, `RhetoricAndRegisterStudio`, `DailySprintModal`, `DiagnosticModal`, `SrsReviewView`, `RemindersConfigModal`).
+  - **Intégrité TypeScript & Build** :
+    - Zéro `any`, typages discriminés stricts, build de production Next.js 15 validé à 100 % (`npm run build` : code 0).
+
 ---
 
 ## [0.1.0] - 2026-10-11

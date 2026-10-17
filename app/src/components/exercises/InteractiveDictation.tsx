@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Volume2, Snail, Check, HelpCircle } from "lucide-react";
+import { Volume2, Clock, Check, HelpCircle } from "lucide-react";
 import type { DictationData } from "@/types/curriculum";
 import { FrenchAccentKeyboard } from "./FrenchAccentKeyboard";
 import { speakFrench } from "@/utils/speech";
@@ -45,82 +45,82 @@ export const InteractiveDictation: React.FC<InteractiveDictationProps> = ({
     const cleanTarget = data.fullText.trim().toLowerCase();
 
     if (cleanUser === cleanTarget) {
-      onAnswer(true, `Parfait ! Vous avez orthographié exactement « ${data.fullText} ».`);
+      onAnswer(true, `Exactitude parfaite : « ${data.fullText} » a été fidèlement orthographié.`);
     } else {
       onAnswer(
         false,
-        `Attention : vous avez écrit « ${userInput.trim()} » au lieu de « ${data.fullText} ».\nRespectez bien les accents et la morphologie exacte.`
+        `Transcription inexacte. Vous avez consigné « ${userInput.trim()} » alors que la forme normée est « ${data.fullText} ».\nVérifiez l'accord et les signes diacritiques.`
       );
     }
   };
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Lecteur audio double vitesse */}
-      <div className="flex items-center justify-center gap-4 mb-6">
+      {/* Lecteur audio double cadence */}
+      <div className="flex items-center justify-center gap-3 mb-6">
         <button
           type="button"
           onClick={() => handlePlayAudio(data.audioNormalRate || 1.0)}
-          className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-sky-500 hover:bg-sky-600 text-white font-bold shadow-duo-blue active:translate-y-1 active:shadow-none transition-all"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold shadow-fine hover:bg-slate-800 dark:hover:bg-white transition-all select-none"
         >
-          <Volume2 className="w-5 h-5" />
-          <span>Écoute normale (1.0x)</span>
+          <Volume2 className="w-4 h-4 text-academic-gold" />
+          <span>Cadence normale (1.0x)</span>
         </button>
 
         <button
           type="button"
           onClick={() => handlePlayAudio(data.audioSlowRate || 0.65)}
-          className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-white font-bold shadow-duo-gold active:translate-y-1 active:shadow-none transition-all"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border text-academic-ink dark:text-slate-200 text-xs font-semibold hover:border-academic-gold transition-all select-none"
         >
-          <Snail className="w-5 h-5" />
-          <span>Vitesse lente (0.65x)</span>
+          <Clock className="w-4 h-4 text-academic-muted" />
+          <span>Cadence analytique (0.65x)</span>
         </button>
       </div>
 
-      {/* Zone de saisie */}
-      <div className="w-full mb-3">
+      {/* Zone de saisie dactylographique */}
+      <div className="w-full mb-2">
         <input
           type="text"
           value={userInput}
           disabled={hasValidated}
           onChange={(e) => setUserInput(e.target.value)}
-          placeholder="Tapez ici le mot ou la phrase entendue..."
-          className="w-full px-5 py-4 text-xl font-medium bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 rounded-2xl focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-400 text-slate-800 dark:text-slate-100 shadow-sm"
+          placeholder="Consignez ici la phrase ou le syntagme entendu..."
+          className="w-full px-4 py-3 text-base sm:text-lg font-serif bg-white dark:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border rounded-xl focus:outline-none focus:border-academic-gold text-academic-ink dark:text-slate-100 shadow-fine transition-all placeholder:text-academic-muted placeholder:font-sans placeholder:text-sm"
         />
       </div>
 
-      {/* Clavier virtuel d'accents français */}
+      {/* Clavier virtuel d'accents */}
       <FrenchAccentKeyboard onInsertChar={handleInsertChar} />
 
-      {/* Indice optionnel */}
+      {/* Indice didactique optionnel */}
       {data.hints && data.hints.length > 0 && (
         <div className="w-full flex flex-col items-center my-3">
           {showHintIndex > 0 ? (
-            <div className="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-2xl text-amber-800 dark:text-amber-200 text-sm font-medium w-full text-center">
-              💡 Indice : {data.hints[showHintIndex - 1]}
+            <div className="p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-900 dark:text-amber-200 text-xs font-medium w-full text-center">
+              Indice morphosyntaxique : {data.hints[showHintIndex - 1]}
             </div>
           ) : (
             <button
               type="button"
               onClick={handleShowNextHint}
-              className="text-xs text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1 hover:underline"
+              className="text-[11px] font-semibold text-academic-gold hover:underline flex items-center gap-1"
             >
               <HelpCircle className="w-3.5 h-3.5" />
-              <span>Besoin d'un indice ?</span>
+              <span>Demander un indice didactique</span>
             </button>
           )}
         </div>
       )}
 
-      {/* Bouton de validation */}
+      {/* Validation */}
       <button
         type="button"
         onClick={handleValidate}
         disabled={userInput.trim().length === 0 || hasValidated}
-        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none mt-4"
+        className="flex items-center gap-1.5 px-6 py-2.5 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all mt-3"
       >
-        <Check className="w-6 h-6 stroke-[3]" />
-        <span>Vérifier ma dictée</span>
+        <Check className="w-4 h-4" />
+        <span>Soumettre la transcription</span>
       </button>
     </div>
   );

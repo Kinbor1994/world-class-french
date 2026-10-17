@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import {
   Timer,
   Check,
   Trophy,
   Copy,
+  X,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { useAppStore } from "@/store/useAppStore";
@@ -29,7 +29,6 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
 
-  // Récupération des exercices pour le sprint (6 questions)
   const currentStageData: Stage | undefined = (curriculumData.stages as Stage[]).find(
     (s) => s.id === currentStage
   );
@@ -39,7 +38,6 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
       m.chapters.flatMap((c) => c.lessons.flatMap((l) => l.exercises))
     ) ?? [];
 
-  // Sélectionne jusqu'à 6 exercices
   const sprintExercises = allStageExercises.slice(0, 6);
 
   useEffect(() => {
@@ -59,7 +57,6 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
   const currentExercise: ExerciseItem | undefined = sprintExercises[currentIndex];
 
   const handleAnswerClick = (isCorrect: boolean) => {
-    // Si l'utilisateur répond en plus de 12 secondes, c'est considéré comme hésitant (fata.app srs logic)
     const isHesitant = seconds > 12 * (results.length + 1);
     const resultType: "correct" | "hesitant" | "wrong" = !isCorrect
       ? "wrong"
@@ -73,7 +70,6 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
     if (currentIndex + 1 < sprintExercises.length) {
       setCurrentIndex((prev) => prev + 1);
     } else {
-      // Sprint terminé !
       setIsCompleted(true);
       const score = newResults.filter((r) => r === "correct" || r === "hesitant").length;
       const emojiPattern = newResults
@@ -95,9 +91,10 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
 
       try {
         confetti({
-          particleCount: 120,
-          spread: 80,
+          particleCount: 50,
+          spread: 60,
           origin: { y: 0.6 },
+          colors: ["#B45309", "#0F172A", "#065F46"],
         });
       } catch {
         // Fallback
@@ -133,19 +130,18 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-white dark:bg-slate-800 rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl border-2 border-slate-200 dark:border-slate-700"
-      >
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-50 bg-academic-navy/70 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
+    >
+      <div className="bg-white dark:bg-academic-dark-surface rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-modal border border-academic-border dark:border-academic-dark-border">
         {!isCompleted ? (
           <div>
-            {/* Barre supérieure du Sprint : Chrono & Indicateurs */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 font-extrabold text-sm px-3.5 py-1.5 rounded-full border border-amber-200 dark:border-amber-800">
-                <Timer className="w-4 h-4 animate-pulse" />
+            {/* Barre supérieure du Sprint */}
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-academic-border-subtle dark:border-academic-dark-border">
+              <div className="flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-academic-gold font-mono font-bold text-xs px-3 py-1 rounded border border-amber-200 dark:border-amber-800">
+                <Timer className="w-3.5 h-3.5 animate-pulse" />
                 <span>{formatTime(seconds)}</span>
               </div>
 
@@ -155,16 +151,16 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
                   return (
                     <div
                       key={idx}
-                      className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold ${
+                      className={`w-6 h-6 rounded flex items-center justify-center text-[10px] font-mono font-bold ${
                         res === "correct"
-                          ? "bg-emerald-500 text-white"
+                          ? "bg-academic-emerald text-white"
                           : res === "hesitant"
-                          ? "bg-amber-500 text-white"
+                          ? "bg-academic-gold text-white"
                           : res === "wrong"
-                          ? "bg-rose-500 text-white"
+                          ? "bg-academic-bordeaux text-white"
                           : idx === currentIndex
-                          ? "border-2 border-sky-500 bg-sky-50 dark:bg-sky-950/40"
-                          : "bg-slate-100 dark:bg-slate-700 text-slate-400"
+                          ? "border border-academic-navy dark:border-academic-gold text-academic-ink dark:text-slate-100"
+                          : "bg-academic-paper dark:bg-academic-dark-card text-academic-muted dark:text-academic-dark-muted"
                       }`}
                     >
                       {res === "correct" ? "✓" : res === "wrong" ? "✗" : idx + 1}
@@ -172,79 +168,95 @@ export const DailySprintModal: React.FC<DailySprintModalProps> = ({
                   );
                 })}
               </div>
+
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Fermer"
+                className="text-academic-muted hover:text-academic-ink dark:hover:text-slate-100"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
 
             {/* Question du sprint */}
             {currentExercise && (
-              <div className="mb-8">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 block">
-                  Question {currentIndex + 1} / {sprintExercises.length}
+              <div className="mb-6 space-y-4">
+                <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-academic-muted dark:text-academic-dark-muted block">
+                  Question {currentIndex + 1} sur {sprintExercises.length}
                 </span>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-6 leading-snug">
+                <h3 className="text-lg font-bold font-serif text-academic-ink dark:text-slate-100 leading-snug">
                   {currentExercise.prompt}
                 </h3>
 
-                <div className="grid grid-cols-1 gap-3">
+                <div className="flex flex-col gap-2.5 pt-2">
                   <button
                     type="button"
                     onClick={() => handleAnswerClick(true)}
-                    className="p-4 bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-400 hover:border-emerald-500 text-emerald-900 dark:text-emerald-100 font-bold rounded-2xl text-left transition-all active:scale-98"
+                    className="p-3.5 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border hover:border-academic-gold text-academic-ink dark:text-slate-100 text-xs font-semibold rounded-lg text-left transition-all shadow-fine"
                   >
-                    Réponse A (Exacte & Conforme)
+                    Proposition A (Formulation exacte & conforme)
                   </button>
                   <button
                     type="button"
                     onClick={() => handleAnswerClick(false)}
-                    className="p-4 bg-slate-50 dark:bg-slate-800/80 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 text-slate-800 dark:text-slate-200 font-bold rounded-2xl text-left transition-all active:scale-98"
+                    className="p-3.5 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border hover:border-academic-bordeaux text-academic-ink dark:text-slate-100 text-xs font-semibold rounded-lg text-left transition-all shadow-fine"
                   >
-                    Réponse B (Distracteur piège)
+                    Proposition B (Distracteur normatif)
                   </button>
                 </div>
               </div>
             )}
           </div>
         ) : (
-          /* Écran de rapport de fin de Sprint partageable */
-          <div className="text-center">
-            <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-amber-500 shadow-sm">
-              <Trophy className="w-8 h-8" />
+          /* Rapport de fin de Sprint */
+          <div className="text-center space-y-4">
+            <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 rounded-full flex items-center justify-center mx-auto text-academic-gold">
+              <Trophy className="w-6 h-6" />
             </div>
-            <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 mb-1">
-              Sprint Quotidien Achevé !
-            </h2>
-            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-4">
-              Daily Fata Sprint · {currentStageData?.shortName}
-            </p>
 
-            {/* Grille de résultat stylisée */}
-            <div className="p-4 bg-slate-900 text-slate-100 font-mono text-sm rounded-2xl mb-6 text-left shadow-inner flex flex-col gap-2">
-              <div className="text-slate-400 text-xs">Rapport pour partage :</div>
-              <div className="font-bold text-emerald-400 text-base">
+            <div className="space-y-1">
+              <span className="text-[10px] font-mono uppercase font-bold tracking-widest text-academic-gold">
+                Sprint Minuté Achevé
+              </span>
+              <h2 className="text-xl font-bold font-serif text-academic-ink dark:text-slate-100">
+                Bilan de la session quotidienne
+              </h2>
+              <p className="text-xs text-academic-muted dark:text-academic-dark-muted">
+                {currentStageData?.shortName} · Temps : {formatTime(seconds)}
+              </p>
+            </div>
+
+            <div className="p-3.5 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-lg text-left space-y-1">
+              <div className="text-[10px] font-mono text-academic-muted dark:text-academic-dark-muted">
+                Synthèse pour partage :
+              </div>
+              <div className="font-mono text-xs font-bold text-academic-gold break-words">
                 {getShareableText()}
               </div>
             </div>
 
-            <div className="flex gap-3 mb-4">
+            <div className="flex gap-2 pt-2">
               <button
                 type="button"
                 onClick={handleCopyShare}
-                className="flex-1 py-3.5 bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-sm rounded-2xl shadow-duo-blue flex items-center justify-center gap-2 active:translate-y-1 active:shadow-none transition-all"
+                className="flex-1 py-2.5 px-4 bg-white dark:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border hover:border-academic-gold text-academic-ink dark:text-slate-100 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors shadow-fine"
               >
-                {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                <span>{copied ? "Copié !" : "Copier mon résultat"}</span>
+                {copied ? <Check className="w-4 h-4 text-academic-emerald" /> : <Copy className="w-4 h-4" />}
+                <span>{copied ? "Copié !" : "Copier le bilan"}</span>
               </button>
 
               <button
                 type="button"
                 onClick={onClose}
-                className="py-3.5 px-6 bg-duo-green text-white font-extrabold text-sm rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none transition-all"
+                className="py-2.5 px-6 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white transition-all"
               >
                 Terminer
               </button>
             </div>
           </div>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -47,7 +47,6 @@ export const SyllableAndSentenceBricks: React.FC<SyllableAndSentenceBricksProps>
     const userString = selectedBricks.join(" ").trim().toLowerCase();
     const correctString = data.correctSequence.join(" ").trim().toLowerCase();
 
-    // Vérifie aussi si la concaténation directe correspond (ex: ba+na+ne = banane)
     const userCompact = selectedBricks.join("").trim().toLowerCase();
     const correctCompact = data.correctSequence.join("").trim().toLowerCase();
 
@@ -55,35 +54,34 @@ export const SyllableAndSentenceBricks: React.FC<SyllableAndSentenceBricksProps>
 
     if (isMatch) {
       speakFrench(data.targetPhrase, speechRate, isAudioMuted);
-      onAnswer(true, `Excellent assemblage ! « ${data.targetPhrase} » est parfaitement composé.`);
+      onAnswer(true, `Composition exacte : « ${data.targetPhrase} » est parfaitement ordonnancé.`);
     } else {
       onAnswer(
         false,
-        `Ce n'est pas tout à fait l'ordre attendu. Ordre correct : ${data.correctSequence.join(" - ")}.`
+        `L'ordre attendu était : ${data.correctSequence.join(" · ")}.`
       );
     }
   };
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Zone de dépôt des briques assemblées */}
-      <div className="w-full min-h-[90px] p-4 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-wrap items-center justify-center gap-2.5 mb-6">
+      {/* Zone de composition typographique */}
+      <div className="w-full min-h-[80px] p-4 bg-academic-paper dark:bg-academic-dark-card rounded-xl border border-dashed border-academic-border dark:border-academic-dark-border flex flex-wrap items-center justify-center gap-2 mb-6">
         <AnimatePresence>
           {selectedBricks.length === 0 ? (
-            <span className="text-sm text-slate-400 dark:text-slate-500 font-medium select-none">
-              Touche les briques ci-dessous pour assembler...
+            <span className="text-xs text-academic-muted dark:text-academic-dark-muted font-normal select-none">
+              Sélectionnez les segments ci-dessous pour composer la proposition...
             </span>
           ) : (
             selectedBricks.map((brick, idx) => (
               <motion.button
                 key={`${brick}-${idx}`}
                 type="button"
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                whileTap={{ scale: 0.95 }}
+                exit={{ scale: 0.9, opacity: 0 }}
                 onClick={() => handleRemoveBrick(brick, idx)}
-                className="px-4 py-2.5 bg-emerald-500 text-white font-bold rounded-2xl shadow-duo-green border border-emerald-600 flex items-center gap-1.5 text-lg select-none"
+                className="px-3.5 py-1.5 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy font-serif font-bold rounded-lg shadow-fine flex items-center gap-1 text-base select-none hover:bg-slate-800 dark:hover:bg-white"
               >
                 <span>{brick}</span>
               </motion.button>
@@ -92,31 +90,29 @@ export const SyllableAndSentenceBricks: React.FC<SyllableAndSentenceBricksProps>
         </AnimatePresence>
       </div>
 
-      {/* Rangée des briques disponibles */}
-      <div className="flex flex-wrap justify-center gap-3 w-full mb-8">
+      {/* Segments disponibles */}
+      <div className="flex flex-wrap justify-center gap-2.5 w-full mb-6">
         {availableBricks.map((brick, idx) => (
-          <motion.button
+          <button
             key={`${brick}-${idx}`}
             type="button"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.92 }}
             onClick={() => handleSelectBrick(brick, idx)}
-            className="px-5 py-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-extrabold text-lg rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-duo-gray dark:shadow-duo-dark hover:border-sky-400 transition-all select-none"
+            className="px-3.5 py-2 bg-white dark:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border hover:border-academic-gold dark:hover:border-academic-gold text-academic-ink dark:text-slate-100 font-serif font-bold text-base rounded-lg shadow-fine transition-all select-none"
           >
             {brick}
-          </motion.button>
+          </button>
         ))}
       </div>
 
       {/* Boutons d'action */}
-      <div className="flex items-center gap-4 w-full">
+      <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={handleReset}
           disabled={selectedBricks.length === 0 || hasValidated}
-          className="flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border-2 border-slate-300 dark:border-slate-700 font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-40 transition-all"
+          className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-academic-muted dark:text-academic-dark-muted hover:text-academic-ink dark:hover:text-slate-200 disabled:opacity-40 transition-colors"
         >
-          <RotateCcw className="w-5 h-5" />
+          <RotateCcw className="w-3.5 h-3.5" />
           <span>Réinitialiser</span>
         </button>
 
@@ -124,10 +120,10 @@ export const SyllableAndSentenceBricks: React.FC<SyllableAndSentenceBricksProps>
           type="button"
           onClick={handleValidate}
           disabled={selectedBricks.length === 0 || hasValidated}
-          className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none"
+          className="flex items-center gap-1.5 px-5 py-2 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all"
         >
-          <Check className="w-6 h-6 stroke-[3]" />
-          <span>Vérifier</span>
+          <Check className="w-4 h-4" />
+          <span>Vérifier l'assemblage</span>
         </button>
       </div>
     </div>

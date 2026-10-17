@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { Check, ShieldCheck } from "lucide-react";
 import type { VoltaireHunterData } from "@/types/curriculum";
 
@@ -38,12 +37,12 @@ export const VoltaireErrorHunter: React.FC<VoltaireErrorHunterProps> = ({
       if (!data.hasError) {
         onAnswer(
           true,
-          `Parfaitement vu ! Cette phrase est irréprochable.\nAstuce : ${data.mnemonic}`
+          `Analyse irréprochable : cette phrase est parfaitement conforme à la norme académique.\nAstuce mémorielle : ${data.mnemonic}`
         );
       } else {
         onAnswer(
           false,
-          `Cette phrase comportait bien une faute !\nExplication : ${data.explanation}\nAstuce : ${data.mnemonic}`
+          `Cette phrase comportait une anomalie normative !\nRègle : ${data.explanation}\nAstuce : ${data.mnemonic}`
         );
       }
       return;
@@ -54,13 +53,13 @@ export const VoltaireErrorHunter: React.FC<VoltaireErrorHunterProps> = ({
       if (chosenWord && chosenWord.isError) {
         onAnswer(
           true,
-          `Excellente détection ! « ${chosenWord.text} » devait être corrigé en « ${chosenWord.correction ?? ""} ».\nExplication : ${data.explanation}\nAstuce : ${data.mnemonic}`
+          `Vigilance remarquable : « ${chosenWord.text} » devait être corrigé en « ${chosenWord.correction ?? ""} ».\nRègle : ${data.explanation}\nAstuce : ${data.mnemonic}`
         );
       } else {
         const errorWord = data.words.find((w) => w.isError);
         onAnswer(
           false,
-          `Ce n'était pas « ${chosenWord?.text ?? ""} » qui était fautif. La faute se trouvait sur « ${errorWord?.text ?? ""} » (correction : « ${errorWord?.correction ?? ""} »).\nExplication : ${data.explanation}\nAstuce : ${data.mnemonic}`
+          `Le terme « ${chosenWord?.text ?? ""} » est licite. L'anomalie portait sur « ${errorWord?.text ?? ""} » (correction : « ${errorWord?.correction ?? ""} »).\nRègle : ${data.explanation}\nAstuce : ${data.mnemonic}`
         );
       }
     }
@@ -68,58 +67,58 @@ export const VoltaireErrorHunter: React.FC<VoltaireErrorHunterProps> = ({
 
   return (
     <div className="w-full max-w-xl mx-auto flex flex-col items-center">
-      {/* Phrase interactive avec mots cliquables */}
-      <div className="w-full p-6 bg-white dark:bg-slate-800 rounded-3xl border-2 border-slate-200 dark:border-slate-700 shadow-md mb-6">
-        <div className="flex flex-wrap items-center gap-2 text-xl font-medium text-slate-800 dark:text-slate-100 leading-relaxed justify-center">
+      {/* Panneau de révision éditoriale */}
+      <div className="w-full p-6 bg-white dark:bg-academic-dark-surface rounded-xl border border-academic-border dark:border-academic-dark-border shadow-card mb-6">
+        <div className="text-[10px] uppercase font-bold tracking-widest text-academic-muted dark:text-academic-dark-muted mb-4 text-center">
+          Examinez le texte et pointez le terme fautif (ou déclarez la phrase irréprochable)
+        </div>
+
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-lg sm:text-xl font-serif text-academic-ink dark:text-slate-100 leading-relaxed justify-center">
           {data.words.map((wordObj, idx) => {
             const isSelected = selectedWordIndex === idx;
             return (
-              <motion.button
+              <button
                 key={`${wordObj.text}-${idx}`}
                 type="button"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 onClick={() => handleWordClick(idx)}
-                className={`px-2.5 py-1 rounded-xl transition-all font-semibold ${
+                className={`px-2 py-0.5 rounded transition-all font-serif cursor-pointer ${
                   isSelected
-                    ? "bg-rose-500 text-white shadow-duo-red"
-                    : "hover:bg-slate-100 dark:hover:bg-slate-700/60 text-slate-800 dark:text-slate-100"
+                    ? "bg-academic-bordeaux text-white font-bold shadow-fine"
+                    : "hover:bg-amber-100/70 dark:hover:bg-amber-950/40 text-academic-ink dark:text-slate-100 hover:text-amber-900"
                 }`}
               >
                 {wordObj.text}
-              </motion.button>
+              </button>
             );
           })}
         </div>
       </div>
 
-      {/* Option Aucune Faute */}
+      {/* Option Phrase Irréprochable */}
       <div className="w-full mb-6 flex justify-center">
-        <motion.button
+        <button
           type="button"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
           onClick={handleNoFaultClick}
-          className={`flex items-center gap-2 px-6 py-3 rounded-2xl border-2 font-bold transition-all shadow-sm ${
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border text-xs font-semibold transition-all shadow-fine ${
             declaredNoError
-              ? "bg-emerald-500 text-white border-emerald-600 shadow-duo-green"
-              : "bg-slate-50 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-700 hover:border-emerald-400"
+              ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-900 dark:text-emerald-200"
+              : "border-academic-border dark:border-academic-dark-border bg-academic-paper dark:bg-academic-dark-card text-academic-ink dark:text-slate-200 hover:border-academic-gold"
           }`}
         >
-          <ShieldCheck className="w-5 h-5" />
+          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>Cette phrase ne contient aucune faute</span>
-        </motion.button>
+        </button>
       </div>
 
-      {/* Bouton de validation */}
+      {/* Validation */}
       <button
         type="button"
         onClick={handleValidate}
-        disabled={(selectedWordIndex === null && !declaredNoError) || hasValidated}
-        className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-duo-green text-white font-extrabold text-lg rounded-2xl shadow-duo-green active:translate-y-1 active:shadow-none disabled:opacity-40 transition-all select-none"
+        disabled={selectedWordIndex === null && !declaredNoError || hasValidated}
+        className="flex items-center gap-1.5 px-6 py-2.5 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy text-xs font-bold rounded-lg shadow-fine hover:bg-slate-800 dark:hover:bg-white disabled:opacity-40 transition-all"
       >
-        <Check className="w-6 h-6 stroke-[3]" />
-        <span>Valider mon diagnostic</span>
+        <Check className="w-4 h-4" />
+        <span>Valider le diagnostic</span>
       </button>
     </div>
   );

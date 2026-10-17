@@ -944,6 +944,32 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
   - Positives : La plateforme numérique est complète, rigoureusement typée, construite sans erreur de build (`npm run build` : exit code 0) ni divergence d'hydratation, et directement utilisable localement par les apprenants.
   - Disponibilité : Lancement local immédiat via `cd app && npm run dev`.
 
+---
+
+### [DEC-049] Refonte Graphique Majeure et Éradication des Biais Visuels « IA / Jouet » : Passage au Design Système Éditorial et Académique de Haute Tenue
+- **Date** : 2026-10-17
+- **Statut** : Validé
+- **Contexte** : Audit critique de l'interface utilisateur. Constat d'un rendu initial trop proche des stéréotypes visuels générés par IA (boutons 3D fluorescents Duolingo, ombres plastiques épaisses, serpentin d'émoticônes en zigzag enfantin, surcharge d'émojis criards, absence d'ancrage éditorial et typographique). Décalage manifeste avec l'ambition d'excellence d'un institut universitaire francophone de référence (Grevisse, Riegel, Imprimerie nationale).
+- **Décision** :
+  1. **Nouveau Design Système Éditorial & Académique** :
+     - Remplacement de la palette fluo par une charte d'imprimerie et de reliure noble : Ivoire/Papier bible (`#FAF8F5`), Noir d'encre (`#111827`), Bleu nuit/Marine académique (`#0F172A`), Or d'apparat/Dorure (`#B45309`), Vert académie impérial (`#065F46`), Bordeaux reliure (`#881337`).
+     - Intégration de la typographie éditoriale avec empattements (*Newsreader*, *Charter*, *Georgia*) pour les titres, lettrines et citations, combinée à une grotesque épurée (*Plus Jakarta Sans*) et une police fixe (*JetBrains Mono*) pour l'API phonétique et les codes de règles.
+     - Abolition complète des ombres 3D cartoon (`boxShadow: duo-*`) et des boutons ronds démesurés au profit d'élévations fines, de filets typographiques discrets (1px) et de rayons de courbure modernes (`rounded-xl`, `rounded-lg`).
+  2. **Refonte de l'Arbre d'Apprentissage en Syllabus Universitaire Interactif** :
+     - Éradication définitive du serpentin d'icônes rondes en zigzag.
+     - Restructuration sous forme de dossiers académiques par chapitre : titre noble, chapeau introductif, ruban de micro-sessions séquencées (3 min) avec statuts précis (Validé / À étudier).
+     - Ajout d'un tiroir de lecture immédiate de la **Fiche de synthèse de chapitre (Rubrique 17)** via `ChapterSummaryModal.tsx` pour valoriser directement le corpus théorique rédigé.
+  3. **Élévation des 7 Moteurs d'Exercices et des Modales** :
+     - Traitement sobre des cartes de discrimination phonétique (`VisualSoundMatch`), composteur typographique pour l'assemblage de briques (`SyllableAndSentenceBricks`), atelier de révision éditoriale (`VoltaireErrorHunter`), pupitre de dictée avec clavier de diacritiques (`InteractiveDictation`), QCM lettrés A/B/C/D (`SmartDiagnosticMCQ`), champ lacunaire élégant (`ClozeMorphologyInput`) et salon de stylistique littéraire (`RhetoricAndRegisterStudio`).
+     - Tiroir de rétroaction métacognitive feutré, sans confetti criard.
+     - Refonte de la Navbar (monogramme institutionnel, sélection par les 3 Cycles académiques), du tableau de bord `fata.srs` (loi d'Ebbinghaus), du Daily Sprint et du Diagnostic.
+  4. **Conformité TypeScript et Build** :
+     - Élimination de tous les casts `any` résiduels au profit de typages d'interfaces discriminées stricts (`VisualSoundMatchData`, `VoltaireHunterData`, etc.).
+     - Validation sans avertissement de `npx tsc --noEmit` et de `npm run build` (Exit code 0).
+- **Conséquences** :
+  - Positives : L'application adopte une identité visuelle digne d'une grande institution culturelle et universitaire européenne (Le Robert, Collège de France, Le Monde, Pléiade), tout en préservant l'ergonomie, la rapidité et la rétention d'Ebbinghaus.
+
+
 
 
 
