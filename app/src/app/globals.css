@@ -50,3 +50,201 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(148, 163, 184, 0.6);
 }
+
+/* ========================================================================= */
+/* TYPOGRAPHIE ET MISE EN PAGE DES FICHES DE SYNTHÈSE ACADÉMIQUES (MARKDOWN) */
+/* ========================================================================= */
+.academic-markdown {
+  color: #1f2937;
+  line-height: 1.7;
+  font-size: 0.875rem;
+}
+
+.dark .academic-markdown {
+  color: #e2e8f0;
+}
+
+.academic-markdown h1,
+.academic-markdown h2,
+.academic-markdown h3,
+.academic-markdown h4 {
+  font-family: "Newsreader", "Charter", "Sitka Text", "Georgia", serif;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #e7e2d8;
+  line-height: 1.35;
+}
+
+.dark .academic-markdown h1,
+.dark .academic-markdown h2,
+.dark .academic-markdown h3,
+.dark .academic-markdown h4 {
+  color: #f8fafc;
+  border-color: #222f46;
+}
+
+.academic-markdown h3 {
+  font-size: 1.125rem;
+  color: #b45309;
+}
+
+.dark .academic-markdown h3 {
+  color: #fbbf24;
+}
+
+.academic-markdown h4 {
+  font-size: 1rem;
+}
+
+.academic-markdown p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.academic-markdown strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.dark .academic-markdown strong {
+  color: #ffffff;
+}
+
+.academic-markdown em {
+  font-family: "Newsreader", "Charter", "Georgia", serif;
+  font-style: italic;
+  color: #374151;
+}
+
+.dark .academic-markdown em {
+  color: #cbd5e1;
+}
+
+.academic-markdown ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.academic-markdown ol {
+  list-style-type: decimal;
+  padding-left: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.academic-markdown li {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.6;
+}
+
+.academic-markdown blockquote {
+  border-left: 3px solid #b45309;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: #faf8f5;
+  font-family: "Newsreader", "Charter", "Georgia", serif;
+  font-style: italic;
+  color: #374151;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .academic-markdown blockquote {
+  background: #131a2a;
+  color: #cbd5e1;
+  border-color: #d97706;
+}
+
+.academic-markdown code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  background: #f1ece3;
+  color: #92400e;
+  border: 1px solid #e7e2d8;
+}
+
+.dark .academic-markdown code {
+  background: #182236;
+  color: #fcd34d;
+  border-color: #222f46;
+}
+
+/* ========================================================================= */
+/* TABLEAUX ACADÉMIQUES SYNOPTIQUES (GFM)                                    */
+/* ========================================================================= */
+.academic-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  background: #ffffff;
+}
+
+.dark .academic-markdown table {
+  background: #131a2a;
+}
+
+.academic-markdown thead {
+  background: #fef3c7;
+  border-bottom: 2px solid #e7e2d8;
+}
+
+.dark .academic-markdown thead {
+  background: #242219;
+  border-color: #453416;
+}
+
+.academic-markdown th {
+  padding: 0.625rem 0.75rem;
+  font-family: "Newsreader", "Charter", "Georgia", serif;
+  font-weight: 700;
+  text-align: left;
+  color: #0f172a;
+  border: 1px solid #e7e2d8;
+  white-space: nowrap;
+}
+
+.dark .academic-markdown th {
+  color: #f8fafc;
+  border-color: #222f46;
+}
+
+.academic-markdown td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e7e2d8;
+  color: #374151;
+  vertical-align: top;
+}
+
+.dark .academic-markdown td {
+  border-color: #222f46;
+  color: #cbd5e1;
+}
+
+.academic-markdown tbody tr:nth-child(even) td {
+  background: #faf8f5;
+}
+
+.dark .academic-markdown tbody tr:nth-child(even) td {
+  background: #182236;
+}
+
+.academic-markdown tbody tr:hover td {
+  background: #fef9c3;
+}
+
+.dark .academic-markdown tbody tr:hover td {
+  background: #2d2618;
+}
