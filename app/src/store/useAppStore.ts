@@ -55,8 +55,10 @@ export interface AppState {
   resetSimulatedTime: () => void;
   saveSprintRecord: (record: DailySprintRecord) => void;
   
-  // Actions Paramètres
-  setSpeechRate: (rate: number) => void;
+  // Thème d'affichage (Clair / Sombre / Système)
+  themeMode: "light" | "dark" | "system";
+  setThemeMode: (mode: "light" | "dark" | "system") => void;
+  toggleTheme: () => void;
   toggleAudioMute: () => void;
   setDailyReminderHour: (hour: number) => void;
   setNotificationsEnabled: (enabled: boolean) => void;
@@ -99,6 +101,20 @@ function getDefaultUserId(): string {
   return "wcf_guest";
 }
 
+// Gestionnaire dynamique du thème Clair / Sombre
+export function applyThemeClass(mode: "light" | "dark" | "system") {
+  if (typeof window === "undefined") return;
+  const root = document.documentElement;
+  const isDark =
+    mode === "dark" ||
+    (mode === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  if (isDark) {
+    root.classList.add("dark");
+  } else {
+    root.classList.remove("dark");
+  }
+}
+
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
@@ -108,6 +124,7 @@ export const useAppStore = create<AppState>()(
       syncStatus: "idle",
       lastSyncedAt: null,
       syncError: null,
+      themeMode: "system",
 
       currentStage: 1,
       xp: 120,
@@ -294,6 +311,26 @@ export const useAppStore = create<AppState>()(
         set((state) => ({ isAudioMuted: !state.isAudioMuted }));
       },
 
+      setThemeMode: (mode: "light" | "dark" | "system") => {
+        set({ themeMode: mode });
+        applyThemeClass(mode);
+      },
+
+      toggleTheme: () => {
+        const current = get().themeMode;
+        let next: "light" | "dark";
+        if (current === "system") {
+          const isSystemDark =
+            typeof window !== "undefined" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          next = isSystemDark ? "light" : "dark";
+        } else {
+          next = current === "dark" ? "light" : "dark";
+        }
+        set({ themeMode: next });
+        applyThemeClass(next);
+      },
+
       setDailyReminderHour: (hour: number) => {
         set({ dailyReminderHour: Math.max(0, Math.min(23, hour)) });
       },
@@ -459,6 +496,7 @@ export const useAppStore = create<AppState>()(
         sprintRecords: state.sprintRecords,
         dailyReminderHour: state.dailyReminderHour,
         notificationsEnabled: state.notificationsEnabled,
+        themeMode: state.themeMode,
       }),
     }
   )

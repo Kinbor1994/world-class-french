@@ -8,11 +8,11 @@ import { DailySprintModal } from "@/components/srs/DailySprintModal";
 import { RemindersConfigModal } from "@/components/srs/RemindersConfigModal";
 import { SrsReviewView } from "@/components/srs/SrsReviewView";
 import { UniversalExerciseRunner } from "@/components/exercises/UniversalExerciseRunner";
-import { useAppStore } from "@/store/useAppStore";
+import { useAppStore, applyThemeClass } from "@/store/useAppStore";
 import type { MicroLesson } from "@/types/curriculum";
 
 export default function HomePage() {
-  const { isOnboardingCompleted, currentStage } = useAppStore();
+  const { isOnboardingCompleted, currentStage, themeMode } = useAppStore();
 
   const [mounted, setMounted] = useState<boolean>(false);
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState<boolean>(false);
@@ -23,7 +23,8 @@ export default function HomePage() {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    applyThemeClass(themeMode);
+  }, [themeMode]);
 
   // Ouvre le diagnostic automatiquement si c'est la toute première visite
   useEffect(() => {

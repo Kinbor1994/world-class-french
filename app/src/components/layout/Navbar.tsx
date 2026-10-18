@@ -12,6 +12,8 @@ import {
   Calendar,
   Database,
   RefreshCw,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useAppStore, computeCardRetention } from "@/store/useAppStore";
 import curriculumData from "@/data/compiled-curriculum.json";
@@ -42,6 +44,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     syncWithCloud,
     lastSyncedAt,
     syncError,
+    themeMode,
+    toggleTheme,
   } = useAppStore();
 
   const [isStageMenuOpen, setIsStageMenuOpen] = useState<boolean>(false);
@@ -295,6 +299,22 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
           >
             <Bell className="w-4 h-4" />
+          </button>
+
+          {/* Bascule Thème Clair / Sombre */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            title={
+              themeMode === "dark"
+                ? "Passer au thème Clair (Papier ivoire)"
+                : "Passer au thème Sombre (Midnight)"
+            }
+            aria-label="Basculer le thème"
+            className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
+          >
+            <Sun className="w-4 h-4 hidden dark:block text-amber-400" />
+            <Moon className="w-4 h-4 block dark:hidden text-academic-navy" />
           </button>
         </div>
       </div>

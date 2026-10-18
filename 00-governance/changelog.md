@@ -475,6 +475,16 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Rédaction magistrale des deux premières dictées : `DICT-S1-01` (*L'Aube de l'Écriture*, 225 mots) et `DICT-S2-01` (*Le Défi de Clément Marot*, 280 mots) avec guide prosodique, texte balisé et analyse des 10 pièges clés.
     - Établissement du protocole de révision éditoriale dans [`04-practical-work/correction-labs/README.md`](file:///f:/Formation/world-class-french/04-practical-work/correction-labs/README.md).
     - Rédaction de l'épreuve inaugurale `CORR-LAB-01` (*Le Manuscrit du Jeune Éditeur*, 595 mots) avec 30 pièges pré-étalonnés, grille critériée sur 20 points, apparat critique et texte restauré.
+- **Étape 27 — Sélecteur de Thème Persistant (10/10) & Suite Complète des 6 Ateliers de Travaux Pratiques (DEC-052)** :
+  - **Sélecteur de Thème Manuel & Persistant** :
+    - Implémentation du système de bascule tridimensionnel (`light` / `dark` / `system`) dans `app/src/store/useAppStore.ts` avec persistance `localStorage` (via Zustand `partialize`).
+    - Ajout du bouton bascule Soleil / Lune dans la `Navbar.tsx` respectant les cibles tactiles minimales (40x40px) et le focus visible accessible.
+    - Synchronisation dynamique avec `window.matchMedia('(prefers-color-scheme: dark)')` sur montage dans `app/src/app/page.tsx`.
+  - **Complétude des Travaux Pratiques (`04-practical-work/`)** :
+    - **Grammaire** : Création du cadre formel [`grammar-labs/README.md`](file:///f:/Formation/world-class-french/04-practical-work/grammar-labs/README.md) et du premier laboratoire d'analyse actancielle de Tesnière [`lab-01-analyse-actancielle-tesniere.md`](file:///f:/Formation/world-class-french/04-practical-work/grammar-labs/lab-01-analyse-actancielle-tesniere.md).
+    - **Oralité & Prosodie** : Création du cadre orthoépique [`oral-workshops/README.md`](file:///f:/Formation/world-class-french/04-practical-work/oral-workshops/README.md) et de l'atelier inaugural [`workshop-01-prosodie-et-liaisons.md`](file:///f:/Formation/world-class-french/04-practical-work/oral-workshops/workshop-01-prosodie-et-liaisons.md) (Bossuet & Chateaubriand, transcription API, cartographie des liaisons obligatoires et interdites).
+    - **Lecture Analytique** : Création du cadre méthodique [`reading-workshops/README.md`](file:///f:/Formation/world-class-french/04-practical-work/reading-workshops/README.md) et de l'atelier d'explication linéaire [`workshop-01-explication-lineaire.md`](file:///f:/Formation/world-class-french/04-practical-work/reading-workshops/workshop-01-explication-lineaire.md) (Proust, *La Madeleine*, analyse microscopique des faits de langue).
+    - **Écriture Académique** : Création du cadre rhétorique [`writing-workshops/README.md`](file:///f:/Formation/world-class-french/04-practical-work/writing-workshops/README.md) et de l'atelier de dissertation dialectique [`workshop-01-dissertation-academique.md`](file:///f:/Formation/world-class-french/04-practical-work/writing-workshops/workshop-01-dissertation-academique.md) (*« La littérature doit-elle consoler ou inquiéter ? »*, méthode AEI, introduction et conclusion modèles).
 
 ---
 

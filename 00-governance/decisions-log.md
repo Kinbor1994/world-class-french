@@ -1005,4 +1005,24 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Pont direct entre la théorie magistrale (`03-curriculum/`) et la mise en pratique exigeante de niveau universitaire.
 
+---
+
+### [DEC-052] Intégration du Sélecteur de Thème Persistant (Clair/Sombre/Système) et Complétude de la Suite de Travaux Pratiques
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Suite à l'audit ergonomique et typographique (10/10), besoin d'un contrôle manuel explicite du thème lumineux/sombre pour le confort de lecture prolongée, et nécessité de compléter l'intégralité des 6 pôles de travaux pratiques du cursus.
+- **Décision** :
+  1. **Contrôle Ergonomique du Thème** :
+     - Implémentation du mode tridimensionnel (`light` / `dark` / `system`) dans `app/src/store/useAppStore.ts` avec persistance `localStorage` via Zustand `partialize`.
+     - Intégration du bouton bascule Soleil / Lune dans la barre de navigation ([`Navbar.tsx`](file:///f:/Formation/world-class-french/app/src/components/layout/Navbar.tsx)).
+     - Application automatique des classes sur `document.documentElement` avec prise en charge dynamique des changements de préférence système du navigateur (`matchMedia`).
+  2. **Achèvement des 6 Pôles de Travaux Pratiques (`04-practical-work/`)** :
+     - **Grammaire & Syntaxe** ([`grammar-labs/`](file:///f:/Formation/world-class-french/04-practical-work/grammar-labs/)) : Formalisation du protocole d'analyse actancielle en 4 passes (Lucien Tesnière) et du laboratoire `GRAM-LAB-01` (10 phrases canoniques, schémas de valence A0-A3 et arbres syntaxiques).
+     - **Oralité & Prosodie** ([`oral-workshops/`](file:///f:/Formation/world-class-french/04-practical-work/oral-workshops/)) : Établissement du cadre orthoépique (Pierre Fouché, Delattre, Grammont) et de l'atelier `ORAL-WS-01` (Bossuet & Chateaubriand, transcription API intégrale, cartographie rigoureuse des liaisons obligatoires et proscription des cuirs/velours).
+     - **Lecture Analytique & Stylistique** ([`reading-workshops/`](file:///f:/Formation/world-class-french/04-practical-work/reading-workshops/)) : Protocole de l'explication linéaire en 4 mouvements et atelier `READ-WS-01` sur Proust (*La Madeleine*, analyse microscopique des faits de langue et de la période ternaire).
+     - **Écriture Académique & Rhétorique** ([`writing-workshops/`](file:///f:/Formation/world-class-french/04-practical-work/writing-workshops/)) : Morphologie canonique de la dissertation dialectique (triptyque, méthode de paragraphe argumentatif AEI) et atelier `WRITE-WS-01` (*« La littérature doit-elle consoler ou inquiéter ? »*, introduction et conclusion rédigées, paragraphe modèle).
+- **Conséquences** :
+  - Positives : Expérience utilisateur premium sans éblouissement ; cursus de travaux pratiques 100 % opérationnel, couvrant la totalité des compétences terminales orales, lexicales, syntaxiques et discursives.
+
+
 
