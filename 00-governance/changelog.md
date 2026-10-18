@@ -515,6 +515,19 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Établissement du cadre d'homologation dans [`10-final/README.md`](file:///f:/Formation/world-class-french/10-final/README.md).
     - Rédaction du référentiel du Livret de Preuves Observables en 6 sections dans [`certification-standards-and-portfolio.md`](file:///f:/Formation/world-class-french/10-final/certification-standards-and-portfolio.md).
     - Rédaction des maquettes officielles et solennelles d'apparat dans [`diploma-template.md`](file:///f:/Formation/world-class-french/10-final/diploma-template.md) pour les grades BMNO, CSERS et DHSPLF.
+- **Étape 30 — Mise aux Standards Open Source Professionnels (DEC-055)** :
+  - **Refonte Complète du README.md Principal** :
+    - Intégration des badges officiels (CI, Next.js 15, React 19, TypeScript Strict 0 Any, Neon, WCAG 2.2 AA, MIT).
+    - Architecture globale sous forme de schéma Mermaid interconnectant le curriculum magistral et la Progressive Web App.
+    - Spécification détaillée des 7 moteurs d'exercices, du pupitre de dictée vocale et de la base de données relationnelle.
+    - Guide de démarrage pas-à-pas avec commandes locales prêtes à l'emploi.
+  - **Pipeline d'Intégration Continue (`.github/workflows/ci.yml`)** :
+    - Automatisation de la vérification de build et de typage TypeScript sous Node.js 20 à chaque push/PR.
+  - **Standards Légaux & Communautaires** :
+    - Publication du fichier de licence officiel [`LICENSE`](file:///f:/Formation/world-class-french/LICENSE) (Licence MIT).
+    - Publication du guide [`CONTRIBUTING.md`](file:///f:/Formation/world-class-french/CONTRIBUTING.md) (Trunk-Based, Conventional Commits, standards WCAG AA).
+    - Publication de la politique de sécurité [`SECURITY.md`](file:///f:/Formation/world-class-french/SECURITY.md).
+    - Élimination des répertoires de cache temporaires locaux (`__pycache__`).
 
 ---
 

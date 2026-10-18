@@ -1074,6 +1074,29 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Intégralité des 11 répertoires architecturaux (`00` à `10`) et de la plateforme web opérationnels, audités et sans aucune complaisance non documentée.
 
+---
+
+### [DEC-055] Mise aux Standards Open Source Professionnels (README, CI/CD GitHub Actions, CONTRIBUTING, LICENSE, SECURITY)
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Le dépôt étant public et destiné à être examiné par des recruteurs, ingénieurs et linguistes du monde entier, nécessité d'atteindre une tenue irréprochable des standards de documentation, de sécurité et d'intégration continue.
+- **Décision** :
+  1. **Refonte Majeure du README.md Principal** :
+     - Intégration des badges de qualité (CI build passing, Next.js 15, React 19, TypeScript Strict 0 Any, Neon PostgreSQL, WCAG 2.2 AA, MIT).
+     - Diagramme d'architecture Mermaid articulant le cursus académique et la Progressive Web App.
+     - Spécification détaillée des 7 moteurs d'exercices, du pupitre de dictée vocale et de la synchronisation Neon.
+     - Guide de démarrage rapide pas-à-pas avec instructions claires.
+  2. **Pipeline d'Intégration Continue (`.github/workflows/ci.yml`)** :
+     - Automatisation des vérifications de build et de typage strict TypeScript sous Node.js 20 à chaque push/PR.
+  3. **Standards Légaux & Communautaires** :
+     - Création du fichier de licence officiel [`LICENSE`](file:///f:/Formation/world-class-french/LICENSE) (Licence MIT).
+     - Création de [`CONTRIBUTING.md`](file:///f:/Formation/world-class-french/CONTRIBUTING.md) formalisant la stratégie Trunk-Based, les Conventional Commits, et la politique d'accessibilité WCAG AA.
+     - Création de [`SECURITY.md`](file:///f:/Formation/world-class-french/SECURITY.md) établissant la politique de divulgation responsable.
+     - Élimination des artefacts et caches locaux superflus à la racine (`__pycache__`).
+- **Conséquences** :
+  - Positives : Dépôt public d'une qualité exemplaire, immédiatement valorisable auprès des recruteurs techniques et partenaires académiques.
+
+
 
 
 
