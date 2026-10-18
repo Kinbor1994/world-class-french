@@ -969,8 +969,40 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : L'application adopte une identité visuelle digne d'une grande institution culturelle et universitaire européenne (Le Robert, Collège de France, Le Monde, Pléiade), tout en préservant l'ergonomie, la rapidité et la rétention d'Ebbinghaus.
 
+---
 
+### [DEC-050] Intégration de la Base de Données Cloud Neon PostgreSQL, Synchronisation Bidirectionnelle et Schéma Relationnel Normalisé
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Nécessité de doter la plateforme numérique d'une persistance distante et d'une synchronisation multi-appareils (mobile, tablette, ordinateur) tout en conservant le fonctionnement hors-ligne (*Offline-First*).
+- **Décision** :
+  1. Provisionnement d'un projet serveur Neon PostgreSQL dédié : `world-class-french` (ID `silent-glitter-44506564`, région `aws-eu-central-1` Francfort, PostgreSQL 17).
+  2. Création et migration du schéma relationnel en 5 tables maîtresses :
+     - `learner_profiles` : identité, XP, streak, niveau courant, statut d'activité.
+     - `lesson_progress` : leçons validées, scores et horodatage.
+     - `srs_card_reviews` : paramètres de rétention FSRS / SM-2 (stabilité, difficulté, répétitions, lapses, intervalle Ebbinghaus).
+     - `daily_sprint_results` : scores quotidiens et motifs emoji (`🟩🟨🟥`).
+     - `diagnostic_results` : résultats d'orientation initiale et réponses.
+  3. Implémentation du pilote serverless `@neondatabase/serverless` avec route Next.js App Router `/api/sync` (GET et POST).
+  4. Extension du store Zustand avec identifiant apprenant persistant, statut visuel temps réel dans la Navbar et fusion heuristique des progressions.
+- **Conséquences** :
+  - Positives : Sauvegarde infaillible du travail de l'apprenant, zéro perte de données, indépendance vis-à-vis d'un effacement du cache navigateur local.
 
+---
 
+### [DEC-051] Formalisation des Travaux Pratiques : Dictées Étalonnées avec Barème Pénal et Laboratoires de Révision Éditoriale
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Déploiement concret des travaux pratiques ([`04-practical-work/`](file:///f:/Formation/world-class-french/04-practical-work/)) articulés aux compétences mesurables du référentiel (`FR-INT-001` à `FR-INT-003`).
+- **Décision** :
+  1. **Corpus des Dictées Étalonnées** ([`04-practical-work/dictations/`](file:///f:/Formation/world-class-french/04-practical-work/dictations/)) :
+     - Établissement du protocole officiel en 4 temps (première écoute, dictée découpée à 0.65x, relecture continue, relecture autonome métacognitive de 10 min).
+     - Intégration du barème pénal officiel (`ERR-GRAM-MAJ` -2 pts, `ERR-GRAM-MIN` -1 pt, `ERR-LEX-USAGE` -1 pt, `ERR-PONCT-ACC` -0.5 pt, `ERR-TYPO-UNION` -0.5 pt).
+     - Rédaction des premières fiches magistrales étalonnées : `DICT-S1-01` (Accords fondamentaux, 225 mots) et `DICT-S2-01` (Règle de Clément Marot, inversion du sujet, 280 mots) avec apparat critique et analyse des 10 pièges clés.
+  2. **Ateliers de Révision Éditoriale** ([`04-practical-work/correction-labs/`](file:///f:/Formation/world-class-french/04-practical-work/correction-labs/)) :
+     - Établissement du protocole professionnel de correction d'épreuves (texte de 600 mots avec 30 pièges pré-calibrés, barème sur 20 points).
+     - Rédaction de l'épreuve inaugurale `CORR-LAB-01` (*Le Manuscrit du Jeune Éditeur*, 595 mots) avec clé de correction exhaustive des 30 coquilles et version imprimable restaurée.
+- **Conséquences** :
+  - Positives : Pont direct entre la théorie magistrale (`03-curriculum/`) et la mise en pratique exigeante de niveau universitaire.
 
 

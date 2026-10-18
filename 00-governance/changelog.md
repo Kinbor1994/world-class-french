@@ -463,11 +463,21 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Suppression du serpentin sinusoïdal en zigzag.
     - Organisation en dossiers d'études par chapitre avec ruban de micro-sessions de 3 minutes et consultation instantanée de la **Fiche de synthèse de chapitre (Rubrique 17)** via [`ChapterSummaryModal.tsx`](file:///f:/Formation/world-class-french/app/src/components/curriculum/ChapterSummaryModal.tsx).
   - **Refonte intégrale des 7 moteurs d'exercices et des modales** :
-    - Harmonisation sobre des interfaces (`VisualSoundMatch`, `SyllableAndSentenceBricks`, `VoltaireErrorHunter`, `InteractiveDictation`, `SmartDiagnosticMCQ`, `ClozeMorphologyInput`, `RhetoricAndRegisterStudio`, `DailySprintModal`, `DiagnosticModal`, `SrsReviewView`, `RemindersConfigModal`).
-  - **Intégrité TypeScript & Build** :
-    - Zéro `any`, typages discriminés stricts, build de production Next.js 15 validé à 100 % (`npm run build` : code 0).
+- **Étape 26 — Base de Données Neon PostgreSQL & Travaux Pratiques (DEC-050 & DEC-051)** :
+  - **Intégration Neon PostgreSQL & Synchronisation Cloud** :
+    - Provisionnement du projet Neon `world-class-french` (PostgreSQL 17, `aws-eu-central-1` Francfort) via MCP Neon.
+    - Création du schéma relationnel complet en 5 tables : `learner_profiles`, `lesson_progress`, `srs_card_reviews`, `daily_sprint_results`, `diagnostic_results`.
+    - Implémentation du pilote `@neondatabase/serverless` et de la route API Next.js `/api/sync` (GET & POST) avec typage strict sans `any`.
+    - Bouton interactif de synchronisation en temps réel dans la `Navbar.tsx` avec persistance multi-appareils.
+    - Validation du build complet Next.js 15 avec la nouvelle route dynamique (`npm run build` : exit code 0).
+  - **Déploiement des Travaux Pratiques (`04-practical-work/`)** :
+    - Établissement du cadre et du protocole officiel des dictées étalonnées dans [`04-practical-work/dictations/README.md`](file:///f:/Formation/world-class-french/04-practical-work/dictations/README.md) avec application du barème pénal officiel.
+    - Rédaction magistrale des deux premières dictées : `DICT-S1-01` (*L'Aube de l'Écriture*, 225 mots) et `DICT-S2-01` (*Le Défi de Clément Marot*, 280 mots) avec guide prosodique, texte balisé et analyse des 10 pièges clés.
+    - Établissement du protocole de révision éditoriale dans [`04-practical-work/correction-labs/README.md`](file:///f:/Formation/world-class-french/04-practical-work/correction-labs/README.md).
+    - Rédaction de l'épreuve inaugurale `CORR-LAB-01` (*Le Manuscrit du Jeune Éditeur*, 595 mots) avec 30 pièges pré-étalonnés, grille critériée sur 20 points, apparat critique et texte restauré.
 
 ---
+
 
 ## [0.1.0] - 2026-10-11
 

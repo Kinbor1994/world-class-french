@@ -28,7 +28,19 @@ export interface AppState {
   dailyReminderHour: number; // ex: 9 (9h00)
   notificationsEnabled: boolean;
 
+  // Profil & Cloud Sync (Neon PostgreSQL)
+  userId: string;
+  displayName: string;
+  userEmail: string | null;
+  syncStatus: "idle" | "syncing" | "synced" | "error";
+  lastSyncedAt: string | null;
+  syncError: string | null;
+
   // Actions
+  setDisplayName: (name: string) => void;
+  setUserEmail: (email: string | null) => void;
+  syncWithCloud: () => Promise<boolean>;
+  fetchFromCloud: () => Promise<boolean>;
   setStage: (stage: number) => void;
   decrementHeart: () => boolean; // return true if still alive
   refillHearts: () => void;
@@ -71,9 +83,32 @@ const initialCards: SRSCard[] = (curriculumData.initialSrsCards as SRSCard[]).ma
   nextReviewAt: null,
 }));
 
+// Identifiant apprenant persistant
+function getDefaultUserId(): string {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem("wcf_user_id");
+    if (stored) return stored;
+    const generated = "wcf_" + Math.random().toString(36).substring(2, 12);
+    try {
+      localStorage.setItem("wcf_user_id", generated);
+    } catch {
+      // Ignorer si localStorage restreint
+    }
+    return generated;
+  }
+  return "wcf_guest";
+}
+
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
+      userId: getDefaultUserId(),
+      displayName: "Apprenant de l'Institut",
+      userEmail: null,
+      syncStatus: "idle",
+      lastSyncedAt: null,
+      syncError: null,
+
       currentStage: 1,
       xp: 120,
       hearts: 5,
@@ -266,11 +301,153 @@ export const useAppStore = create<AppState>()(
       setNotificationsEnabled: (enabled: boolean) => {
         set({ notificationsEnabled: enabled });
       },
+
+      setDisplayName: (name: string) => {
+        set({ displayName: name });
+      },
+
+      setUserEmail: (email: string | null) => {
+        set({ userEmail: email });
+      },
+
+      syncWithCloud: async () => {
+        const state = get();
+        set({ syncStatus: "syncing", syncError: null });
+        try {
+          const payload = {
+            userId: state.userId,
+            email: state.userEmail,
+            displayName: state.displayName,
+            currentTier: state.currentStage,
+            xp: state.xp,
+            streakDays: state.streak,
+            hearts: state.hearts,
+            completedLessons: state.completedLessons,
+            srsCards: state.srsCards,
+            sprintRecord: state.sprintRecords[0] || null,
+          };
+
+          const res = await fetch("/api/sync", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) {
+            throw new Error(`Erreur HTTP: ${res.status}`);
+          }
+
+          const data = (await res.json()) as { success: boolean; syncedAt?: string };
+          set({
+            syncStatus: "synced",
+            lastSyncedAt: data.syncedAt || new Date().toISOString(),
+            syncError: null,
+          });
+          return true;
+        } catch (err) {
+          console.error("Échec syncWithCloud:", err);
+          set({
+            syncStatus: "error",
+            syncError: err instanceof Error ? err.message : "Erreur de synchronisation",
+          });
+          return false;
+        }
+      },
+
+      fetchFromCloud: async () => {
+        const state = get();
+        set({ syncStatus: "syncing", syncError: null });
+        try {
+          const res = await fetch(`/api/sync?userId=${encodeURIComponent(state.userId)}`);
+          if (!res.ok) throw new Error(`Erreur HTTP: ${res.status}`);
+          const data = (await res.json()) as {
+            exists: boolean;
+            profile?: { xp: number; streakDays: number; currentTier: number; displayName?: string };
+            completedLessons?: string[];
+            srsReviews?: Array<{
+              itemId: string;
+              stability: number;
+              difficulty: number;
+              lapses: number;
+              lastReviewedAt: string;
+              nextReviewAt: string;
+              retention: number;
+            }>;
+          };
+
+          if (!data.exists) {
+            return await get().syncWithCloud();
+          }
+
+          set((prev) => {
+            const mergedLessons = Array.from(
+              new Set([...prev.completedLessons, ...(data.completedLessons || [])])
+            );
+
+            const remoteSrsMap = new Map<
+              string,
+              {
+                stability: number;
+                difficulty: number;
+                lapses: number;
+                lastReviewedAt: string;
+                nextReviewAt: string;
+                retention: number;
+              }
+            >();
+            for (const r of data.srsReviews || []) {
+              remoteSrsMap.set(r.itemId, r);
+            }
+
+            const mergedCards = prev.srsCards.map((card) => {
+              const remote = remoteSrsMap.get(card.id);
+              if (remote && remote.lastReviewedAt) {
+                if (!card.lastReviewedAt || new Date(remote.lastReviewedAt) > new Date(card.lastReviewedAt)) {
+                  return {
+                    ...card,
+                    stability: remote.stability,
+                    difficulty: remote.difficulty,
+                    lapses: remote.lapses,
+                    lastReviewedAt: remote.lastReviewedAt,
+                    nextReviewAt: remote.nextReviewAt,
+                    retention: remote.retention,
+                  };
+                }
+              }
+              return card;
+            });
+
+            return {
+              displayName: data.profile?.displayName || prev.displayName,
+              xp: Math.max(prev.xp, data.profile?.xp || 0),
+              streak: Math.max(prev.streak, data.profile?.streakDays || 1),
+              currentStage: data.profile?.currentTier || prev.currentStage,
+              completedLessons: mergedLessons,
+              srsCards: mergedCards,
+              syncStatus: "synced",
+              lastSyncedAt: new Date().toISOString(),
+              syncError: null,
+            };
+          });
+          return true;
+        } catch (err) {
+          console.error("Échec fetchFromCloud:", err);
+          set({
+            syncStatus: "error",
+            syncError: err instanceof Error ? err.message : "Erreur de synchronisation",
+          });
+          return false;
+        }
+      },
     }),
     {
       name: "world-class-french-store",
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
+        userId: state.userId,
+        displayName: state.displayName,
+        userEmail: state.userEmail,
+        lastSyncedAt: state.lastSyncedAt,
         currentStage: state.currentStage,
         xp: state.xp,
         hearts: state.hearts,
@@ -286,3 +463,4 @@ export const useAppStore = create<AppState>()(
     }
   )
 );
+
