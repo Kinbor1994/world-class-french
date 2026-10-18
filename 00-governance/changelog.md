@@ -485,6 +485,22 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - **Oralité & Prosodie** : Création du cadre orthoépique [`oral-workshops/README.md`](file:///f:/Formation/world-class-french/04-practical-work/oral-workshops/README.md) et de l'atelier inaugural [`workshop-01-prosodie-et-liaisons.md`](file:///f:/Formation/world-class-french/04-practical-work/oral-workshops/workshop-01-prosodie-et-liaisons.md) (Bossuet & Chateaubriand, transcription API, cartographie des liaisons obligatoires et interdites).
     - **Lecture Analytique** : Création du cadre méthodique [`reading-workshops/README.md`](file:///f:/Formation/world-class-french/04-practical-work/reading-workshops/README.md) et de l'atelier d'explication linéaire [`workshop-01-explication-lineaire.md`](file:///f:/Formation/world-class-french/04-practical-work/reading-workshops/workshop-01-explication-lineaire.md) (Proust, *La Madeleine*, analyse microscopique des faits de langue).
     - **Écriture Académique** : Création du cadre rhétorique [`writing-workshops/README.md`](file:///f:/Formation/world-class-french/04-practical-work/writing-workshops/README.md) et de l'atelier de dissertation dialectique [`workshop-01-dissertation-academique.md`](file:///f:/Formation/world-class-french/04-practical-work/writing-workshops/workshop-01-dissertation-academique.md) (*« La littérature doit-elle consoler ou inquiéter ? »*, méthode AEI, introduction et conclusion modèles).
+- **Étape 28 — Déploiement du Système d'Évaluation Certifiant & Docimologique (DEC-053)** :
+  - **Cadre Docimologique & Grille Pénale** :
+    - Rédaction de [`06-assessments/README.md`](file:///f:/Formation/world-class-french/06-assessments/README.md) fixant le seuil de validation minimal à 14/20 sans complaisance et le barème pénal officiel (`ERR-GRAM-MAJ` à `ERR-TYPO-UNION`).
+  - **Évaluation Diagnostique Initiale (`diagnostic/`)** :
+    - Rédaction du protocole d'orientation en 4 paliers dans [`diagnostic/README.md`](file:///f:/Formation/world-class-french/06-assessments/diagnostic/README.md).
+    - Rédaction de l'épreuve de positionnement `DIAG-001` de 2h30 (Dictée de 250 mots, analyse de valence, lexicologie, détection de 4 sophismes, épreuve orthoépique) avec corrigé officiel dans [`diagnostic-initial-positionnement.md`](file:///f:/Formation/world-class-french/06-assessments/diagnostic/diagnostic-initial-positionnement.md).
+  - **Évaluations Formatives Hebdomadaires (`formative/`)** :
+    - Établissement du protocole de rappel actif en 3 temps dans [`formative/README.md`](file:///f:/Formation/world-class-french/06-assessments/formative/README.md).
+    - Rédaction des épreuves étalonnées de référence S1-W04 et S2-W08 avec clés de correction dans [`formative-framework-and-weekly-checks.md`](file:///f:/Formation/world-class-french/06-assessments/formative/formative-framework-and-weekly-checks.md).
+  - **Évaluations Sommatives Semestrielles (`summative/`)** :
+    - Réglementation du format quadripartite (Dictée, Linguistique, Dissertation, Déclamation) dans [`summative/README.md`](file:///f:/Formation/world-class-french/06-assessments/summative/README.md).
+    - Rédaction intégrale de l'examen `EXAM-S1` (Buffon, Valéry, Bossuet) dans [`exam-s1-fondations-norme.md`](file:///f:/Formation/world-class-french/06-assessments/summative/exam-s1-fondations-norme.md).
+    - Rédaction intégrale de l'examen `EXAM-S2` (La Bruyère, Paulhan, Racine) dans [`exam-s2-syntaxe-architecture.md`](file:///f:/Formation/world-class-french/06-assessments/summative/exam-s2-syntaxe-architecture.md).
+  - **Examens Terminaux de Fin de Cycle (`final-examinations/`)** :
+    - Établissement des trois portes de passage certificatives (BMNO, CSERS, DHSPLF) dans [`final-examinations/README.md`](file:///f:/Formation/world-class-french/06-assessments/final-examinations/README.md).
+    - Rédaction intégrale de la porte de passage C1 `FINAL-EXAM-C1` (Grand concours d'orthographe de 415 mots, 20 phrases de morphosyntaxe/Tesnière, dissertation de 4h sur Politzer, Grand oral sur Corneille) avec apparat critique dans [`final-exam-cycle-1.md`](file:///f:/Formation/world-class-french/06-assessments/final-examinations/final-exam-cycle-1.md).
 
 ---
 

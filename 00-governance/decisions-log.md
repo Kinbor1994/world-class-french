@@ -1024,5 +1024,31 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Expérience utilisateur premium sans éblouissement ; cursus de travaux pratiques 100 % opérationnel, couvrant la totalité des compétences terminales orales, lexicales, syntaxiques et discursives.
 
+---
+
+### [DEC-053] Formalisation du Système d'Évaluation Certifiant & Docimologique (06-assessments)
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Déploiement concret du système d'évaluation certifiant selon les principes de la charte de projet ([`00-governance/project-charter.md`](file:///f:/Formation/world-class-french/00-governance/project-charter.md)) : barème pénal officiel, exigence du seuil minimal à 14/20 sans complaisance, et couverture des 4 paliers docimologiques.
+- **Décision** :
+  1. **Structure Générale & Principes Docimologiques** ([`06-assessments/README.md`](file:///f:/Formation/world-class-french/06-assessments/README.md)) :
+     - Formalisation de la grille d'erreurs pénales (`ERR-GRAM-MAJ` -2 pts, `ERR-GRAM-MIN` -1 pt, `ERR-LEX-USAGE` -1 pt, `ERR-PONCT-ACC` -0.5 pt, `ERR-TYPO-UNION` -0.5 pt).
+     - Règle d'élimination des complaisances et exigence d'une note $\ge 10/20$ à chaque épreuve composante.
+  2. **Évaluation Diagnostique Initiale** ([`06-assessments/diagnostic/`](file:///f:/Formation/world-class-french/06-assessments/diagnostic/)) :
+     - Établissement du protocole d'orientation en 4 paliers d'entrée (Excellence, Standard, Consolidation, Remise à niveau).
+     - Rédaction du sujet complet de 2h30 `DIAG-001` (Dictée de 250 mots, analyse syntaxique, lexique/paronymes, détection de 4 sophismes, épreuve audio d'orthoépie) avec corrigé officiel et grille d'orientation.
+  3. **Évaluations Formatives Hebdomadaires** ([`06-assessments/formative/`](file:///f:/Formation/world-class-french/06-assessments/formative/)) :
+     - Protocole de rappel actif en 3 temps (Dictée flash de 50 mots, analyse syntaxique, laboratoire lexical).
+     - Rédaction des épreuves étalonnées de référence pour S1-W04 et S2-W08 avec clés de correction et boucles de remédiation.
+  4. **Évaluations Sommatives Semestrielles** ([`06-assessments/summative/`](file:///f:/Formation/world-class-french/06-assessments/summative/)) :
+     - Réglementation du format en 4 épreuves semestrielles (Dictée 1h, Linguistique sur corpus 2h, Dissertation 3h, Déclamation orale 20 min).
+     - Rédaction de l'examen complet `EXAM-S1` (Buffon, Valéry, Bossuet, dictée de 325 mots) et `EXAM-S2` (La Bruyère, Paulhan, Racine, dictée de 340 mots) avec apparat critique et barèmes.
+  5. **Examens Terminaux de Fin de Cycle** ([`06-assessments/final-examinations/`](file:///f:/Formation/world-class-french/06-assessments/final-examinations/)) :
+     - Définition des trois titres académiques : Brevet de Maîtrise Normative & Orthoépique (BMNO - C1), Certificat Supérieur d'Éloquence (CSERS - C2), Diplôme de Haute Souveraineté (DHSPLF - C3).
+     - Rédaction de l'épreuve inaugurale `FINAL-EXAM-C1` (Grand concours d'orthographe de 415 mots, 20 phrases de morphosyntaxe/Tesnière, dissertation de 4h sur Politzer, Grand oral sur Corneille avec décompte métrique et apparat critique).
+- **Conséquences** :
+  - Positives : Système d'évaluation de niveau concours universitaire opérationnel, vérifiable, étalonné et exempt de toute présomption non prouvée.
+
+
 
 
