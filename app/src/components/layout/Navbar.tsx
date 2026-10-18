@@ -266,7 +266,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : "Synchroniser avec la base de données Neon"
             }
             aria-label="Synchronisation Cloud Neon"
-            className={`p-1.5 rounded-md transition-colors relative ${
+            className={`w-8 h-8 flex items-center justify-center rounded-md transition-colors relative ${
               syncStatus === "syncing"
                 ? "text-amber-600 bg-amber-50 dark:bg-amber-950/40"
                 : syncStatus === "synced"
@@ -292,7 +292,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onOpenReminders}
             title="Configurer les rappels et exporter le calendrier"
             aria-label="Rappels"
-            className="p-1.5 text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
+            className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
           >
             <Bell className="w-4 h-4" />
           </button>

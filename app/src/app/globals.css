@@ -20,13 +20,36 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, sans-serif);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Surlignage éditorial d'archive */
+::selection {
+  background: #FEF3C7;
+  color: #92400E;
+}
+.dark ::selection {
+  background: #451A03;
+  color: #FEF3C7;
+}
+
+/* Accessibilité : Indicateur de Focus visible (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid #B45309 !important;
+  outline-offset: 2px !important;
+}
+.dark :focus-visible {
+  outline: 2px solid #F59E0B !important;
+  outline-offset: 2px !important;
+}
+
+/* Accessibilité : Respect des préférences de réduction de mouvement (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Typographie éditoriale pour les titres */

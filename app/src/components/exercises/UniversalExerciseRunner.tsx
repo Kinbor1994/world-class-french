@@ -181,7 +181,7 @@ export const UniversalExerciseRunner: React.FC<UniversalExerciseRunnerProps> = (
           type="button"
           onClick={onClose}
           aria-label="Fermer la session"
-          className="p-1.5 text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+          className="w-10 h-10 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
