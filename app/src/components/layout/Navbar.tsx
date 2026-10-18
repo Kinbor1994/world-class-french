@@ -14,6 +14,7 @@ import {
   RefreshCw,
   Sun,
   Moon,
+  Award,
 } from "lucide-react";
 import { useAppStore, computeCardRetention } from "@/store/useAppStore";
 import curriculumData from "@/data/compiled-curriculum.json";
@@ -24,6 +25,7 @@ interface NavbarProps {
   onOpenSprint: () => void;
   onOpenSrs: () => void;
   onOpenReminders: () => void;
+  onOpenPracticalWork: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -31,6 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSprint,
   onOpenSrs,
   onOpenReminders,
+  onOpenPracticalWork,
 }) => {
   const {
     currentStage,
@@ -253,6 +256,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Timer className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Sprint Quotidien</span>
             <span className="sm:hidden">Sprint</span>
+          </button>
+
+          {/* Bouton Ateliers Pratiques & Examens */}
+          <button
+            type="button"
+            onClick={onOpenPracticalWork}
+            title="Consulter les ateliers pratiques, dictées et examens"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-academic-paper dark:bg-academic-dark-card hover:bg-white dark:hover:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border rounded-md text-xs font-semibold text-academic-ink dark:text-slate-200 transition-all shadow-fine font-sans"
+          >
+            <Award className="w-3.5 h-3.5 text-academic-gold" />
+            <span className="hidden md:inline">Ateliers & TP</span>
           </button>
 
           {/* Synchronisation Cloud (Neon Database) */}

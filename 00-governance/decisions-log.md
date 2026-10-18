@@ -1049,6 +1049,32 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Système d'évaluation de niveau concours universitaire opérationnel, vérifiable, étalonné et exempt de toute présomption non prouvée.
 
+---
+
+### [DEC-054] Déploiement des Projets Majeurs (05), du Grand Capstone (09), de l'Interface Web des Ateliers (app) et du Dossier de Diplomation (10)
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Finalisation séquentielle (Ordre 1, 2 et 3) des derniers piliers du cursus World-Class French : formalisation des projets de cycles et du mémoire de sortie, création d'une interface web interactive pour les ateliers et dictées, et établissement du livret de certification finale.
+- **Décision** :
+  1. **Projets d'Intégration Semestriels & Capstone (`05-projects/` & `09-capstone/`)** :
+     - Établissement du cahier des charges de `PROJ-C1` (*L'Anthologie Critique Annotée*, 50 pages, 15 textes établis, apparat critique et préface diachronique).
+     - Établissement du cahier des charges de `PROJ-C2` (*Le Recueil des Plaidoiries Contradictoires*, 80 pages, 3 controverses en vis-à-vis, syllogismes et périodes).
+     - Réglementation officielle du Grand Capstone (`CAPS-001`) : mémoire de 100 à 120 pages (trois filières : Philologie, Syntaxe comparée francophone, Haute poétique) et protocole de soutenance orale de 45 minutes devant jury.
+  2. **Intégration Applicative Web des Travaux Pratiques (`app/`)** :
+     - Création du composant [`PracticalWorkModal.tsx`](file:///f:/Formation/world-class-french/app/src/components/curriculum/PracticalWorkModal.tsx) intégrant :
+       - Pupitre de dictée sonore découpée pas-à-pas avec l'API native `SpeechSynthesis` (0.8x), écoute globale et évaluation automatique par le barème pénal officiel.
+       - Atelier de révision éditoriale `CORR-LAB-01` avec dévoilement du corrigé des 30 coquilles pré-calibrées.
+       - Studio d'élocution et de prosodie avec balises interactives de liaisons obligatoires et proscription des cuirs.
+       - Console d'accès aux annales et dossiers d'examens.
+     - Ajout du bouton d'accès direct « Ateliers & TP » dans la [`Navbar.tsx`](file:///f:/Formation/world-class-french/app/src/components/layout/Navbar.tsx) et câblage dans [`page.tsx`](file:///f:/Formation/world-class-french/app/src/app/page.tsx).
+     - Validation de la compilation Next.js 15 en mode strict sans `any` (`npm run build` : exit code 0).
+  3. **Dossier de Diplomation Finale (`10-final/`)** :
+     - Établissement des standards du Livret de Preuves Observables ([`certification-standards-and-portfolio.md`](file:///f:/Formation/world-class-french/10-final/certification-standards-and-portfolio.md)) articulé en 6 sections obligatoires.
+     - Rédaction des maquettes officielles et solennelles d'apparat ([`diploma-template.md`](file:///f:/Formation/world-class-french/10-final/diploma-template.md)) pour les trois titres académiques : BMNO (Cycle 1), CSERS (Cycle 2), DHSPLF (Cycle 3).
+- **Conséquences** :
+  - Positives : Intégralité des 11 répertoires architecturaux (`00` à `10`) et de la plateforme web opérationnels, audités et sans aucune complaisance non documentée.
+
+
 
 
 

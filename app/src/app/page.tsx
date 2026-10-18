@@ -8,6 +8,7 @@ import { DailySprintModal } from "@/components/srs/DailySprintModal";
 import { RemindersConfigModal } from "@/components/srs/RemindersConfigModal";
 import { SrsReviewView } from "@/components/srs/SrsReviewView";
 import { UniversalExerciseRunner } from "@/components/exercises/UniversalExerciseRunner";
+import { PracticalWorkModal } from "@/components/curriculum/PracticalWorkModal";
 import { useAppStore, applyThemeClass } from "@/store/useAppStore";
 import type { MicroLesson } from "@/types/curriculum";
 
@@ -18,6 +19,7 @@ export default function HomePage() {
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState<boolean>(false);
   const [isSprintOpen, setIsSprintOpen] = useState<boolean>(false);
   const [isRemindersOpen, setIsRemindersOpen] = useState<boolean>(false);
+  const [isPracticalWorkOpen, setIsPracticalWorkOpen] = useState<boolean>(false);
   const [isSrsViewActive, setIsSrsViewActive] = useState<boolean>(false);
   const [activeLesson, setActiveLesson] = useState<MicroLesson | null>(null);
 
@@ -87,6 +89,7 @@ export default function HomePage() {
         onOpenSprint={() => setIsSprintOpen(true)}
         onOpenSrs={() => setIsSrsViewActive(true)}
         onOpenReminders={() => setIsRemindersOpen(true)}
+        onOpenPracticalWork={() => setIsPracticalWorkOpen(true)}
       />
 
       {/* Contenu Principal : Arbre d'apprentissage ou Vue SRS */}
@@ -122,6 +125,11 @@ export default function HomePage() {
       <RemindersConfigModal
         isOpen={isRemindersOpen}
         onClose={() => setIsRemindersOpen(false)}
+      />
+
+      <PracticalWorkModal
+        isOpen={isPracticalWorkOpen}
+        onClose={() => setIsPracticalWorkOpen(false)}
       />
     </main>
   );

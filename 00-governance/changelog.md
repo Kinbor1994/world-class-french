@@ -501,6 +501,20 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   - **Examens Terminaux de Fin de Cycle (`final-examinations/`)** :
     - Établissement des trois portes de passage certificatives (BMNO, CSERS, DHSPLF) dans [`final-examinations/README.md`](file:///f:/Formation/world-class-french/06-assessments/final-examinations/README.md).
     - Rédaction intégrale de la porte de passage C1 `FINAL-EXAM-C1` (Grand concours d'orthographe de 415 mots, 20 phrases de morphosyntaxe/Tesnière, dissertation de 4h sur Politzer, Grand oral sur Corneille) avec apparat critique dans [`final-exam-cycle-1.md`](file:///f:/Formation/world-class-french/06-assessments/final-examinations/final-exam-cycle-1.md).
+- **Étape 29 — Déploiement des Projets Majeurs (05), du Grand Capstone (09), de l'Interface Web des Ateliers (app) et du Dossier de Diplomation (10) (DEC-054)** :
+  - **Projets d'Intégration & Grand Capstone (`05-projects/` & `09-capstone/`)** :
+    - Rédaction du cadre général des projets dans [`05-projects/README.md`](file:///f:/Formation/world-class-french/05-projects/README.md).
+    - Cahier des charges de `PROJ-C1` (*L'Anthologie Critique Annotée*, 50 pages, 15 textes établis, apparat critique et préface) dans [`project-cycle-1-anthologie-critique.md`](file:///f:/Formation/world-class-french/05-projects/project-cycle-1-anthologie-critique.md).
+    - Cahier des charges de `PROJ-C2` (*Le Recueil des Plaidoiries Contradictoires*, 80 pages, 3 controverses en vis-à-vis) dans [`project-cycle-2-recueil-plaidoiries.md`](file:///f:/Formation/world-class-french/05-projects/project-cycle-2-recueil-plaidoiries.md).
+    - Réglementation officielle du Grand Capstone (`CAPS-001`) dans [`09-capstone/README.md`](file:///f:/Formation/world-class-french/09-capstone/README.md) et [`capstone-grand-memoire-et-soutenance.md`](file:///f:/Formation/world-class-french/09-capstone/capstone-grand-memoire-et-soutenance.md) (mémoire de 120 pages, 3 filières, soutenance solennelle de 45 minutes).
+  - **Intégration Web des Ateliers & Dictées (`app/`)** :
+    - Développement du composant interactif [`PracticalWorkModal.tsx`](file:///f:/Formation/world-class-french/app/src/components/curriculum/PracticalWorkModal.tsx) avec pupitre de dictée audio pas-à-pas (`SpeechSynthesis`), contrôle pénal en direct, révision éditoriale et partition de liaisons.
+    - Ajout du bouton « Ateliers & TP » dans la [`Navbar.tsx`](file:///f:/Formation/world-class-french/app/src/components/layout/Navbar.tsx) et intégration dans [`page.tsx`](file:///f:/Formation/world-class-french/app/src/app/page.tsx).
+    - Validation du build complet Next.js 15 (`npm run build` : exit code 0).
+  - **Dossier de Diplomation Finale (`10-final/`)** :
+    - Établissement du cadre d'homologation dans [`10-final/README.md`](file:///f:/Formation/world-class-french/10-final/README.md).
+    - Rédaction du référentiel du Livret de Preuves Observables en 6 sections dans [`certification-standards-and-portfolio.md`](file:///f:/Formation/world-class-french/10-final/certification-standards-and-portfolio.md).
+    - Rédaction des maquettes officielles et solennelles d'apparat dans [`diploma-template.md`](file:///f:/Formation/world-class-french/10-final/diploma-template.md) pour les grades BMNO, CSERS et DHSPLF.
 
 ---
 
