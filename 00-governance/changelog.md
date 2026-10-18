@@ -528,6 +528,21 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Publication du guide [`CONTRIBUTING.md`](file:///f:/Formation/world-class-french/CONTRIBUTING.md) (Trunk-Based, Conventional Commits, standards WCAG AA).
     - Publication de la politique de sécurité [`SECURITY.md`](file:///f:/Formation/world-class-french/SECURITY.md).
     - Élimination des répertoires de cache temporaires locaux (`__pycache__`).
+- **Étape 31 — Système d'Authentification Sécurisé & Gestion de Profil (DEC-056)** :
+  - **Base de données Neon PostgreSQL** :
+    - Migration du schéma de la table `learner_profiles` avec ajout des colonnes `password_hash` et `session_token`, et indexation optimisée.
+  - **Cryptographie Native Sécurisée (`app/src/utils/auth.ts`)** :
+    - Hachage de mot de passe par `scrypt` avec sel 16 octets et clé 64 octets, vérification en temps constant via `timingSafeEqual`.
+    - Génération de jetons de session cryptographiques de 48 octets.
+  - **Endpoints API Next.js 15 (`app/src/app/api/auth/`)** :
+    - `/api/auth/register` : Création de compte avec migration automatique du profil invité (`localStorage`) vers le compte enregistré.
+    - `/api/auth/login` : Authentification et émission de cookie de session HTTP-only (30 jours).
+    - `/api/auth/me` : Contrôle continu de validité de session.
+    - `/api/auth/logout` : Clôture de session et purge des cookies.
+  - **Interface Utilisateur & Expérience Apprenant** :
+    - Composant d'apparat [`AuthModal.tsx`](file:///f:/Formation/world-class-french/app/src/components/auth/AuthModal.tsx) avec onglets Connexion, Inscription et Mon Profil d'Apprenant.
+    - Intégration du bouton profil dans la [`Navbar.tsx`](file:///f:/Formation/world-class-french/app/src/components/layout/Navbar.tsx) avec avatar aux initiales et infobulle d'état.
+    - Validation du build complet Next.js 15 (`npm run build` : exit code 0).
 
 ---
 

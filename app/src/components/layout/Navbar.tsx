@@ -15,6 +15,7 @@ import {
   Sun,
   Moon,
   Award,
+  User,
 } from "lucide-react";
 import { useAppStore, computeCardRetention } from "@/store/useAppStore";
 import curriculumData from "@/data/compiled-curriculum.json";
@@ -26,6 +27,7 @@ interface NavbarProps {
   onOpenSrs: () => void;
   onOpenReminders: () => void;
   onOpenPracticalWork: () => void;
+  onOpenAuth: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -34,6 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenSrs,
   onOpenReminders,
   onOpenPracticalWork,
+  onOpenAuth,
 }) => {
   const {
     currentStage,
@@ -49,6 +52,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     syncError,
     themeMode,
     toggleTheme,
+    isAuthenticated,
+    displayName,
+    userEmail,
   } = useAppStore();
 
   const [isStageMenuOpen, setIsStageMenuOpen] = useState<boolean>(false);
@@ -313,6 +319,34 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
           >
             <Bell className="w-4 h-4" />
+          </button>
+
+          {/* Profil / Authentification */}
+          <button
+            type="button"
+            onClick={onOpenAuth}
+            title={
+              isAuthenticated
+                ? `${displayName} (${userEmail || "Compte vérifié"})`
+                : "Se connecter ou créer un compte"
+            }
+            aria-label="Profil apprenant"
+            className={`flex items-center gap-1.5 px-2 py-1.5 rounded-md transition-colors text-xs font-semibold ${
+              isAuthenticated
+                ? "bg-academic-gold/10 dark:bg-academic-gold/10 text-academic-gold border border-academic-gold/30 hover:bg-academic-gold/20"
+                : "text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 hover:bg-academic-paper dark:hover:bg-academic-dark-card"
+            }`}
+          >
+            {isAuthenticated ? (
+              <span className="w-6 h-6 rounded-full bg-academic-navy dark:bg-slate-700 flex items-center justify-center text-amber-400 text-[10px] font-bold font-serif">
+                {displayName.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2)}
+              </span>
+            ) : (
+              <User className="w-4 h-4" />
+            )}
+            <span className="hidden lg:inline">
+              {isAuthenticated ? displayName.split(" ")[0] : "Connexion"}
+            </span>
           </button>
 
           {/* Bascule Thème Clair / Sombre */}

@@ -1096,6 +1096,32 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Dépôt public d'une qualité exemplaire, immédiatement valorisable auprès des recruteurs techniques et partenaires académiques.
 
+---
+
+### [DEC-056] Déploiement du Système d'Authentification Sécurisé et Gestion de Profil (Next.js & Neon)
+- **Date** : 2026-10-18
+- **Statut** : Validé
+- **Contexte** : Alors que la synchronisation cloud avec Neon PostgreSQL reposait initialement sur un identifiant invité persistant (`wcf_user_id`), la plateforme nécessitait un système complet d'authentification interactive permettant l'inscription, la connexion sécurisée par mot de passe, la persistance de session par cookie HTTP-only et la migration transparente du parcours d'apprentissage invité.
+- **Décision** :
+  1. **Extension du Schéma Neon PostgreSQL** :
+     - Ajout des colonnes `password_hash` (TEXT) et `session_token` (TEXT) sur la table `learner_profiles`.
+     - Création d'index partiels sur `session_token` et `email` pour des résolutions d'authentification instantanées sans balayage de table.
+  2. **Couche Cryptographique Robuste et Zéro Dépendance (`app/src/utils/auth.ts`)** :
+     - Utilisation des primitives natives Node.js `node:crypto` (`scrypt` avec sel aléatoire 16 octets et clé dérivée 64 octets).
+     - Comparaison en temps constant avec `timingSafeEqual` pour immuniser le système contre les attaques par canal auxiliaire (timing attacks).
+     - Génération de jetons de session cryptographiques haute entropie (48 octets hexadécimaux).
+  3. **Endpoints d'Authentification Next.js 15 (`app/src/app/api/auth/`)** :
+     - `POST /api/auth/register` : validation de l'adresse e-mail et du mot de passe (8 caractères minimum), migration automatique de la ligne de profil invité existante vers le nouveau compte avec préservation intégrale de l'XP et des leçons.
+     - `POST /api/auth/login` : vérification sécurisée des identifiants et émission d'un cookie HTTP-only sécurisé (`wcf_session`, 30 jours, SameSite Lax).
+     - `GET /api/auth/me` : validation continue de la session active et restitution des données de profil.
+     - `POST /api/auth/logout` : révocation du jeton en base et suppression du cookie de session.
+  4. **Modale et Interface Apprenant d'Apparat (`AuthModal.tsx` & `Navbar.tsx`)** :
+     - Conception de la modale tripartite (Connexion, Inscription avec rappel de migration automatique, Mon Profil d'Apprenant).
+     - Intégration du bouton profil dans la barre de navigation avec badge d'avatar aux initiales de l'apprenant, statut de cycle et bascule contextuelle.
+- **Conséquences** :
+  - Positives : Expérience utilisateur fluide et certifiante ; aucune perte de données lors de la transition invité → apprenant inscrit ; sécurité d'excellence sans paquet npm externe vulnérable.
+
+
 
 
 

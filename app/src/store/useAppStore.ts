@@ -36,11 +36,21 @@ export interface AppState {
   lastSyncedAt: string | null;
   syncError: string | null;
 
+  // Authentification
+  isAuthenticated: boolean;
+  authLoading: boolean;
+  authError: string | null;
+
   // Actions
   setDisplayName: (name: string) => void;
   setUserEmail: (email: string | null) => void;
   syncWithCloud: () => Promise<boolean>;
   fetchFromCloud: () => Promise<boolean>;
+  register: (email: string, password: string, displayName: string) => Promise<boolean>;
+  login: (email: string, password: string) => Promise<boolean>;
+  logout: () => Promise<void>;
+  checkSession: () => Promise<void>;
+  clearAuthError: () => void;
   setStage: (stage: number) => void;
   decrementHeart: () => boolean; // return true if still alive
   refillHearts: () => void;
@@ -124,6 +134,9 @@ export const useAppStore = create<AppState>()(
       syncStatus: "idle",
       lastSyncedAt: null,
       syncError: null,
+      isAuthenticated: false,
+      authLoading: false,
+      authError: null,
       themeMode: "system",
 
       currentStage: 1,
@@ -339,6 +352,172 @@ export const useAppStore = create<AppState>()(
         set({ notificationsEnabled: enabled });
       },
 
+      clearAuthError: () => {
+        set({ authError: null });
+      },
+
+      register: async (email: string, password: string, displayName: string) => {
+        set({ authLoading: true, authError: null });
+        try {
+          const state = get();
+          const res = await fetch("/api/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email,
+              password,
+              displayName,
+              guestUserId: state.userId,
+            }),
+          });
+
+          const data = (await res.json()) as {
+            success?: boolean;
+            userId?: string;
+            email?: string;
+            displayName?: string;
+            migrated?: boolean;
+            error?: string;
+          };
+
+          if (!res.ok || !data.success) {
+            set({ authLoading: false, authError: data.error || "Erreur d'inscription." });
+            return false;
+          }
+
+          set({
+            isAuthenticated: true,
+            authLoading: false,
+            authError: null,
+            userId: data.userId || state.userId,
+            userEmail: data.email || email,
+            displayName: data.displayName || displayName,
+          });
+
+          // Update localStorage userId for sync consistency
+          if (data.userId) {
+            try { localStorage.setItem("wcf_user_id", data.userId); } catch { /* ignore */ }
+          }
+
+          return true;
+        } catch (err) {
+          set({
+            authLoading: false,
+            authError: err instanceof Error ? err.message : "Erreur réseau.",
+          });
+          return false;
+        }
+      },
+
+      login: async (email: string, password: string) => {
+        set({ authLoading: true, authError: null });
+        try {
+          const res = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = (await res.json()) as {
+            success?: boolean;
+            userId?: string;
+            email?: string;
+            displayName?: string;
+            currentTier?: number;
+            xp?: number;
+            streakDays?: number;
+            hearts?: number;
+            error?: string;
+          };
+
+          if (!res.ok || !data.success) {
+            set({ authLoading: false, authError: data.error || "Identifiants incorrects." });
+            return false;
+          }
+
+          set({
+            isAuthenticated: true,
+            authLoading: false,
+            authError: null,
+            userId: data.userId || get().userId,
+            userEmail: data.email || email,
+            displayName: data.displayName || get().displayName,
+            currentStage: data.currentTier || get().currentStage,
+            xp: Math.max(get().xp, data.xp || 0),
+            streak: Math.max(get().streak, data.streakDays || 0),
+            hearts: data.hearts ?? get().hearts,
+          });
+
+          if (data.userId) {
+            try { localStorage.setItem("wcf_user_id", data.userId); } catch { /* ignore */ }
+          }
+
+          return true;
+        } catch (err) {
+          set({
+            authLoading: false,
+            authError: err instanceof Error ? err.message : "Erreur réseau.",
+          });
+          return false;
+        }
+      },
+
+      logout: async () => {
+        try {
+          await fetch("/api/auth/logout", { method: "POST" });
+        } catch {
+          // Best-effort: clear local state regardless
+        }
+
+        const newGuestId = "wcf_" + Math.random().toString(36).substring(2, 12);
+        try { localStorage.setItem("wcf_user_id", newGuestId); } catch { /* ignore */ }
+
+        set({
+          isAuthenticated: false,
+          authLoading: false,
+          authError: null,
+          userId: newGuestId,
+          userEmail: null,
+          displayName: "Apprenant de l'Institut",
+        });
+      },
+
+      checkSession: async () => {
+        set({ authLoading: true });
+        try {
+          const res = await fetch("/api/auth/me");
+          const data = (await res.json()) as {
+            authenticated: boolean;
+            userId?: string;
+            email?: string;
+            displayName?: string;
+            currentTier?: number;
+            xp?: number;
+            streakDays?: number;
+            hearts?: number;
+          };
+
+          if (data.authenticated && data.userId) {
+            set({
+              isAuthenticated: true,
+              authLoading: false,
+              userId: data.userId,
+              userEmail: data.email || null,
+              displayName: data.displayName || get().displayName,
+              currentStage: data.currentTier || get().currentStage,
+              xp: Math.max(get().xp, data.xp || 0),
+              streak: Math.max(get().streak, data.streakDays || 0),
+              hearts: data.hearts ?? get().hearts,
+            });
+            try { localStorage.setItem("wcf_user_id", data.userId); } catch { /* ignore */ }
+          } else {
+            set({ isAuthenticated: false, authLoading: false });
+          }
+        } catch {
+          set({ isAuthenticated: false, authLoading: false });
+        }
+      },
+
       setDisplayName: (name: string) => {
         set({ displayName: name });
       },
@@ -484,6 +663,7 @@ export const useAppStore = create<AppState>()(
         userId: state.userId,
         displayName: state.displayName,
         userEmail: state.userEmail,
+        isAuthenticated: state.isAuthenticated,
         lastSyncedAt: state.lastSyncedAt,
         currentStage: state.currentStage,
         xp: state.xp,

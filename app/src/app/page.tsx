@@ -9,24 +9,27 @@ import { RemindersConfigModal } from "@/components/srs/RemindersConfigModal";
 import { SrsReviewView } from "@/components/srs/SrsReviewView";
 import { UniversalExerciseRunner } from "@/components/exercises/UniversalExerciseRunner";
 import { PracticalWorkModal } from "@/components/curriculum/PracticalWorkModal";
+import { AuthModal } from "@/components/auth/AuthModal";
 import { useAppStore, applyThemeClass } from "@/store/useAppStore";
 import type { MicroLesson } from "@/types/curriculum";
 
 export default function HomePage() {
-  const { isOnboardingCompleted, currentStage, themeMode } = useAppStore();
+  const { isOnboardingCompleted, currentStage, themeMode, checkSession } = useAppStore();
 
   const [mounted, setMounted] = useState<boolean>(false);
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState<boolean>(false);
   const [isSprintOpen, setIsSprintOpen] = useState<boolean>(false);
   const [isRemindersOpen, setIsRemindersOpen] = useState<boolean>(false);
   const [isPracticalWorkOpen, setIsPracticalWorkOpen] = useState<boolean>(false);
+  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const [isSrsViewActive, setIsSrsViewActive] = useState<boolean>(false);
   const [activeLesson, setActiveLesson] = useState<MicroLesson | null>(null);
 
   useEffect(() => {
     setMounted(true);
     applyThemeClass(themeMode);
-  }, [themeMode]);
+    void checkSession();
+  }, [themeMode, checkSession]);
 
   // Ouvre le diagnostic automatiquement si c'est la toute première visite
   useEffect(() => {
@@ -90,6 +93,7 @@ export default function HomePage() {
         onOpenSrs={() => setIsSrsViewActive(true)}
         onOpenReminders={() => setIsRemindersOpen(true)}
         onOpenPracticalWork={() => setIsPracticalWorkOpen(true)}
+        onOpenAuth={() => setIsAuthOpen(true)}
       />
 
       {/* Contenu Principal : Arbre d'apprentissage ou Vue SRS */}
@@ -130,6 +134,11 @@ export default function HomePage() {
       <PracticalWorkModal
         isOpen={isPracticalWorkOpen}
         onClose={() => setIsPracticalWorkOpen(false)}
+      />
+
+      <AuthModal
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
       />
     </main>
   );
