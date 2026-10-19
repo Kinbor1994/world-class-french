@@ -1146,6 +1146,32 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Ergonomie mobile portée à 10/10, zéro débordement horizontal, cibles tactiles conformes WCAG AA, sensation d'application native PWA haut de gamme.
 
+---
+
+### [DEC-058] Refondation Didactique Intégrale des Paliers 1 (CI / A0) et 2 (CP–CE1 / A1)
+- **Date** : 2026-10-19
+- **Statut** : Validé
+- **Contexte** : L'audit du curriculum et les retours d'utilisation ont mis en évidence un déficit critique dans les deux premiers paliers d'entrée (Palier 1 limité à 2 sons [a]/[o] et 4 exercices ; Palier 2 limité à 2 exercices). Un tel manque de complétude didactique compromettait l'apprentissage de tout vrai débutant et contrevenait aux standards d'excellence World-Class.
+- **Décision** :
+  1. **Refondation Exhaustive du Palier 1 (CI / A0 — Éveil Phonétique & Combinatoire Syllabique)** :
+     - Structuration en 4 modules complets (16 chapitres, 71 exercices interactifs, 10 cartes SRS) conformes aux directives ministérielles officielles (Guide CP Éduscol) et aux neurosciences de la lecture (Dehaene) :
+       - `MOD-001` : Les Voyelles Fondamentales & Semi-Voyelles ([a, i, o, u, y, e, ɛ, wa, ɥi]).
+       - `MOD-003` : Les Consonnes Continues & Fusion Syllabique Directe (l, r, m, n, s, z, f, v, ch [ʃ]).
+       - `MOD-004` : Les Consonnes Occlusives & Paires Minimales (p/b, t/d, c-k/g, j/g doux [ʒ]).
+       - `MOD-005` : Les Voyelles Nasales, Syllabes Complexes & Premières Lectures ([ɑ̃], [ɔ̃], [ɛ̃], groupes CCV).
+  2. **Refondation Exhaustive du Palier 2 (CP–CE1 / A1 — Découverte & Survie)** :
+     - Structuration en 4 modules complets (16 chapitres, 45 exercices interactifs, 10 cartes SRS) alignés sur le CECRL A1 :
+       - `MOD-002` : Le Groupe Nominal (masculin/féminin, articles définis et élision en l', pluriel en -s, adjectifs).
+       - `MOD-006` : Les 4 Verbes Piliers au Présent (être, avoir, aller + futur proche, faire + verbes en -er).
+       - `MOD-007` : Syntaxe Fondamentale (négation bipartite ne... pas, interrogation avec est-ce que, pronoms, prépositions).
+       - `MOD-008` : Actes de Parole Réels (se présenter, commander au restaurant, exprimer ses goûts, heure et calendrier).
+  3. **Architecture Logicielle Modulaire Découplée** :
+     - Création de `app/scripts/curriculum_palier1.py` et `app/scripts/curriculum_palier2.py`.
+     - Intégration dans le compilateur universel `compile_curriculum.py`.
+- **Conséquences** :
+  - Positives : Le cursus passe de 381 à 491 exercices interactifs (+110 exercices) et de 244 à 262 cartes SRS (+18 cartes). Le parcours pour débutant est désormais scientifiquement complet, progressif et praticable en toute autonomie.
+
+
 
 
 

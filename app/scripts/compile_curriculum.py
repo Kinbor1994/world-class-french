@@ -9,9 +9,17 @@ les 8 Paliers continus, les 7 moteurs d'exercices et la banque SRS fata.srs.
 """
 
 import os
+import sys
 import re
 import json
 from pathlib import Path
+
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from curriculum_palier1 import get_palier_1
+from curriculum_palier2 import get_palier_2
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent.parent
 CURRICULUM_DIR = WORKSPACE_ROOT / "03-curriculum"
@@ -353,7 +361,7 @@ def build_curriculum():
             "code": "STAGE-1",
             "name": "Palier 1 : Initiation Absolue (Niveau CI / A0)",
             "shortName": "CI (A0) · Initiation",
-            "description": "Éveil phonétique, 5 voyelles royales, combinatoire syllabique (b+a = ba, ma+man = maman), premiers mots illustrés et salutations. Zéro jargon grammatical.",
+            "description": "Système phonologique intégral (36 phonèmes) : voyelles orales claires, consonnes continues et occlusives, paires minimales, voyelles nasales, combinatoire directe et premières lectures fluides. Zéro jargon grammatical.",
             "badge": "🌱 A0",
             "hasInfiniteHearts": True,
             "color": "from-emerald-400 to-teal-500",
@@ -364,7 +372,7 @@ def build_curriculum():
             "code": "STAGE-2",
             "name": "Palier 2 : Découverte & Survie (Niveau CP–CE1 / A1)",
             "shortName": "CP–CE1 (A1) · Survie",
-            "description": "Genre et nombre (un/une, le/la), les 4 verbes piliers au présent (être, avoir, aller, faire) et la négation simple encadrante (ne... pas).",
+            "description": "Morphologie du groupe nominal (genre, nombre, articles, adjectifs), les 4 verbes piliers au présent (être, avoir, aller, faire), négation soignée, interrogation et actes de parole quotidiens.",
             "badge": "🌿 A1",
             "hasInfiniteHearts": True,
             "color": "from-green-500 to-emerald-600",
@@ -441,261 +449,18 @@ def build_curriculum():
     all_srs_cards = []
 
     # =========================================================================
-    # PALIER 1 : INITIATION ABSOLUE (MOD-001)
+    # PALIER 1 : INITIATION ABSOLUE (CI / A0) — SYSTÈME PHONOLOGIQUE COMPLET
     # =========================================================================
-    mod_001 = {
-        "id": "MOD-001",
-        "stage": 1,
-        "title": "Éveil Phonétique, Combinatoire Syllabique & Premiers Mots",
-        "description": "Le sas d'entrée doux pour tout débutant : découverte des 5 voyelles royales, fusion syllabique (b+a = ba), premiers mots illustrés et salutations.",
-        "chapters": [
-            {
-                "id": "CHP-001-01",
-                "moduleId": "MOD-001",
-                "stage": 1,
-                "title": "Les Voyelles Royales & l'Association Son-Image",
-                "summary": "Découvrez les voyelles fondamentales (a, e, i, o, u) par l'écoute douce et les images du quotidien.",
-                "rules": [
-                    {
-                        "id": "FR-INI-001",
-                        "title": "La voix des voyelles",
-                        "statement": "Chaque voyelle chante librement dans la gorge sans obstacle. Le son /a/ ouvre grand la bouche.",
-                        "formula": "A = /a/ (avocat), O = /o/ (orange), I = /i/ (île)"
-                    }
-                ],
-                "lessons": [
-                    {
-                        "id": "LES-001-01-01",
-                        "chapterId": "CHP-001-01",
-                        "title": "Reconnaissance des 5 Voyelles",
-                        "durationMinutes": 3,
-                        "exercises": [
-                            {
-                                "id": "EX-001-01",
-                                "type": "visual_sound_match",
-                                "ruleId": "FR-INI-001",
-                                "prompt": "Écoute et clique sur l'image qui commence par le son [a] comme dans 'Avocat' :",
-                                "audioText": "Avocat",
-                                "ipa": "/a.vɔ.ka/",
-                                "data": {
-                                    "targetSound": "a",
-                                    "cards": [
-                                        {"id": "c1", "label": "Avocat", "imageEmoji": "🥑", "sound": "Avocat", "isCorrect": True},
-                                        {"id": "c2", "label": "Étoile", "imageEmoji": "⭐️", "sound": "Étoile", "isCorrect": False},
-                                        {"id": "c3", "label": "Orange", "imageEmoji": "🍊", "sound": "Orange", "isCorrect": False},
-                                        {"id": "c4", "label": "Île", "imageEmoji": "🏝", "sound": "Île", "isCorrect": False}
-                                    ]
-                                }
-                            },
-                            {
-                                "id": "EX-001-02",
-                                "type": "visual_sound_match",
-                                "ruleId": "FR-INI-001",
-                                "prompt": "Écoute et trouve l'objet correspondant au son [o] comme dans 'Orange' :",
-                                "audioText": "Orange",
-                                "ipa": "/ɔ.ʁɑ̃ʒ/",
-                                "data": {
-                                    "targetSound": "o",
-                                    "cards": [
-                                        {"id": "c1", "label": "Livre", "imageEmoji": "📖", "sound": "Livre", "isCorrect": False},
-                                        {"id": "c2", "label": "Orange", "imageEmoji": "🍊", "sound": "Orange", "isCorrect": True},
-                                        {"id": "c3", "label": "Arbre", "imageEmoji": "🌳", "sound": "Arbre", "isCorrect": False},
-                                        {"id": "c4", "label": "Soleil", "imageEmoji": "☀️", "sound": "Soleil", "isCorrect": False}
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "CHP-001-02",
-                "moduleId": "MOD-001",
-                "stage": 1,
-                "title": "La Combinatoire Magique : Assembler les Syllabes",
-                "summary": "Apprenez à fusionner une consonne et une voyelle pour chanter les syllabes : b + a = ba !",
-                "rules": [
-                    {
-                        "id": "FR-INI-002",
-                        "title": "La fusion syllabique",
-                        "statement": "Quand la consonne rencontre la voyelle, elles forment un pont sonore inséparable.",
-                        "formula": "Consonne + Voyelle = Syllabe (B + A = BA)"
-                    }
-                ],
-                "lessons": [
-                    {
-                        "id": "LES-001-02-01",
-                        "chapterId": "CHP-001-02",
-                        "title": "Assemblage b+a, m+a, p+a",
-                        "durationMinutes": 3,
-                        "exercises": [
-                            {
-                                "id": "EX-001-04",
-                                "type": "syllable_bricks",
-                                "ruleId": "FR-INI-002",
-                                "prompt": "Assemble les syllabes pour composer le mot 'BANANE' :",
-                                "audioText": "Banane",
-                                "ipa": "/ba.nan/",
-                                "data": {
-                                    "targetPhrase": "BANANE",
-                                    "targetPhonemes": "ba + na + ne",
-                                    "availableBricks": ["na", "ba", "po", "ne", "li"],
-                                    "correctSequence": ["ba", "na", "ne"]
-                                }
-                            },
-                            {
-                                "id": "EX-001-05",
-                                "type": "syllable_bricks",
-                                "ruleId": "FR-INI-002",
-                                "prompt": "Assemble les syllabes pour former le mot 'MAMAN' :",
-                                "audioText": "Maman",
-                                "ipa": "/ma.mɑ̃/",
-                                "data": {
-                                    "targetPhrase": "MAMAN",
-                                    "targetPhonemes": "ma + man",
-                                    "availableBricks": ["man", "to", "ma", "pa"],
-                                    "correctSequence": ["ma", "man"]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    stages[0]["modules"].append(mod_001)
-
-    all_srs_cards.append({
-        "id": "SRS-001-01",
-        "stage": 1,
-        "chapterId": "CHP-001-01",
-        "ruleId": "FR-INI-001",
-        "front": "Quel son fait la lettre A dans 'Avocat' ?",
-        "back": "Le son /a/ (bouche grande ouverte, son clair).",
-        "explanation": "Les voyelles orales sortent librement sans frottement.",
-        "stability": 2.5,
-        "difficulty": 2.0,
-        "retention": 95.0,
-        "lastReviewedAt": None,
-        "nextReviewAt": None,
-        "lapses": 0
-    })
+    p1_modules, p1_srs = get_palier_1()
+    stages[0]["modules"].extend(p1_modules)
+    all_srs_cards.extend(p1_srs)
 
     # =========================================================================
-    # PALIER 2 : DÉCOUVERTE & SURVIE (MOD-002)
+    # PALIER 2 : DÉCOUVERTE & SURVIE (CP-CE1 / A1) — BASES MORPHOSYNTAXIQUES
     # =========================================================================
-    mod_002 = {
-        "id": "MOD-002",
-        "stage": 2,
-        "title": "Fondations du Mot, Verbes Piliers & Négation Simple",
-        "description": "Le genre des noms (un/une, le/la), les 4 verbes essentiels au présent (être, avoir, aller, faire) et la négation encadrante (ne... pas).",
-        "chapters": [
-            {
-                "id": "CHP-002-01",
-                "moduleId": "MOD-002",
-                "stage": 2,
-                "title": "Le Masculin et le Féminin : Un ou Une ?",
-                "summary": "Découvrez le genre des noms sans stress grâce aux déterminants un / le et une / la.",
-                "rules": [
-                    {
-                        "id": "FR-A1-001",
-                        "title": "Le genre grammatical",
-                        "statement": "En français, chaque nom a un genre : masculin (un livre, le soleil) ou féminin (une table, la lune).",
-                        "formula": "Masculin = UN / LE | Féminin = UNE / LA"
-                    }
-                ],
-                "lessons": [
-                    {
-                        "id": "LES-002-01-01",
-                        "chapterId": "CHP-002-01",
-                        "title": "Choisir Un ou Une",
-                        "durationMinutes": 3,
-                        "exercises": [
-                            {
-                                "id": "EX-002-01",
-                                "type": "diagnostic_mcq",
-                                "ruleId": "FR-A1-001",
-                                "prompt": "Complète correctement la phrase : 'C'est ___ maison accueillante.'",
-                                "audioText": "C'est une maison accueillante.",
-                                "data": {
-                                    "question": "Quel déterminant convient pour 'maison' ?",
-                                    "options": [
-                                        {"id": "o1", "text": "une", "isCorrect": True, "feedback": "Exact ! Maison est féminin : une maison, la maison."},
-                                        {"id": "o2", "text": "un", "isCorrect": False, "feedback": "Non, 'maison' n'est pas masculin. On dit 'la maison'."},
-                                        {"id": "o3", "text": "des", "isCorrect": False, "feedback": "'Des' s'utilise pour plusieurs objets au pluriel."}
-                                    ],
-                                    "explanation": "Le mot 'maison' est de genre féminin, il prend donc l'article 'une' ou 'la'."
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "CHP-002-02",
-                "moduleId": "MOD-002",
-                "stage": 2,
-                "title": "Dire Non avec Élégance : La Négation Ne... Pas",
-                "summary": "Apprenez à encadrer le verbe avec 'ne' et 'pas' comme un sandwich protecteur.",
-                "rules": [
-                    {
-                        "id": "FR-A1-003",
-                        "title": "La négation bipartite",
-                        "statement": "En français correct, la négation se compose de deux mots qui encadrent le verbe : NE + Verbe + PAS.",
-                        "formula": "Sujet + NE + Verbe + PAS"
-                    }
-                ],
-                "lessons": [
-                    {
-                        "id": "LES-002-02-01",
-                        "chapterId": "CHP-002-02",
-                        "title": "Construire la négation",
-                        "durationMinutes": 3,
-                        "exercises": [
-                            {
-                                "id": "EX-002-05",
-                                "type": "voltaire_hunter",
-                                "ruleId": "FR-A1-003",
-                                "prompt": "Chasse à l'erreur : repère le mot manquant ou fautif dans cette phrase négative :",
-                                "audioText": "Il ne dort pas encore.",
-                                "data": {
-                                    "sentence": "Il dort pas encore cette nuit.",
-                                    "words": [
-                                        {"text": "Il", "isError": False},
-                                        {"text": "dort", "isError": True, "correction": "ne dort"},
-                                        {"text": "pas", "isError": False},
-                                        {"text": "encore", "isError": False},
-                                        {"text": "cette", "isError": False},
-                                        {"text": "nuit.", "isError": False}
-                                    ],
-                                    "hasError": True,
-                                    "explanation": "À l'écrit soutenu, il ne faut jamais oublier le premier terme de la négation 'ne' : 'Il ne dort pas'.",
-                                    "mnemonic": "Le verbe est le fromage : 'ne' est la tranche de pain du haut, 'pas' celle du bas !"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-    stages[1]["modules"].append(mod_002)
-
-    all_srs_cards.append({
-        "id": "SRS-002-01",
-        "stage": 2,
-        "chapterId": "CHP-002-02",
-        "ruleId": "FR-A1-003",
-        "front": "Quels sont les deux mots inséparables de la négation standard ?",
-        "back": "NE (ou N') ... PAS",
-        "explanation": "Ils encadrent le verbe conjugué comme un sandwich.",
-        "stability": 2.0,
-        "difficulty": 3.0,
-        "retention": 90.0,
-        "lastReviewedAt": None,
-        "nextReviewAt": None,
-        "lapses": 0
-    })
+    p2_modules, p2_srs = get_palier_2()
+    stages[1]["modules"].extend(p2_modules)
+    all_srs_cards.extend(p2_srs)
 
     # =========================================================================
     # PARCOURS ET COMPILATION DES 24 MODULES ACADÉMIQUES (125 CHAPITRES)

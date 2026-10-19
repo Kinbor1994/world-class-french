@@ -554,6 +554,20 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   - **Validation & Intégration** :
     - Typage strict TypeScript vérifié sans erreur (`npx tsc --noEmit`).
     - Build de production Next.js 15 validé avec succès (`npm run build` : code 0).
+- **Étape 33 — Refondation Didactique Exhaustive des Paliers 1 & 2 (CI/A0 et CP-CE1/A1) (DEC-058)** :
+  - **Palier 1 (CI / A0 — Éveil Phonétique & Combinatoire Syllabique)** :
+    - Élimination de l'ébauche initiale (4 exercices sur 2 sons) et passage à 4 modules complets, 16 chapitres et 71 exercices interactifs (`visual_sound_match`, `syllable_bricks`, `diagnostic_mcq`).
+    - Couverture intégrale des 36 phonèmes français selon les directives Éduscol (Guide CP) : voyelles orales claires, arrondies et semi-voyelles (`MOD-001`), consonnes continues chantantes (`MOD-003`), consonnes occlusives et paires minimales sourdes/sonores (`MOD-004`), voyelles nasales et combinatoire directe CCV (`MOD-005`).
+  - **Palier 2 (CP–CE1 / A1 — Découverte & Survie)** :
+    - Structuration en 4 modules complets, 16 chapitres et 45 exercices interactifs (`diagnostic_mcq`, `voltaire_hunter`, `syllable_bricks`).
+    - Couverture du CECRL A1 : morphologie du groupe nominal (`MOD-002`), les 4 verbes piliers au présent être/avoir/aller/faire (`MOD-006`), syntaxe de base ne... pas/interrogation/pronoms/prépositions (`MOD-007`), actes de parole réels (`MOD-008`).
+  - **Compilateur et Données du Cursus** :
+    - Modularisation en scripts didactiques dédiés [`curriculum_palier1.py`](file:///f:/Formation/world-class-french/app/scripts/curriculum_palier1.py) et [`curriculum_palier2.py`](file:///f:/Formation/world-class-french/app/scripts/curriculum_palier2.py).
+    - Cursus global porté de 381 à 491 exercices (+110 exercices) et de 244 à 262 cartes SRS (+18 cartes).
+  - **Validation Technique & Navigateur** :
+    - Vérification `npx tsc --noEmit` : code 0.
+    - Compilation Next.js 15 `npm run build` : code 0.
+    - Test direct in-browser via Chrome DevTools sur le lecteur universel d'exercices validé.
 
 ---
 
