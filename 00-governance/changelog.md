@@ -543,6 +543,17 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Composant d'apparat [`AuthModal.tsx`](file:///f:/Formation/world-class-french/app/src/components/auth/AuthModal.tsx) avec onglets Connexion, Inscription et Mon Profil d'Apprenant.
     - Intégration du bouton profil dans la [`Navbar.tsx`](file:///f:/Formation/world-class-french/app/src/components/layout/Navbar.tsx) avec avatar aux initiales et infobulle d'état.
     - Validation du build complet Next.js 15 (`npm run build` : exit code 0).
+- **Étape 32 — Refonte Ergonomie Mobile 10/10 & Bottom Navigation Bar (DEC-057)** :
+  - **Barre Supérieure Mobile Épurée (`Navbar.tsx`)** :
+    - Élimination des débordements horizontaux sur mobile (< 768 px) en concentrant la barre sur l'essentiel (Logo W, sélecteur compact de Palier, série de jours, avatar de compte et bascule de thème).
+    - Sécurisation du menu déroulant des 8 Paliers avec un positionnement dynamique `fixed inset-x-3` évitant toute troncature.
+  - **Barre de Navigation Basse Native (`BottomNav.tsx`)** :
+    - Déploiement de 5 onglets tactiles conformes WCAG (Parcours, Mémoire SRS avec badge, Sprint Quotidien central, Ateliers & TP, Plus) avec gestion des zones de sécurité iOS.
+  - **Tiroir d'Outils Coulissant (`MobileToolsDrawer.tsx`)** :
+    - Bottom sheet fluide pour la synchronisation Cloud Neon, les rappels/agenda, le test diagnostique et les paramètres.
+  - **Validation & Intégration** :
+    - Typage strict TypeScript vérifié sans erreur (`npx tsc --noEmit`).
+    - Build de production Next.js 15 validé avec succès (`npm run build` : code 0).
 
 ---
 

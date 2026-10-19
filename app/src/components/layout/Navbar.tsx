@@ -120,23 +120,23 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => setIsStageMenuOpen(!isStageMenuOpen)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-academic-border dark:border-academic-dark-border hover:border-academic-gold/50 dark:hover:border-academic-gold/50 transition-all bg-academic-paper dark:bg-academic-dark-card text-academic-ink dark:text-slate-200"
+              className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-lg border border-academic-border dark:border-academic-dark-border hover:border-academic-gold/50 dark:hover:border-academic-gold/50 transition-all bg-academic-paper dark:bg-academic-dark-card text-academic-ink dark:text-slate-200"
             >
-              <BookOpen className="w-3.5 h-3.5 text-academic-gold" />
+              <BookOpen className="w-3.5 h-3.5 text-academic-gold shrink-0" />
               <div className="text-left">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-academic-muted dark:text-academic-dark-muted block">
+                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-academic-muted dark:text-academic-dark-muted block leading-none mb-0.5">
                   Palier {currentStage}
                 </span>
-                <span className="text-xs font-semibold text-academic-ink dark:text-slate-100 flex items-center gap-1 font-serif">
+                <span className="text-[11px] sm:text-xs font-semibold text-academic-ink dark:text-slate-100 flex items-center gap-1 font-serif max-w-[105px] sm:max-w-none truncate">
                   {currentStageInfo?.shortName}
-                  <ChevronDown className="w-3 h-3 text-academic-muted" />
+                  <ChevronDown className="w-3 h-3 text-academic-muted shrink-0" />
                 </span>
               </div>
             </button>
 
             {/* Menu des 8 Paliers répartis en 3 Cycles */}
             {isStageMenuOpen && (
-              <div className="absolute top-full left-0 mt-2 w-88 sm:w-96 bg-white dark:bg-academic-dark-surface rounded-xl border border-academic-border dark:border-academic-dark-border shadow-elevated p-3 z-50 flex flex-col gap-3 max-h-[80vh] overflow-y-auto">
+              <div className="fixed inset-x-3 top-16 sm:absolute sm:inset-x-auto sm:top-full sm:left-0 sm:mt-2 sm:w-96 bg-white dark:bg-academic-dark-surface rounded-xl border border-academic-border dark:border-academic-dark-border shadow-elevated p-3 z-50 flex flex-col gap-3 max-h-[80vh] overflow-y-auto">
                 <div className="flex items-center justify-between pb-2 border-b border-academic-border-subtle dark:border-academic-dark-border">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-academic-muted dark:text-academic-dark-muted">
                     Syllabus Universitaire · 8 Paliers
@@ -210,15 +210,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Panneau de métriques et actions apprenant */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Indicateur de régime débutant ou régularité */}
+        <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
+          {/* Indicateur de régime débutant ou régularité - DESKTOP ONLY */}
           {isBeginnerStage ? (
-            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-md text-emerald-800 dark:text-emerald-300 text-[11px] font-medium">
+            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-md text-emerald-800 dark:text-emerald-300 text-[11px] font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse" />
               <span>Bouclier Débutant (Erreur formatrice)</span>
             </div>
           ) : (
-            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-md text-academic-ink dark:text-slate-200 text-xs font-semibold">
+            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-md text-academic-ink dark:text-slate-200 text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
               <span>{xp} XP</span>
             </div>
@@ -227,21 +227,21 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Série de jours (Streak) */}
           <div
             title={`${streak} jour(s) consécutif(s) d'étude`}
-            className="flex items-center gap-1.5 px-2.5 py-1 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-md text-academic-ink dark:text-slate-200 text-xs font-semibold"
+            className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-1 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-md text-academic-ink dark:text-slate-200 text-xs font-semibold"
           >
-            <Calendar className="w-3.5 h-3.5 text-academic-gold" />
+            <Calendar className="w-3.5 h-3.5 text-academic-gold shrink-0" />
             <span>{streak} j.</span>
           </div>
 
-          {/* Bouton Répétition Espacée fata.srs */}
+          {/* Bouton Répétition Espacée fata.srs - DESKTOP ONLY (sur mobile dans BottomNav) */}
           <button
             type="button"
             onClick={onOpenSrs}
             title="Consulter la file de répétition espacée"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-academic-paper dark:bg-academic-dark-card hover:bg-white dark:hover:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border rounded-md text-xs font-semibold text-academic-ink dark:text-slate-200 transition-all shadow-fine"
+            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 bg-academic-paper dark:bg-academic-dark-card hover:bg-white dark:hover:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border rounded-md text-xs font-semibold text-academic-ink dark:text-slate-200 transition-all shadow-fine"
           >
             <Brain className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-            <span className="hidden md:inline font-sans">Mémoire</span>
+            <span className="hidden lg:inline font-sans">Mémoire</span>
             {dueCount > 0 ? (
               <span className="px-1.5 py-0.2 rounded-full bg-indigo-600 text-white text-[10px] font-mono font-bold">
                 {dueCount}
@@ -253,29 +253,28 @@ export const Navbar: React.FC<NavbarProps> = ({
             )}
           </button>
 
-          {/* Bouton Sprint Quotidien */}
+          {/* Bouton Sprint Quotidien - DESKTOP ONLY (sur mobile dans BottomNav) */}
           <button
             type="button"
             onClick={onOpenSprint}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy rounded-md text-xs font-bold hover:bg-slate-800 dark:hover:bg-white transition-all shadow-fine font-sans"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 bg-academic-navy dark:bg-slate-100 text-white dark:text-academic-navy rounded-md text-xs font-bold hover:bg-slate-800 dark:hover:bg-white transition-all shadow-fine font-sans"
           >
             <Timer className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Sprint Quotidien</span>
-            <span className="sm:hidden">Sprint</span>
+            <span>Sprint Quotidien</span>
           </button>
 
-          {/* Bouton Ateliers Pratiques & Examens */}
+          {/* Bouton Ateliers Pratiques & Examens - DESKTOP ONLY (sur mobile dans BottomNav) */}
           <button
             type="button"
             onClick={onOpenPracticalWork}
             title="Consulter les ateliers pratiques, dictées et examens"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-academic-paper dark:bg-academic-dark-card hover:bg-white dark:hover:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border rounded-md text-xs font-semibold text-academic-ink dark:text-slate-200 transition-all shadow-fine font-sans"
+            className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 bg-academic-paper dark:bg-academic-dark-card hover:bg-white dark:hover:bg-academic-dark-surface border border-academic-border dark:border-academic-dark-border rounded-md text-xs font-semibold text-academic-ink dark:text-slate-200 transition-all shadow-fine font-sans"
           >
             <Award className="w-3.5 h-3.5 text-academic-gold" />
-            <span className="hidden md:inline">Ateliers & TP</span>
+            <span>Ateliers & TP</span>
           </button>
 
-          {/* Synchronisation Cloud (Neon Database) */}
+          {/* Synchronisation Cloud (Neon Database) - DESKTOP ONLY (sur mobile dans Outils) */}
           <button
             type="button"
             onClick={() => void syncWithCloud()}
@@ -290,7 +289,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : "Synchroniser avec la base de données Neon"
             }
             aria-label="Synchronisation Cloud Neon"
-            className={`w-8 h-8 flex items-center justify-center rounded-md transition-colors relative ${
+            className={`hidden md:flex w-8 h-8 items-center justify-center rounded-md transition-colors relative ${
               syncStatus === "syncing"
                 ? "text-amber-600 bg-amber-50 dark:bg-amber-950/40"
                 : syncStatus === "synced"
@@ -310,18 +309,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             )}
           </button>
 
-          {/* Rappels d'étude */}
+          {/* Rappels d'étude - DESKTOP ONLY (sur mobile dans Outils) */}
           <button
             type="button"
             onClick={onOpenReminders}
             title="Configurer les rappels et exporter le calendrier"
             aria-label="Rappels"
-            className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
+            className="hidden md:flex w-8 h-8 items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
           >
             <Bell className="w-4 h-4" />
           </button>
 
-          {/* Profil / Authentification */}
+          {/* Profil / Authentification - VISIBLE SUR MOBILE & DESKTOP */}
           <button
             type="button"
             onClick={onOpenAuth}
@@ -338,18 +337,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             {isAuthenticated ? (
-              <span className="w-6 h-6 rounded-full bg-academic-navy dark:bg-slate-700 flex items-center justify-center text-amber-400 text-[10px] font-bold font-serif">
+              <span className="w-6 h-6 rounded-full bg-academic-navy dark:bg-slate-700 flex items-center justify-center text-amber-400 text-[10px] font-bold font-serif shrink-0">
                 {displayName.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2)}
               </span>
             ) : (
-              <User className="w-4 h-4" />
+              <User className="w-4 h-4 shrink-0" />
             )}
             <span className="hidden lg:inline">
               {isAuthenticated ? displayName.split(" ")[0] : "Connexion"}
             </span>
           </button>
 
-          {/* Bascule Thème Clair / Sombre */}
+          {/* Bascule Thème Clair / Sombre - VISIBLE SUR MOBILE & DESKTOP */}
           <button
             type="button"
             onClick={toggleTheme}
@@ -359,7 +358,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : "Passer au thème Sombre (Midnight)"
             }
             aria-label="Basculer le thème"
-            className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors"
+            className="w-8 h-8 flex items-center justify-center text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 rounded-md hover:bg-academic-paper dark:hover:bg-academic-dark-card transition-colors shrink-0"
           >
             <Sun className="w-4 h-4 hidden dark:block text-amber-400" />
             <Moon className="w-4 h-4 block dark:hidden text-academic-navy" />

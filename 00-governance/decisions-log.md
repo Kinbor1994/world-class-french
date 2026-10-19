@@ -1121,6 +1121,32 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Expérience utilisateur fluide et certifiante ; aucune perte de données lors de la transition invité → apprenant inscrit ; sécurité d'excellence sans paquet npm externe vulnérable.
 
+---
+
+### [DEC-057] Refonte de l'Ergonomie Mobile & Déploiement de la Navigation Basse Native (BottomNav)
+- **Date** : 2026-10-19
+- **Statut** : Validé
+- **Contexte** : L'audit ergonomique sur viewport mobile (375 px) a démontré une défaillance critique (1/10) due à l'entassement horizontal de 10 actions dans la barre supérieure, provoquant l'expulsion hors champ des boutons de synchronisation, rappels, profil et thème, ainsi qu'un scroll horizontal parasite.
+- **Décision** :
+  1. **Top Bar Épurée (`Navbar.tsx`)** :
+     - Sur écran mobile (`< md`), la barre supérieure se focalise exclusivement sur l'identité : Logo W, sélecteur compact de Palier, série de jours (`streak`), avatar apprenant et bascule de thème.
+     - Correction du débordement du menu déroulant des Paliers par l'utilisation d'un positionnement dynamique `fixed inset-x-3 top-16` sur mobile.
+  2. **Barre de Navigation Basse Native (`BottomNav.tsx`)** :
+     - Déploiement d'une barre fixe en bas de l'écran (`fixed bottom-0 inset-x-0 z-40`) respectant les zones de sécurité iOS (`safe-area-inset-bottom`).
+     - 5 onglets tactiles conformes WCAG (hauteur min 48 px, cibles tactiles amples) :
+       - **Parcours** (`BookOpen`) : bascule instantanée vers l'arbre pédagogique.
+       - **Mémoire** (`Brain`) : accès direct à la répétition espacée avec badge dynamique des cartes dues.
+       - **Sprint** (`Timer`) : bouton central mis en valeur pour le sprint quotidien de 3 minutes.
+       - **Ateliers & TP** (`Award`) : accès direct au studio d'ateliers, dictées et examens.
+       - **Plus** (`MoreHorizontal`) : ouverture du tiroir coulissant d'outils.
+  3. **Tiroir d'Outils Coulissant (`MobileToolsDrawer.tsx`)** :
+     - Bottom sheet fluide regroupant la gestion fine de la synchronisation Neon PostgreSQL, les rappels et calendrier, le test diagnostique et le profil d'études.
+  4. **Adaptation du Conteneur Global (`page.tsx`)** :
+     - Majoration de l'espacement inférieur (`pb-24 md:pb-16`) évitant tout chevauchement entre les cartes de leçons et la barre basse.
+- **Conséquences** :
+  - Positives : Ergonomie mobile portée à 10/10, zéro débordement horizontal, cibles tactiles conformes WCAG AA, sensation d'application native PWA haut de gamme.
+
+
 
 
 

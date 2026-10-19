@@ -10,6 +10,8 @@ import { SrsReviewView } from "@/components/srs/SrsReviewView";
 import { UniversalExerciseRunner } from "@/components/exercises/UniversalExerciseRunner";
 import { PracticalWorkModal } from "@/components/curriculum/PracticalWorkModal";
 import { AuthModal } from "@/components/auth/AuthModal";
+import { BottomNav } from "@/components/layout/BottomNav";
+import { MobileToolsDrawer } from "@/components/layout/MobileToolsDrawer";
 import { useAppStore, applyThemeClass } from "@/store/useAppStore";
 import type { MicroLesson } from "@/types/curriculum";
 
@@ -22,6 +24,7 @@ export default function HomePage() {
   const [isRemindersOpen, setIsRemindersOpen] = useState<boolean>(false);
   const [isPracticalWorkOpen, setIsPracticalWorkOpen] = useState<boolean>(false);
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
+  const [isToolsDrawerOpen, setIsToolsDrawerOpen] = useState<boolean>(false);
   const [isSrsViewActive, setIsSrsViewActive] = useState<boolean>(false);
   const [activeLesson, setActiveLesson] = useState<MicroLesson | null>(null);
 
@@ -84,7 +87,7 @@ export default function HomePage() {
   return (
     <main
       suppressHydrationWarning
-      className="min-h-screen flex flex-col bg-academic-paper dark:bg-academic-dark-bg text-academic-ink dark:text-slate-100 pb-16 transition-colors"
+      className="min-h-screen flex flex-col bg-academic-paper dark:bg-academic-dark-bg text-academic-ink dark:text-slate-100 pb-24 md:pb-16 transition-colors"
     >
       {/* Barre supérieure de navigation */}
       <Navbar
@@ -139,6 +142,25 @@ export default function HomePage() {
       <AuthModal
         isOpen={isAuthOpen}
         onClose={() => setIsAuthOpen(false)}
+      />
+
+      {/* Tiroir d'outils mobile (Synchronisation Neon, Rappels, Diagnostic) */}
+      <MobileToolsDrawer
+        isOpen={isToolsDrawerOpen}
+        onClose={() => setIsToolsDrawerOpen(false)}
+        onOpenDiagnostic={() => setIsDiagnosticOpen(true)}
+        onOpenReminders={() => setIsRemindersOpen(true)}
+        onOpenAuth={() => setIsAuthOpen(true)}
+      />
+
+      {/* Barre de navigation basse pour mobile (5 onglets ergonomiques 48px) */}
+      <BottomNav
+        isSrsActive={isSrsViewActive}
+        onSelectPath={() => setIsSrsViewActive(false)}
+        onOpenSrs={() => setIsSrsViewActive(true)}
+        onOpenSprint={() => setIsSprintOpen(true)}
+        onOpenPracticalWork={() => setIsPracticalWorkOpen(true)}
+        onOpenTools={() => setIsToolsDrawerOpen(true)}
       />
     </main>
   );
