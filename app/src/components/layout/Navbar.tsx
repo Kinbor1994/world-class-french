@@ -130,17 +130,17 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header
       suppressHydrationWarning
-      className="sticky top-0 z-40 bg-white/95 dark:bg-academic-dark-surface/95 backdrop-blur-md border-b border-academic-border dark:border-academic-dark-border transition-colors"
+      className="sticky top-0 z-40 w-full bg-white/95 dark:bg-academic-dark-surface/95 backdrop-blur-md border-b border-academic-border dark:border-academic-dark-border transition-colors overflow-x-clip"
     >
       <div
         suppressHydrationWarning
-        className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3 sm:gap-4"
+        className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4 w-full"
       >
         {/* ================================================================= */}
         {/* SECTION GAUCHE : Identité & Sélecteur de Palier */}
         {/* ================================================================= */}
-        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-          <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0 shrink">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             <div className="w-8 h-8 rounded-lg bg-academic-navy dark:bg-academic-dark-card border border-amber-900/20 dark:border-amber-500/20 flex items-center justify-center text-amber-500 dark:text-amber-400 font-serif font-bold text-sm shadow-fine shrink-0">
               W
             </div>
@@ -157,18 +157,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="h-5 w-px bg-academic-border dark:border-academic-dark-border hidden md:block" />
 
           {/* Sélecteur de Palier contextuel */}
-          <div className="relative" ref={stageMenuRef}>
+          <div className="relative min-w-0" ref={stageMenuRef}>
             <button
               type="button"
               onClick={() => setIsStageMenuOpen(!isStageMenuOpen)}
-              className="flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-lg border border-academic-border dark:border-academic-dark-border hover:border-academic-gold/50 dark:hover:border-academic-gold/50 transition-all bg-academic-paper dark:bg-academic-dark-card text-academic-ink dark:text-slate-200"
+              className="flex items-center gap-1.5 sm:gap-2 px-2 py-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-academic-border dark:border-academic-dark-border hover:border-academic-gold/50 dark:hover:border-academic-gold/50 transition-all bg-academic-paper dark:bg-academic-dark-card text-academic-ink dark:text-slate-200 min-w-0"
             >
               <BookOpen className="w-3.5 h-3.5 text-academic-gold shrink-0" />
-              <div className="text-left">
+              <div className="text-left min-w-0">
                 <span className="text-[9px] uppercase font-bold tracking-wider text-academic-muted dark:text-academic-dark-muted block leading-none mb-0.5">
                   Palier {currentStage}
                 </span>
-                <span className="text-[11px] sm:text-xs font-semibold text-academic-ink dark:text-slate-100 flex items-center gap-1 font-serif max-w-[120px] sm:max-w-[160px] truncate">
+                <span className="text-[11px] sm:text-xs font-semibold text-academic-ink dark:text-slate-100 flex items-center gap-1 font-serif max-w-[95px] min-[360px]:max-w-[125px] sm:max-w-[160px] truncate">
                   {currentStageInfo?.shortName}
                   <ChevronDown className="w-3 h-3 text-academic-muted shrink-0" />
                 </span>
@@ -288,7 +288,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* ================================================================= */}
         {/* SECTION DROITE : Indicateurs Clés, Profil & Menu Hamburger */}
         {/* ================================================================= */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* Régime Bienveillant Débutant ou XP (Desktop Large) */}
           {isBeginnerStage ? (
             <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-lg text-emerald-800 dark:text-emerald-300 text-[11px] font-medium">
@@ -305,10 +305,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Série de jours (Streak) */}
           <div
             title={`${streak} jour(s) consécutif(s) d'étude`}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-lg text-academic-ink dark:text-slate-200 text-xs font-semibold"
+            className="flex items-center gap-1 px-2 py-1 sm:px-2.5 sm:py-1.5 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-lg text-academic-ink dark:text-slate-200 text-xs font-semibold"
           >
-            <Calendar className="w-3.5 h-3.5 text-academic-gold shrink-0" />
-            <span className="font-mono">{streak} j.</span>
+            <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-academic-gold shrink-0" />
+            <span className="font-mono text-[11px] sm:text-xs">{streak} j.</span>
           </div>
 
           {/* Profil Apprenant / Connexion */}
@@ -321,7 +321,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : "Se connecter ou créer un compte"
             }
             aria-label="Profil apprenant"
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg transition-colors text-xs font-semibold border ${
+            className={`flex items-center gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg transition-colors text-xs font-semibold border ${
               isAuthenticated
                 ? "bg-amber-50/70 dark:bg-amber-950/30 text-amber-900 dark:text-amber-300 border-amber-300 dark:border-amber-800"
                 : "border-academic-border dark:border-academic-dark-border text-academic-muted hover:text-academic-ink dark:text-academic-dark-muted dark:hover:text-slate-100 hover:bg-academic-paper dark:hover:bg-academic-dark-card"
@@ -341,8 +341,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* =============================================================== */}
           {/* LE MENU HAMBURGER MODERNE / POP-OVER UNIFIÉ                     */}
+          {/* Affiché sur Desktop (>= md) car le mobile dispose du BottomNav  */}
           {/* =============================================================== */}
-          <div className="relative" ref={toolsMenuRef}>
+          <div className="hidden md:block relative" ref={toolsMenuRef}>
             <button
               type="button"
               onClick={handleHamburgerClick}

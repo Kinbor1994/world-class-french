@@ -12,6 +12,8 @@ import {
   CheckCircle2,
   AlertCircle,
   Clock,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useAppStore } from "@/store/useAppStore";
 import curriculumData from "@/data/compiled-curriculum.json";
@@ -43,6 +45,8 @@ export const MobileToolsDrawer: React.FC<MobileToolsDrawerProps> = ({
     isAuthenticated,
     displayName,
     userEmail,
+    themeMode,
+    toggleTheme,
   } = useAppStore();
 
   if (!isOpen) return null;
@@ -238,6 +242,34 @@ export const MobileToolsDrawer: React.FC<MobileToolsDrawerProps> = ({
               </span>
             </div>
           </div>
+
+          {/* Bascule Thème Clair / Sombre */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="w-full p-3.5 bg-academic-paper dark:bg-academic-dark-card border border-academic-border dark:border-academic-dark-border rounded-2xl flex items-center justify-between hover:border-academic-gold/40 transition-all text-left"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-amber-50 dark:bg-slate-800 flex items-center justify-center text-academic-gold">
+                {themeMode === "dark" ? (
+                  <Moon className="w-4 h-4 text-amber-400" />
+                ) : (
+                  <Sun className="w-4 h-4 text-amber-600" />
+                )}
+              </div>
+              <div>
+                <span className="text-xs font-bold text-academic-ink dark:text-slate-100 block">
+                  Thème d'Affichage
+                </span>
+                <span className="text-[10px] text-academic-muted dark:text-academic-dark-muted">
+                  {themeMode === "dark" ? "Mode Nuit (Sombre)" : "Mode Jour (Ivoire)"}
+                </span>
+              </div>
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-white dark:bg-slate-800 border border-academic-border dark:border-academic-dark-border text-academic-ink dark:text-slate-100">
+              {themeMode === "dark" ? "Nuit" : "Jour"}
+            </span>
+          </button>
         </div>
 
         {/* Pied de page du menu */}

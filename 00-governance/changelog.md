@@ -602,8 +602,22 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   - **Contrôle Qualité & Audit** :
     - Typage strict TypeScript vérifié (`npx tsc --noEmit` : code 0).
     - Audit in-browser Chrome DevTools MCP validant l'enchaînement fluide des 8 questions réelles et des rétroactions.
+- **Étape 36 — Résolution Définitive du Débordement Horizontal Mobile (Zero-Overflow) (DEC-061)** :
+  - **Suppression du Bouton Hamburger Redondant sur Mobile (`Navbar.tsx`)** :
+    - Sur mobile, la navigation d'outils est nativement assurée par l'onglet « Plus » de la barre basse (`BottomNav`), qui ouvre le tiroir dédié.
+    - Le bouton hamburger popover est restreint au desktop (`hidden md:block relative`), ce qui élimine l'excédent de 18 px identifié lors de l'audit.
+  - **Calibrage Anti-Débordement & Troncature Dynamique** :
+    - Sécurisation du conteneur supérieur avec `w-full overflow-x-clip` et ajustement des marges internes `px-3 sm:px-6`.
+    - Troncature fluide du titre de Palier (`max-w-[95px] min-[360px]:max-w-[125px] sm:max-w-[160px] truncate`) avec contrainte `min-w-0 shrink`.
+    - Format compact des pastilles Streak et Profil (`px-2 py-1 sm:px-2.5 sm:py-1.5`).
+  - **Intégration du Sélecteur de Thème dans le Tiroir Mobile (`MobileToolsDrawer.tsx`)** :
+    - Ajout d'une carte interactive de bascule Jour/Nuit (Ivoire/Sombre) directement dans le tiroir d'outils mobile.
+  - **Contrôle Qualité & Vérification** :
+    - Typage strict TypeScript sans erreur (`npx tsc --noEmit` : code 0).
+    - Mesure rigoureuse du viewport sous Chrome DevTools MCP : débordement horizontal rigoureusement nul (`overflowAmount: 0 px`) validé sous 360 px et 320 px.
 
 ---
+
 
 
 

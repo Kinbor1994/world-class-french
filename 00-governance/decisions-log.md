@@ -1218,6 +1218,23 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : La fonctionnalité du Sprint Quotidien devient un véritable outil didactique d'entraînement réflexe fondé à 100 % sur les données certifiées du cursus ; zéro mock, zéro string hardcodée ; satisfaction pleine des standards d'excellence World-Class.
 
+### [DEC-061] Résolution Définitive du Débordement Horizontal Mobile (Zero-Overflow 320px–360px)
+- **Date** : 2026-10-19
+- **Statut** : Validé
+- **Contexte** : Signalement utilisateur d'un léger débordement résiduel persistant sur smartphone. L'audit par émulation de viewport mobile réel sous Chrome DevTools (360×780 px) a identifié un excédent de 18 px (`scrollWidth: 378px` vs `clientWidth: 360px`) provoqué par la duplication du bouton de menu hamburger dans la barre supérieure alors que l'application mobile dispose déjà du composant `BottomNav` avec son onglet d'outils « Plus ».
+- **Décision** :
+  1. **Suppression de la Duplication du Bouton Hamburger sur Mobile (`Navbar.tsx`)** :
+     - Restriction de l'affichage du bouton hamburger popover aux écrans desktop/tablettes (`hidden md:block relative`). Sur mobile, les outils, le changement de thème, la synchronisation Cloud et les rappels sont centralisés dans le composant natif dédié accessible via l'onglet « Plus » de la `BottomNav`.
+  2. **Calibrage Anti-Débordement Étanche (320 px à 430 px)** :
+     - Application d'un écrêtage strict au conteneur `<header>` : `w-full overflow-x-clip`.
+     - Réduction des paddings latéraux sur mobile (`px-3 sm:px-6`).
+     - Troncature dynamique du sélecteur de palier (`max-w-[95px] min-[360px]:max-w-[125px] sm:max-w-[160px] truncate`) avec contrainte `min-w-0 shrink`.
+     - Réduction des marges internes des badges de série (`streak`) et profil (`px-2 py-1 sm:px-2.5 sm:py-1.5`).
+  3. **Intégration du Sélecteur de Thème dans le Tiroir Mobile (`MobileToolsDrawer.tsx`)** :
+     - Ajout d'une carte dédiée avec bascule directe Jour/Nuit (Ivoire/Sombre) dans le tiroir d'outils mobile.
+- **Conséquences** :
+  - Positives : Débordement horizontal ramené rigoureusement à 0 px sur toutes les résolutions smartphones (validé à 360 px et 320 px) ; ergonomie mobile équilibrée et fluide, sans aucun décalage visuel.
+
 ---
 
 
