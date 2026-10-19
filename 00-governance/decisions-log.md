@@ -1171,6 +1171,33 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Le cursus passe de 381 à 491 exercices interactifs (+110 exercices) et de 244 à 262 cartes SRS (+18 cartes). Le parcours pour débutant est désormais scientifiquement complet, progressif et praticable en toute autonomie.
 
+---
+
+
+### [DEC-059] Unification Épurée de la Navigation Supérieure (Desktop & Mobile) et Menu Popover Déroulant
+- **Date** : 2026-10-19
+- **Statut** : Validé
+- **Contexte** : Suite au signalement utilisateur de la saturation visuelle de la barre supérieure desktop (11 contrôles alignés de front sans hiérarchie claire, créant un effet "tableau de bord surchargé"), refonte complète vers une hiérarchie stricte en 3 zones distinctes et un menu popover unifié.
+- **Décision** :
+  1. **Hiérarchisation stricte en 3 zones (`Navbar.tsx`)** :
+     - **Zone Gauche (Identité & Contexte académique)** : Sceau W, intitulé « World-Class French · Institut de Haute Langue », séparateur vertical fin et sélecteur de palier interactif avec menu contextuel et détection de clic externe.
+     - **Zone Centrale (La boucle quotidienne essentielle)** : Accès direct aux 2 piliers quotidiens de pratique : bouton de répétition espacée « Mémoire » (avec badge dynamique des cartes à réviser) et bouton surélevé « Sprint Quotidien ».
+     - **Zone Droite (Engagement, Profil & Menu Déroulant)** : Bouclier de niveau XP, série de jours consécutifs (streak), bouton Profil/Connexion apprenant, et bouton Menu unifié (Hamburger/X).
+  2. **Menu Popover Desktop Élégant (`toolsMenuRef`)** :
+     - Remplacement des 5 boutons d'outils secondaires disparates par un popover structuré à fond blanc/académique sombre, doté d'ombres portées et de bordures fines :
+       - **En-tête État Apprenant** : Avatar personnalisé, statut de compte (Invité avec CTA d'inscription ou Apprenant certifié avec e-mail).
+       - **Section "Étude & Perfectionnement"** : Ateliers & Examens officiels, Test de positionnement diagnostique adaptatif.
+       - **Section "Données & Rappels"** : Statut de synchronisation Neon PostgreSQL en temps réel avec bouton de synchronisation manuelle, configuration des rappels et calendrier (.ics).
+       - **Section "Préférences"** : Sélecteur de thème avec toggle visuel Jour/Nuit, bouton de déconnexion sécurisé si authentifié.
+     - Fermeture automatique au clic en dehors (`document.addEventListener("mousedown")`).
+  3. **Continuité Cross-Platform** :
+     - Sur écran mobile (`< 768px`), le bouton de menu déclenche en souplesse le tiroir d'outils bas natif (`MobileToolsDrawer`), garantissant une cohérence d'usage parfaite sur tous les facteurs de forme.
+- **Conséquences** :
+  - Positives : Réduction de plus de 60 % de l'encombrement horizontal de la barre de navigation ; hiérarchie visuelle irréprochable digne d'une grande institution académique ; zéro erreur de typage TypeScript.
+
+---
+
+
 
 
 

@@ -97,6 +97,7 @@ export default function HomePage() {
         onOpenReminders={() => setIsRemindersOpen(true)}
         onOpenPracticalWork={() => setIsPracticalWorkOpen(true)}
         onOpenAuth={() => setIsAuthOpen(true)}
+        onOpenTools={() => setIsToolsDrawerOpen(true)}
       />
 
       {/* Contenu Principal : Arbre d'apprentissage ou Vue SRS */}

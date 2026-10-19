@@ -568,8 +568,28 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
     - Vérification `npx tsc --noEmit` : code 0.
     - Compilation Next.js 15 `npm run build` : code 0.
     - Test direct in-browser via Chrome DevTools sur le lecteur universel d'exercices validé.
+- **Étape 34 — Unification Épurée de la Navigation Supérieure & Menu Popover Déroulant (DEC-059)** :
+  - **Refonte de la Navbar Supérieure (`Navbar.tsx`)** :
+    - Élimination de la surcharge horizontale (11 boutons de front réduits à 4 éléments pivots hiérarchisés).
+    - Structuration en 3 zones d'apparat :
+      - *Gauche* : Identité de l'Institut (« W · World-Class French ») et sélecteur déroulant des 8 Paliers avec détection des clics extérieurs.
+      - *Centre (Desktop)* : La boucle d'étude quotidienne essentielle : « Mémoire » (SRS avec compteur dynamique) et « Sprint Quotidien ».
+      - *Droite* : Bouclier XP, série de jours (streak), bouton Profil/Connexion avec avatar, et bouton Menu unifié (Hamburger/X).
+  - **Menu Popover Desktop d'Excellence (`toolsMenuRef`)** :
+    - Regroupement des outils secondaires dans un panneau contextuel structuré à fond blanc/académique sombre :
+      - Carte de statut apprenant (Visiteur / Apprenant connecté avec CTA d'inscription).
+      - Section « Étude & Perfectionnement » (Ateliers & Examens officiels, Test diagnostique adaptatif).
+      - Section « Données & Rappels » (Synchronisation Cloud Neon en temps réel avec déclencheur manuel, Rappels & Calendrier .ics).
+      - Section « Préférences » (Sélecteur de thème Jour/Nuit avec toggle animé, Déconnexion sécurisée).
+    - Fermeture automatique au clic en dehors (`document.addEventListener("mousedown")`).
+  - **Cohérence Cross-Platform & Mobile (`page.tsx`)** :
+    - Sur mobile (< 768 px), le déclencheur de menu ouvre en synergie le tiroir d'outils bas natif (`MobileToolsDrawer`).
+  - **Contrôle Qualité & Vérification** :
+    - Vérification TypeScript `npx tsc --noEmit` : code 0.
+    - Audit visuel et fonctionnel in-browser via Chrome DevTools MCP validant l'ouverture, la fermeture au clic externe et le déclenchement des modaux.
 
 ---
+
 
 
 ## [0.1.0] - 2026-10-11
