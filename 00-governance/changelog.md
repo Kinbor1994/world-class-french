@@ -587,8 +587,24 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/lang/fr/).
   - **Contrôle Qualité & Vérification** :
     - Vérification TypeScript `npx tsc --noEmit` : code 0.
     - Audit visuel et fonctionnel in-browser via Chrome DevTools MCP validant l'ouverture, la fermeture au clic externe et le déclenchement des modaux.
+- **Étape 35 — Remplacement du Mock du Sprint Quotidien par un Moteur Didactique Universel (DEC-060)** :
+  - **Moteur Universel de Génération (`app/src/utils/sprintGenerator.ts`)** :
+    - Élimination définitive des deux boutons factices hardcodés (« Proposition A » / « Proposition B »).
+    - Extraction dynamique des 491 exercices et du vivier SRS : conversion en questions de sprint calibrées pour chaque palier (QCM morphosyntaxiques, traque de fautes Voltaire Hunter avec phrases en exergue, éveil phonétique avec sons/émojis, figures rhétoriques).
+    - Randomisation Fisher-Yates de la sélection de 8 questions et mélange aléatoire des options (la bonne réponse n'est jamais à une place statique).
+    - Calcul de la rétention moyenne réelle du palier en temps réel via l'algorithme SRS.
+  - **Refonte Complète du Modal (`DailySprintModal.tsx`)** :
+    - Affichage des questions authentiques, des options réelles avec distracteurs didactiques, et des phrases en exergue.
+    - Synthèse vocale française intégrée (`speakFrench`) pour écouter les énoncés.
+    - Raccourcis clavier complets (`1-4` pour sélectionner une option, `Entrée/Espace` pour passer à la suite).
+    - Rétroaction visuelle instantanée (vert/rouge) avec carte explicative (« Éclairage normatif »).
+    - Rapport d'achèvement enrichi avec statistiques exactes, confettis, bilan partageable et bouton « Nouveau Tirage » pour ré-entraînement immédiat.
+  - **Contrôle Qualité & Audit** :
+    - Typage strict TypeScript vérifié (`npx tsc --noEmit` : code 0).
+    - Audit in-browser Chrome DevTools MCP validant l'enchaînement fluide des 8 questions réelles et des rétroactions.
 
 ---
+
 
 
 

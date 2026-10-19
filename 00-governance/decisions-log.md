@@ -1195,6 +1195,29 @@ Ce journal consigne toutes les décisions structurantes relatives à la concepti
 - **Conséquences** :
   - Positives : Réduction de plus de 60 % de l'encombrement horizontal de la barre de navigation ; hiérarchie visuelle irréprochable digne d'une grande institution académique ; zéro erreur de typage TypeScript.
 
+### [DEC-060] Remplacement du Mock du Sprint Quotidien par un Moteur Didactique Universel (sprintGenerator)
+- **Date** : 2026-10-19
+- **Statut** : Validé
+- **Contexte** : Signalement utilisateur justifié d'une régression critique dans le modal du Sprint Quotidien : le composant initial affichait deux propositions textuelles codées en dur (« Proposition A (Formulation exacte & conforme) » et « Proposition B (Distracteur normatif) ») quel que soit le palier et l'exercice, sans exploiter le corpus didactique réel.
+- **Décision** :
+  1. **Création du Moteur d'Extraction & Normalisation (`app/src/utils/sprintGenerator.ts`)** :
+     - Élimination intégrale des placeholders factices.
+     - Extraction dynamique et typée sans `any` des questions depuis l'arbre didactique compilé (`compiled-curriculum.json`) :
+       - *QCM de Morphosyntaxe (`diagnostic_mcq`)* : question originale, ensemble complet d'options avec distracteurs authentiques et feedback spécifique.
+       - *Traque de la Faute (`voltaire_hunter`)* : phrase authentique en exergue et choix binaire contextualisé (« Phrase incorrecte / Phrase irréprochable ») avec explication mnémotechnique de la règle.
+       - *Éveil Phonétique (`visual_sound_match`)* : sélection par cartes imagées avec emojis, sons et étiquettes.
+       - *Figures & Rhétorique (`rhetoric_studio`)* : analyse d'extraits littéraires et identification de figures de style.
+     - Mélange aléatoire (Fisher-Yates) à la fois de la sélection des 8 questions du sprint et de l'ordre des options pour chaque question (la bonne réponse n'est jamais à une place prévisible).
+     - Calcul en temps réel de la rétention moyenne réelle du palier issu de la mémoire SRS.
+  2. **Refonte Interactive du Pupitre de Sprint (`DailySprintModal.tsx`)** :
+     - Énoncés enrichis avec citation stylisée en bloc pour les contextes Voltaire Hunter et littérature.
+     - Synthèse vocale française intégrée (`speakFrench`) pour écouter la prononciation et les sons ciblés avec bouton haut-parleur.
+     - Raccourcis clavier ergonomiques (touches numériques `1-4` pour répondre, `Entrée/Espace` pour passer à la question suivante).
+     - Rétroaction immédiate : mise en surbrillance verte de la bonne réponse, rouge de la mauvaise, et carte didactique explicative (« Éclairage normatif »).
+     - Bilan complet à l'achèvement avec calcul exact du score, rétention SRS, gain d'XP persistant et bouton de « Nouveau Tirage » pour s'entraîner à nouveau sans limitation.
+- **Conséquences** :
+  - Positives : La fonctionnalité du Sprint Quotidien devient un véritable outil didactique d'entraînement réflexe fondé à 100 % sur les données certifiées du cursus ; zéro mock, zéro string hardcodée ; satisfaction pleine des standards d'excellence World-Class.
+
 ---
 
 
